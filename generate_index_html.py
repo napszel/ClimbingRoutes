@@ -7,6 +7,7 @@ html_headers = """
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>~ Climbing Routes ~</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -30,14 +31,14 @@ table = """
 <tr>
 <th title="Field #15" class="narrow">Pl.</th>
 <th title="Field #3">Route Name</th>
-<th title="Field #6" class="narrow">Gr</th>
-<th title="Field #8">Setter</th>
+<th title="Field #6" class="narrow">Gr.</th>
+<th title="Field #8">Setter's Name</th>
 <th title="Field #18" class="middle">Date</th>
 <th title="Field #12" class="middle">Color</th>
-<th title="Field #20" class="smallish">Lead/Bou</th>
-<th title="Field #21">Security</th>
+<th title="Field #20" class="smallish">Bould./Sport</th>
+<th title="Field #21">Belay</th>
 <th title="Field #13">Sector</th>
-<th title="Field #10" class="smallish">Neu/Last</th>
+<th title="Field #10" class="smallish">Neu/<br/>Last Call</th>
 <th title="Field #19" class="narrow">Kids</th>
 </tr>
 </thead>
@@ -49,7 +50,7 @@ table = """
 <th title="Field #8">Filter by setter's name</th>
 <th title="Field #18">Filter by date</th>
 <th title="Field #12">Color</th>
-<th title="Field #20">Lead/Boul</th>
+<th title="Field #20">Bould/Sport</th>
 <th title="Field #21">Toppas/Vorsteig/Toprope</th>
 <th title="Field #13">Filter by sector name</th>
 <th title="Field #10" class="middle">Neu/Last Call</th>
@@ -79,14 +80,18 @@ for route in data:
 
     table += getElement(route['difficulty'])
     table += getElement(route['builders'])
-    table += getElement(route['builddateFormatted'])
+    
+    wrongdate = str(route['builddateFormatted']).split('.')
+    gooddate = wrongdate[2] + "-" + wrongdate[1] + "-" + wrongdate[0]
+    table += getElement(gooddate)
+
     table += getElement(route['gripcolor'])
 
     if str(route['type']) == 'Boulder':
-        table += getElement("Boul")
+        table += getElement("Bould")
         table += getElement("Mats")
     else:
-        table += getElement("Lead")
+        table += getElement("Sport")
         table += getElement(route['type'])
         
     table += getElement(route['sector'])

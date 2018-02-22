@@ -7,7 +7,8 @@ $(document).ready(function() {
   
   // DataTable
   var table = $('#example').DataTable( {
-    "pageLength": 50,
+    "pageLength": -1,
+    "lengthMenu": [[10, 50, 100, -1], [10, 50, 100, "All"]],
     "columnDefs": [
       { "width": "20px", "targets": [ "narrow" ] },
       { "width": "90px", "targets": [ "middle" ] },

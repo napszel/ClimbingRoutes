@@ -8,8 +8,22 @@ tfoot {
     display: table-header-group;
 }
 
-table{
-  border-collapse: collapse;
-  table-layout: fixed; 
-  word-wrap: break-word;
+table {
+    padding-top:20px;
+    border-collapse: collapse;
+    table-layout: fixed; 
+    word-wrap: break-word;
+}
+
+th.narrow {
+    font-size: 12px;
+}
+
+th.smallish {
+    font-size: 12px;
+}
+
+#example_info {
+    position: absolute;
+    top: 15px;
 }
