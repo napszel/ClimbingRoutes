@@ -1,7 +1,7 @@
 import json
 from pprint import pprint
 
-html = open('index.html', 'w')
+html = open('../index.html', 'w')
 
 html_headers = """
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -117,6 +117,9 @@ table += """
 html.write(table)
 
 html_end = """
+<div id="credits">
+<a href="https://github.com/napszel/ClimbingRoutes" target="_blank" rel="noopener noreferrer">Napszel,</a> 2018
+</div>
 </body>
 </html>
 """

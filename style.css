@@ -27,3 +27,11 @@ th.smallish {
     position: absolute;
     top: 15px;
 }
+
+#credits {
+    padding-top: 10px;
+    position: absolute;
+    right: 20px;
+    font-size: .7em;
+    letter-spacing: .2em;
+}
