@@ -30,6 +30,7 @@ table = """
 <thead>
 <tr>
 <th title="Field #15" class="narrow">Pl.</th>
+<th title="Field #1" class="narrow">#</th>
 <th title="Field #3">Route Name</th>
 <th title="Field #6" class="narrow">Gr.</th>
 <th title="Field #8">Setter's Name</th>
@@ -45,6 +46,7 @@ table = """
 <tfoot>
 <tr>
 <th title="Field #15" class="narrow">Mil/Gas</th>
+<th title="Field #1" class="narrow">#</th>
 <th title="Field #3">Filer by route name</th>
 <th title="Field #6">6a+</th>
 <th title="Field #8">Filter by setter's name</th>
@@ -72,6 +74,8 @@ for route in data:
         table += getElement("Mil")
     else:
         table += getElement("Gas")
+
+    table += getElement(route['nr'])
 
     table += "<td>" + str(route['title'])
     if str(route['subtitle']) != "":
