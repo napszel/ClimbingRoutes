@@ -21,6 +21,12 @@ html_headers = """
   </head>
   
   <body>
+<div class="buttons_container">
+  <label class="title">Route finder of Gaswerk and Milandia climbing centers of Zürich, Switzerland.</label>
+  <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk" onclick="window.open('gaswerk_map.png')" />
+  <input type="button" class="button" id="milandia_map" value="Map of Milandia" onclick="window.open('milandia_map.png')" />
+</div>
+
 """
 
 html.write(html_headers)

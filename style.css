@@ -35,3 +35,19 @@ th.smallish {
     font-size: .7em;
     letter-spacing: .2em;
 }
+
+.buttons_container {
+    text-align: center;
+}
+
+.button {
+    font-size: 16px;
+    margin-left: 15px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
