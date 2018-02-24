@@ -1,3 +1,10 @@
+body {
+    margin-left: 30px;
+    margin-right: 30px;
+    background: #f9f9f9;
+    font-family: Helvetica, Arial;
+}
+
 tfoot input {
     width: 100%;
     padding: 3px;
@@ -15,6 +22,16 @@ table {
     word-wrap: break-word;
 }
 
+th {
+    background-color: #eef2f6;
+    color: #235b9a;
+    letter-spacing: .1em;
+}
+
+hr {
+    border-color: #235b9a;
+}
+
 th.narrow {
     font-size: 12px;
 }
@@ -25,7 +42,16 @@ th.smallish {
 
 #example_info {
     position: absolute;
-    top: 15px;
+    top: 8px;
+    left: 200px;
+}
+
+#example_wrapper {
+    padding: 20px;
+    background: #ffffff;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: 0 0 3px #bebebe;
 }
 
 #credits {
@@ -37,7 +63,12 @@ th.smallish {
 }
 
 .buttons_container {
+    background: #ffffff;
+    padding: 15px 0px 15px 0px;
     text-align: center;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: 0 0 3px #bebebe;
 }
 
 .button {
@@ -48,6 +79,7 @@ th.smallish {
 .title {
     font-size: 18px;
     font-weight: bold;
+    letter-spacing: .1em;
+    color: #235b9a;
 }
-
 
