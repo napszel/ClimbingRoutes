@@ -25,7 +25,7 @@ html_headers = """
   
   <body>
 <div class="buttons_container">
-  <label class="title">Climbing Routes of <a href="http://www.kletterzentrum.com/">Gaswerk and Milandia</a></label>
+  <label class="title">Climbing Routes of <a href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-gaswerk/">Gaswerk</a> and <a href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-milandia/">Milandia</a></label>
   <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk" onclick="window.open('gaswerk_map.png')" />
   <input type="button" class="button" id="milandia_map" value="Map of Milandia" onclick="window.open('milandia_map.png')" />
 </div>
@@ -109,14 +109,7 @@ for route in data:
         table += getElement(route['type'])
         
     table += getElement(route['sector'])
-
-    if route['statusLabel'] == 'Neu':
-        table += getElement("Neu")
-    else:
-        if route['statusLabel'] == 'Last Call':
-            table += getElement("Last C.")
-        else:
-            table += getElement("")
+    table += getElement(route['statusLabel'])
 
     if route['children']:
         table += getElement("Y")
