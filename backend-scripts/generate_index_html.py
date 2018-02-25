@@ -25,17 +25,18 @@ html_headers = """
   
   <body>
 <div class="buttons_container">
-  <label class="title">Route finder of Gaswerk and Milandia climbing centers of Zürich, Switzerland.</label>
+  <label class="title">Climbing Routes of <a href="http://www.kletterzentrum.com/">Gaswerk and Milandia</a></label>
   <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk" onclick="window.open('gaswerk_map.png')" />
   <input type="button" class="button" id="milandia_map" value="Map of Milandia" onclick="window.open('milandia_map.png')" />
 </div>
+<hr/>
 
 """
 
 html.write(html_headers)
 
 table = """
-<table id="example" class="display compact" cellspacing="0" width="100%">
+<table id="example" class="display compact order-column" cellspacing="0" width="100%">
 <thead>
 <tr>
 <th title="Field #15" class="narrow">Pl.</th>
