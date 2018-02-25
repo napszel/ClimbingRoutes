@@ -75,33 +75,33 @@ table = """
 data = json.load(open('routes.json'))
 
 def getElement(s):
-    return "<td>" + str(s) + "</td>"
+    return "<td>" + s + "</td>"
 
 for route in data:
     table += "<tr>"
 
-    if str(route['address']) == 'Milandia':
+    if route['address'] == 'Milandia':
         table += getElement("Mil")
     else:
         table += getElement("Gas")
 
-    table += getElement(route['nr'])
+    table += getElement(str(route['nr']))
 
-    table += "<td>" + str(route['title'])
-    if str(route['subtitle']) != "":
-           table += " (" + str(route['subtitle']) + ")"
+    table += "<td>" + route['title']
+    if route['subtitle']:
+        table += " (" + route['subtitle'] + ")"
     table += "</td>"
 
     table += getElement(route['difficulty'])
     table += getElement(route['builders'])
     
-    wrongdate = str(route['builddateFormatted']).split('.')
+    wrongdate = route['builddateFormatted'].split('.')
     gooddate = wrongdate[2] + "-" + wrongdate[1] + "-" + wrongdate[0]
     table += getElement(gooddate)
 
     table += getElement(route['gripcolor'])
 
-    if str(route['type']) == 'Boulder':
+    if route['type'] == 'Boulder':
         table += getElement("Bould")
         table += getElement("Mats")
     else:
@@ -110,15 +110,15 @@ for route in data:
         
     table += getElement(route['sector'])
 
-    if str(route['statusLabel']) == 'Neu':
+    if route['statusLabel'] == 'Neu':
         table += getElement("Neu")
     else:
-        if str(route['statusLabel']) == 'Last Call':
+        if route['statusLabel'] == 'Last Call':
             table += getElement("Last C.")
         else:
             table += getElement("")
-            
-    if str(route['children']) == 'True':
+
+    if route['children']:
         table += getElement("Y")
     else:
         table += getElement("N")
