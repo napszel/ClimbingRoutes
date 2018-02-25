@@ -74,6 +74,13 @@ th.smallish {
 .button {
     font-size: 16px;
     margin-left: 15px;
+    background-color: #235b9a;
+    border: none;
+    color: white;
+    padding: 6px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .title {
@@ -81,5 +88,25 @@ th.smallish {
     font-weight: bold;
     letter-spacing: .1em;
     color: #235b9a;
+}
+
+a:link {
+    color: #235b9a;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #235b9a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #235b9a;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #235b9a;
+    text-decoration: underline;
 }
 
