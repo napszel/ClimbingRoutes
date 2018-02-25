@@ -33,7 +33,20 @@ html_headers = """
           var startHash = window.location.search;
           this.page.url = 'http://napszel.com/climbingroutes' + startHash;
           this.page.identifier = '';
-          this.page.title = startHash;
+          parts = startHash.split(":");
+          place = parts[0].split("=")[1];
+          if (place == 'gas') {
+            place = "Gaswerk";
+          } else {
+            place = "Milandia";
+          }
+          type = parts[2];
+          if (type == 'bould') {
+            type = "Boulder";
+          } else {
+            type = "Sport";
+          }
+          this.page.title = place + ' ' + type + ' route #' + parts[1];
         };
       (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
