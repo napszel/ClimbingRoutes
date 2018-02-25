@@ -78,6 +78,7 @@ table = """
 <th title="Field #1" class="narrow">#</th>
 <th title="Field #3">Route Name</th>
 <th title="Field #6" class="narrow">Gr.</th>
+<th title="Field #2" class="narrow">&#128172;</th>
 <th title="Field #8">Setter's Name</th>
 <th title="Field #18" class="middle">Date</th>
 <th title="Field #12" class="middle">Color</th>
@@ -86,7 +87,6 @@ table = """
 <th title="Field #13">Sector</th>
 <th title="Field #10" class="smallish">Neu/<br/>Last Call</th>
 <th title="Field #19" class="narrow">Kids</th>
-<th title="Field #2" class="narrow">&#128172;</th>
 </tr>
 </thead>
 <tfoot>
@@ -95,6 +95,7 @@ table = """
 <th title="Field #1" class="narrow">#</th>
 <th title="Field #3">Filer by route name</th>
 <th title="Field #6">6a+</th>
+<th title="Field #2"></th>
 <th title="Field #8">Filter by setter's name</th>
 <th title="Field #18">Filter by date</th>
 <th title="Field #12">Color</th>
@@ -103,7 +104,6 @@ table = """
 <th title="Field #13">Filter by sector name</th>
 <th title="Field #10">Neu/Last Call</th>
 <th title="Field #19">Kids</th>
-<th title="Field #2"></th>
 </tr>
 </tfoot>
 <tbody>
@@ -135,6 +135,14 @@ for route in data:
     table += "</td>"
 
     table += getElement(route['difficulty'])
+
+    if route['type'] == 'Boulder':
+        route_identifier += "bould"
+    else:
+        route_identifier += "sport"
+
+    table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">&#128172;</a></td>"
+
     table += getElement(route['builders'])
     
     wrongdate = route['builddateFormatted'].split('.')
@@ -146,22 +154,18 @@ for route in data:
     if route['type'] == 'Boulder':
         table += getElement("Bould")
         table += getElement("Mats")
-        route_identifier += "bould"
     else:
         table += getElement("Sport")
         table += getElement(route['type'])
-        route_identifier += "sport"
         
     table += getElement(route['sector'])
     table += getElement(route['statusLabel'])
 
     if route['children']:
-        table += getElement("Y")
+        table += "<td class=\"centered\">Y</td>"
     else:
-        table += getElement("N")
+        table += "<td class=\"centered\">N</td>"
 
-    table += " <td><a href=\"?route-comment=" + route_identifier+ " \" target=\"_blank\">&#128172;</a></td>"
-    
     table += "</tr>"
 
 table += """
@@ -174,6 +178,7 @@ html_end = """
 <a class=\"underline\" href="https://github.com/napszel/ClimbingRoutes" target="_blank" rel="noopener noreferrer">Napszel,</a> 2018
 </div>
 </div>
+<!--<script id="dsq-count-scr" src="//climbingroutes.disqus.com/count.js" async></script>-->
 </body>
 </html>
 """

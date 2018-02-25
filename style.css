@@ -36,6 +36,14 @@ th.narrow {
     font-size: 12px;
 }
 
+td.centered {
+    text-align: center;
+}
+
+td.tiny {
+    font-size: 10px;
+}
+
 th.smallish {
     font-size: 12px;
 }

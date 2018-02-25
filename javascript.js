@@ -8,6 +8,8 @@ $(document).ready(function() {
       var title = $(this).text();
       if (title) {
 	$(this).html( '<input type="text" placeholder="'+title+'" />' );
+      } else {
+	$(this).html( '<label style="font-size: 9px">comments</label>' );
       }
     } );
     
