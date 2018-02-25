@@ -24,12 +24,34 @@ html_headers = """
   </head>
   
   <body>
-<div class="buttons_container">
-  <label class="title">Climbing Routes of <a href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-gaswerk/">Gaswerk</a> and <a href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-milandia/">Milandia</a></label>
-  <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk" onclick="window.open('gaswerk_map.png')" />
-  <input type="button" class="button" id="milandia_map" value="Map of Milandia" onclick="window.open('milandia_map.png')" />
-</div>
-<hr/>
+  <div id="route_root" style="display: none">
+    <div id="header"></div>
+    <hr/>
+    <div id="disqus_thread"></div>
+     <script>
+        var disqus_config = function () {
+          var startHash = window.location.search;
+          this.page.url = 'http://napszel.com/climbingroutes' + startHash;
+          this.page.identifier = '';
+          this.page.title = startHash;
+        };
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://climbingroutes.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+
+  <div id="main_table" style="display: none">
+    <div class="buttons_container">
+      <label class="title">Climbing Routes of <a class=\"underline\" href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-gaswerk/">Gaswerk</a> and <a class=\"underline\" href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-milandia/">Milandia</a></label>
+      <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk" onclick="window.open('gaswerk_map.png')" />
+      <input type="button" class="button" id="milandia_map" value="Map of Milandia" onclick="window.open('milandia_map.png')" />
+    </div>
+    <hr/>
 
 """
 
@@ -51,6 +73,7 @@ table = """
 <th title="Field #13">Sector</th>
 <th title="Field #10" class="smallish">Neu/<br/>Last Call</th>
 <th title="Field #19" class="narrow">Kids</th>
+<th title="Field #2" class="narrow">&#128172;</th>
 </tr>
 </thead>
 <tfoot>
@@ -65,8 +88,9 @@ table = """
 <th title="Field #20">Bould/Sport</th>
 <th title="Field #21">Toppas/Vorsteig/Toprope</th>
 <th title="Field #13">Filter by sector name</th>
-<th title="Field #10" class="middle">Neu/Last Call</th>
+<th title="Field #10">Neu/Last Call</th>
 <th title="Field #19">Kids</th>
+<th title="Field #2"></th>
 </tr>
 </tfoot>
 <tbody>
@@ -78,14 +102,19 @@ def getElement(s):
     return "<td>" + s + "</td>"
 
 for route in data:
+    route_identifier=""
+    
     table += "<tr>"
 
     if route['address'] == 'Milandia':
         table += getElement("Mil")
+        route_identifier += "mil:"
     else:
         table += getElement("Gas")
+        route_identifier += "gas:"
 
     table += getElement(str(route['nr']))
+    route_identifier += str(route['nr']) + ":"
 
     table += "<td>" + route['title']
     if route['subtitle']:
@@ -104,9 +133,11 @@ for route in data:
     if route['type'] == 'Boulder':
         table += getElement("Bould")
         table += getElement("Mats")
+        route_identifier += "bould"
     else:
         table += getElement("Sport")
         table += getElement(route['type'])
+        route_identifier += "sport"
         
     table += getElement(route['sector'])
     table += getElement(route['statusLabel'])
@@ -115,6 +146,8 @@ for route in data:
         table += getElement("Y")
     else:
         table += getElement("N")
+
+    table += " <td><a href=\"?route-comment=" + route_identifier+ " \" target=\"_blank\">&#128172;</a></td>"
     
     table += "</tr>"
 
@@ -125,7 +158,8 @@ html.write(table)
 
 html_end = """
 <div id="credits">
-<a href="https://github.com/napszel/ClimbingRoutes" target="_blank" rel="noopener noreferrer">Napszel,</a> 2018
+<a class=\"underline\" href="https://github.com/napszel/ClimbingRoutes" target="_blank" rel="noopener noreferrer">Napszel,</a> 2018
+</div>
 </div>
 </body>
 </html>

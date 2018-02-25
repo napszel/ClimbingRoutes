@@ -90,10 +90,13 @@ th.smallish {
     color: #235b9a;
 }
 
+a.underline {
+    border-bottom: 1px blue dotted;
+}
+
 a:link {
     color: #235b9a;
     text-decoration: none;
-    border-bottom: 1px blue dotted;
 }
 
 a:visited {
@@ -109,5 +112,29 @@ a:hover {
 a:active {
     color: #235b9a;
     text-decoration: none;
+}
+
+#route_root {
+    margin: auto;
+    width: 60%;
+    background: #ffffff;
+    color: #235b9a;
+    letter-spacing: .1em;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: 0 0 3px #bebebe;
+}
+
+#disqus_thread {
+    padding: 20px;
+}
+
+#header {
+    background: #ffffff;
+    padding: 5px 0px 5px 0px;
+    text-align: center;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: 0 0 3px #bebebe;
 }
 
