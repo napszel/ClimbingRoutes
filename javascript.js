@@ -51,7 +51,7 @@ $(document).ready(function() {
     } else {
       type = "Sport";
     }
-    $("#header").append("<h2>Comments for <span style=\"color: #ff0000\">" + type + "</span> route <span style=\"color: #ff0000\">#" + parts[1] + "</span> of <span style=\"color: #ff0000\">" + place + "</span></h2>");
+    $("#header").append("<h2>Comments for <span style=\"color: #ff0000\">" + type + "</span> route <span style=\"color: #ff0000\">#" + parts[1] + "</span> of <span style=\"color: #ff0000\">" + place + "</span> set on <span style=\"color: #ff0000\">" + parts[3] + "</span></h2>");
     $("#route_root").show();
   }
 } );

@@ -46,7 +46,7 @@ html_headers = """
           } else {
             type = "Sport";
           }
-          this.page.title = place + ' ' + type + ' route #' + parts[1];
+          this.page.title = place + ' ' + type + ' route #' + parts[1] + ' ' + parts[3];
         };
       (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
@@ -136,22 +136,23 @@ for route in data:
 
     table += getElement(route['difficulty'])
 
-    if route['type'] == 'Boulder':
-        route_identifier += "bould"
+    route_type = route['type']
+    if route_type == 'Boulder':
+        route_identifier += "bould:"
     else:
-        route_identifier += "sport"
+        route_identifier += "sport:"
+
+    wrongdate = route['builddateFormatted'].split('.')
+    gooddate = wrongdate[2] + "-" + wrongdate[1] + "-" + wrongdate[0]
+    route_identifier += gooddate;
 
     table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">&#128172;</a></td>"
 
     table += getElement(route['builders'])
-    
-    wrongdate = route['builddateFormatted'].split('.')
-    gooddate = wrongdate[2] + "-" + wrongdate[1] + "-" + wrongdate[0]
     table += getElement(gooddate)
-
     table += getElement(route['gripcolor'])
 
-    if route['type'] == 'Boulder':
+    if route_type == 'Boulder':
         table += getElement("Bould")
         table += getElement("Mats")
     else:
