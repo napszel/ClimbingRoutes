@@ -39,19 +39,21 @@ $(document).ready(function() {
     } );
   } else {
     parts = startHash.split(":");
-    place = parts[0].split("=")[1];
+    date = parts[0].split("=")[1];
+    type = parts[1]
+    place = parts[2]
+    number = parts[3]
     if (place == 'gas') {
       place = "Gaswerk";
     } else {
       place = "Milandia";
     }
-    type = parts[2];
     if (type == 'bould') {
       type = "Boulder";
     } else {
       type = "Sport";
     }
-    $("#header").append("<h2>Comments for <span style=\"color: #ff0000\">" + type + "</span> route <span style=\"color: #ff0000\">#" + parts[1] + "</span> of <span style=\"color: #ff0000\">" + place + "</span> set on <span style=\"color: #ff0000\">" + parts[3] + "</span></h2>");
+    $("#header").append("<h2>Comments for <span style=\"color: #ff0000\">" + type + "</span> route <span style=\"color: #ff0000\">#" + number + "</span> of <span style=\"color: #ff0000\">" + place + "</span> set on <span style=\"color: #ff0000\">" + date + "</span></h2>");
     $("#route_root").show();
   }
 } );

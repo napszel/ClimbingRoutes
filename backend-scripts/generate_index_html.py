@@ -34,19 +34,21 @@ html_headers = """
           this.page.url = 'http://napszel.com/climbingroutes' + startHash;
           this.page.identifier = '';
           parts = startHash.split(":");
-          place = parts[0].split("=")[1];
+          date = parts[0].split("=")[1];
+          type = parts[1]
+          place = parts[2]
+          number = parts[3]
           if (place == 'gas') {
             place = "Gaswerk";
           } else {
             place = "Milandia";
           }
-          type = parts[2];
           if (type == 'bould') {
             type = "Boulder";
           } else {
             type = "Sport";
           }
-          this.page.title = place + ' ' + type + ' route #' + parts[1] + ' ' + parts[3];
+          this.page.title = date + ' ' + place + ' ' + type + ' route #' + number;
         };
       (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
@@ -115,19 +117,19 @@ def getElement(s):
     return "<td>" + s + "</td>"
 
 for route in data:
-    route_identifier=""
-    
     table += "<tr>"
 
-    if route['address'] == 'Milandia':
+    place = route['address']
+    id_place = ""
+    if place == 'Milandia':
+        id_place = "mil"
         table += getElement("Mil")
-        route_identifier += "mil:"
     else:
+        id_place = "gas"
         table += getElement("Gas")
-        route_identifier += "gas:"
 
-    table += getElement(str(route['nr']))
-    route_identifier += str(route['nr']) + ":"
+    route_number = str(route['nr'])
+    table += getElement(route_number)
 
     table += "<td>" + route['title']
     if route['subtitle']:
@@ -137,15 +139,16 @@ for route in data:
     table += getElement(route['difficulty'])
 
     route_type = route['type']
+    id_route_type = ""
     if route_type == 'Boulder':
-        route_identifier += "bould:"
+        id_route_type = "bould"
     else:
-        route_identifier += "sport:"
+        id_route_type = "sport"
 
     wrongdate = route['builddateFormatted'].split('.')
     gooddate = wrongdate[2] + "-" + wrongdate[1] + "-" + wrongdate[0]
-    route_identifier += gooddate;
 
+    route_identifier = gooddate + ":" + id_route_type + ":" + id_place + ":" + route_number
     table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">&#128172;</a></td>"
 
     table += getElement(route['builders'])
@@ -168,6 +171,7 @@ for route in data:
         table += "<td class=\"centered\">N</td>"
 
     table += "</tr>"
+    
 
 table += """
 </tbody>
