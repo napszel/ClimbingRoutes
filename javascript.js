@@ -21,6 +21,7 @@ $(document).ready(function() {
 	{ "width": "20px", "targets": [ "narrow" ] },
 	{ "width": "90px", "targets": [ "middle" ] },
 	{ "width": "35px", "targets": [ "smallish" ] },
+	{ searchable: false, orderable: false, targets: [4] },
       ]
     } );
     

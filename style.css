@@ -146,3 +146,10 @@ a:active {
     box-shadow: 0 0 3px #bebebe;
 }
 
+input, select, textarea{
+    color: red;
+}
+
+textarea:focus, input:focus {
+    color: red;
+}
