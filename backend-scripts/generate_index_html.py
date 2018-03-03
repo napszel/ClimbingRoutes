@@ -88,7 +88,7 @@ table = """
 <th title="Field #20" class="fourty">Bould / Sport</th>
 <th title="Field #21" class="hundredten">Belay</th>
 <th title="Field #13">Sector</th>
-<th title="Field #10" class="sixty">Neu / Last Call / Retired</th>
+<th title="Field #10" class="sixty">New / Last Call / Retired</th>
 <th title="Field #19" class="twenty">Kids</th>
 </tr>
 </thead>
@@ -103,9 +103,9 @@ table = """
 <th title="Field #18">Filter by date</th>
 <th title="Field #12">Color</th>
 <th title="Field #20">Bould/Sport</th>
-<th title="Field #21">Toppas/Vorsteig/Toprope</th>
+<th title="Field #21">Toppas/Lead/Toprope</th>
 <th title="Field #13">Filter by sector name</th>
-<th title="Field #10">Neu/Last Call/Retired</th>
+<th title="Field #10">New/Last Call/Retired</th>
 <th title="Field #19">Kids</th>
 </tr>
 </tfoot>
