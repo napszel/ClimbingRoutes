@@ -12,6 +12,6 @@ The displayed table is searchabe (for all fields) and filterable/sortable for ea
 
 It uses DataTable, a table plug-in for jQuery (https://datatables.net/)
 
-A bash scripts downloads the data from the kletterzentrum's website and saves the data to a json file. Then a python script generates the index.html file based on the json. (Hence, index.html is not included in git)
+A bash scripts downloads the data from the kletterzentrum's website and saves the data to an sqlite3 db. Then a python script generates the index.html file based on the db. (Hence, index.html is not included in git)
 
 
