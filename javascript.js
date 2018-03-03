@@ -8,20 +8,21 @@ $(document).ready(function() {
       var title = $(this).text();
       if (title) {
 	$(this).html( '<input type="text" placeholder="'+title+'" />' );
-      } else {
-	$(this).html( '<label style="font-size: 9px">comments</label>' );
       }
     } );
     
     // DataTable
     var table = $('#example').DataTable( {
+      "order": [6, 'desc'],
       "pageLength": -1,
       "lengthMenu": [[10, 50, 100, -1], [10, 50, 100, "All"]],
       "columnDefs": [
-	{ "width": "20px", "targets": [ "narrow" ] },
-	{ "width": "90px", "targets": [ "middle" ] },
-	{ "width": "35px", "targets": [ "smallish" ] },
-	{ searchable: false, orderable: false, targets: [4] },
+	{ "width": "20px", "targets": [ "twenty" ] },
+	{ "width": "40px", "targets": [ "fourty" ] },
+	{ "width": "60px", "targets": [ "sixty" ] },
+	{ "width": "90px", "targets": [ "ninety" ] },
+	{ "width": "110px", "targets": [ "hundredten" ] },
+	{ searchable: false, orderable: false, targets: [4] }
       ]
     } );
     

@@ -3,6 +3,7 @@
 
 import json
 from pprint import pprint
+import sqlite3
 
 html = open('../index.html', 'w')
 
@@ -76,25 +77,25 @@ table = """
 <table id="example" class="display compact order-column" cellspacing="0" width="100%">
 <thead>
 <tr>
-<th title="Field #15" class="narrow">Pl.</th>
-<th title="Field #1" class="narrow">#</th>
+<th title="Field #15" class="twenty">Pl.</th>
+<th title="Field #1" class="twenty">#</th>
 <th title="Field #3">Route Name</th>
-<th title="Field #6" class="narrow">Gr.</th>
-<th title="Field #2" class="narrow">&#128172;</th>
+<th title="Field #6" class="twenty">Gr.</th>
+<th title="Field #2" class="twenty">Comments</th>
 <th title="Field #8">Setter's Name</th>
-<th title="Field #18" class="middle">Date</th>
-<th title="Field #12" class="middle">Color</th>
-<th title="Field #20" class="smallish">Bould./Sport</th>
-<th title="Field #21">Belay</th>
+<th title="Field #18" class="ninety">Date</th>
+<th title="Field #12" class="hundredten">Color</th>
+<th title="Field #20" class="fourty">Bould / Sport</th>
+<th title="Field #21" class="hundredten">Belay</th>
 <th title="Field #13">Sector</th>
-<th title="Field #10" class="smallish">Neu/<br/>Last Call</th>
-<th title="Field #19" class="narrow">Kids</th>
+<th title="Field #10" class="sixty">Neu / Last Call / Retired</th>
+<th title="Field #19" class="twenty">Kids</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th title="Field #15" class="narrow">Mil/Gas</th>
-<th title="Field #1" class="narrow">#</th>
+<th title="Field #15">Mil/Gas</th>
+<th title="Field #1">#</th>
 <th title="Field #3">Filer by route name</th>
 <th title="Field #6">6a+</th>
 <th title="Field #2"></th>
@@ -104,68 +105,72 @@ table = """
 <th title="Field #20">Bould/Sport</th>
 <th title="Field #21">Toppas/Vorsteig/Toprope</th>
 <th title="Field #13">Filter by sector name</th>
-<th title="Field #10">Neu/Last Call</th>
+<th title="Field #10">Neu/Last Call/Retired</th>
 <th title="Field #19">Kids</th>
 </tr>
 </tfoot>
 <tbody>
 """
-
-data = json.load(open('routes.json'))
+conn = sqlite3.connect('routes.db')
+conn.row_factory = sqlite3.Row
+c = conn.cursor()
 
 def getElement(s):
     return "<td>" + s + "</td>"
 
-for route in data:
+for route in c.execute('SELECT * FROM routes ORDER BY dat DESC'):
     table += "<tr>"
 
-    place = route['address']
-    id_place = ""
-    if place == 'Milandia':
-        id_place = "mil"
-        table += getElement("Mil")
-    else:
-        id_place = "gas"
-        table += getElement("Gas")
+    place = route['place']
+    table += getElement(place.capitalize())
 
-    route_number = str(route['nr'])
+    route_number = str(route['rid'])
     table += getElement(route_number)
 
-    table += "<td>" + route['title']
-    if route['subtitle']:
-        table += " (" + route['subtitle'] + ")"
+    table += "<td>" + route['name']
+    if route['subname']:
+        table += " (" + route['subname'] + ")"
     table += "</td>"
 
-    table += getElement(route['difficulty'])
+    table += getElement(route['grade'])
 
-    route_type = route['type']
-    id_route_type = ""
-    if route_type == 'Boulder':
-        id_route_type = "bould"
-    else:
-        id_route_type = "sport"
+    route_type = route['typ']
 
-    wrongdate = route['builddateFormatted'].split('.')
-    gooddate = wrongdate[2] + "-" + wrongdate[1] + "-" + wrongdate[0]
+    date = route['dat']
 
-    route_identifier = gooddate + ":" + id_route_type + ":" + id_place + ":" + route_number
+    route_identifier = date + ":" + route_type + ":" + place + ":" + route_number
     table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">&#128172;</a></td>"
 
-    table += getElement(route['builders'])
-    table += getElement(gooddate)
-    table += getElement(route['gripcolor'])
+    table += getElement(route['setter'])
+    table += getElement(date)
+    table += getElement(route['color'])
+    table += getElement(route['typ'].capitalize())
 
-    if route_type == 'Boulder':
-        table += getElement("Bould")
-        table += getElement("Mats")
+    belays = []
+    if route['toprope']:
+        belays.append("Toprope")
+    if route['toppas']:
+        belays.append("Toppas")
+    if route['lead']:
+        belays.append("Lead")
+    if belays:
+        table += getElement(str(belays).replace("'","").strip("[]"))
     else:
-        table += getElement("Sport")
-        table += getElement(route['type'])
-        
+        table += getElement("Mats")
+            
     table += getElement(route['sector'])
-    table += getElement(route['statusLabel'])
 
-    if route['children']:
+    if route['new_'] or route['lastcall'] or route['retired']:
+        if route['new_']:
+            table += getElement("New")
+        if route['lastcall']:
+            table += getElement("Last Call")
+        if route['retired']:
+            table += getElement("Retired")
+    else:
+        table += getElement("")
+
+    if route['kids']:
         table += "<td class=\"centered\">Y</td>"
     else:
         table += "<td class=\"centered\">N</td>"

@@ -32,9 +32,6 @@ hr {
     border-color: #235b9a;
 }
 
-th.narrow {
-    font-size: 12px;
-}
 
 td.centered {
     text-align: center;
@@ -44,8 +41,16 @@ td.tiny {
     font-size: 10px;
 }
 
-th.smallish {
+th.twenty {
+    font-size: 10px;
+}
+
+th.fourty {
     font-size: 12px;
+}
+
+th.sixty {
+    font-size: 10px;
 }
 
 #example_info {
