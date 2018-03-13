@@ -32,7 +32,6 @@ try:
         exit(1)
 
     if i_not_seen_post == 0:
-        print("Nothing to do. We've seen all of these posts.")
         exit(0)
 
     # Update our post counts DB table
