@@ -2,6 +2,8 @@
 /backend-scripts/routes.json
 /x
 /backend-scripts/routes.db
+/backend-scripts/.Python
+/backend-scripts/venv
 /disqus-api-test
 
 

@@ -6,9 +6,7 @@ $(document).ready(function() {
     // Setup - add a text input to each footer cell
     $('#example tfoot th').each( function () {
       var title = $(this).text();
-      if (title) {
-	$(this).html( '<input type="text" placeholder="'+title+'" />' );
-      }
+      $(this).html( '<input type="text" placeholder="'+title+'" />' );
     } );
     
     // DataTable
@@ -21,8 +19,7 @@ $(document).ready(function() {
 	{ "width": "40px", "targets": [ "fourty" ] },
 	{ "width": "60px", "targets": [ "sixty" ] },
 	{ "width": "90px", "targets": [ "ninety" ] },
-	{ "width": "110px", "targets": [ "hundredten" ] },
-	{ searchable: false, orderable: false, targets: [4] }
+	{ "width": "110px", "targets": [ "hundredten" ] }
       ]
     } );
     

@@ -118,7 +118,7 @@ c = conn.cursor()
 def getElement(s):
     return "<td>" + s + "</td>"
 
-for route in c.execute('SELECT * FROM routes ORDER BY dat DESC'):
+for route in c.execute('SELECT routes.*, postcount.posts FROM routes LEFT JOIN postcount ON routes.dat = postcount.dat AND routes.typ = postcount.typ AND routes.place = postcount.place AND routes.rid = postcount.rid ORDER BY dat DESC'):
     table += "<tr>"
 
     place = route['place']
@@ -139,8 +139,11 @@ for route in c.execute('SELECT * FROM routes ORDER BY dat DESC'):
     date = route['dat']
 
     route_identifier = date + ":" + route_type + ":" + place + ":" + route_number
-    table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">&#128172;</a></td>"
-
+    if route['posts'] == None:
+        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">&#128172;</a></td>"
+    else:
+        table += "<td class=\"centered\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + str(route['posts']) + "</a></td>"
+    
     table += getElement(route['setter'])
     table += getElement(date)
     table += getElement(route['color'])
@@ -188,7 +191,6 @@ html_end = """
 <a class=\"underline\" href="https://github.com/napszel/ClimbingRoutes" target="_blank" rel="noopener noreferrer">Napszel,</a> 2018
 </div>
 </div>
-<!--<script id="dsq-count-scr" src="//climbingroutes.disqus.com/count.js" async></script>-->
 </body>
 </html>
 """
