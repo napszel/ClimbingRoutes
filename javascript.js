@@ -20,6 +20,10 @@ $(document).ready(function() {
 	{ "width": "60px", "targets": [ "sixty" ] },
 	{ "width": "90px", "targets": [ "ninety" ] },
 	{ "width": "110px", "targets": [ "hundredten" ] }
+      ],
+      "dom": 'ifBrt',
+      "buttons": [
+        'colvis'
       ]
     } );
     

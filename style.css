@@ -53,12 +53,6 @@ th.sixty {
     font-size: 10px;
 }
 
-#example_info {
-    position: absolute;
-    top: 8px;
-    left: 200px;
-}
-
 #example_wrapper {
     padding: 20px;
     background: #ffffff;
@@ -157,4 +151,13 @@ input, select, textarea{
 
 textarea:focus, input:focus {
     color: red;
+}
+
+div.dt-buttons {
+    float: right;
+    margin-right: 20px;
+}
+
+.dataTables_filter {
+    padding-top: 12px;
 }
