@@ -7,6 +7,10 @@ import sqlite3
 
 html = open('../index.html', 'w')
 
+conn = sqlite3.connect('routes.db')
+conn.row_factory = sqlite3.Row
+c = conn.cursor()
+
 html_headers = """
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -111,9 +115,6 @@ table = """
 </tfoot>
 <tbody>
 """
-conn = sqlite3.connect('routes.db')
-conn.row_factory = sqlite3.Row
-c = conn.cursor()
 
 def getElement(s):
     return "<td>" + s + "</td>"
@@ -140,7 +141,7 @@ for route in c.execute('SELECT routes.*, postcount.posts FROM routes LEFT JOIN p
 
     route_identifier = date + ":" + route_type + ":" + place + ":" + route_number
     if route['posts'] == None:
-        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">&#128172;</a></td>"
+        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\"> &#128172;</a></td>"
     else:
         table += "<td class=\"centered\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + str(route['posts']) + "</a></td>"
     
