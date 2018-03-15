@@ -11,7 +11,7 @@ $(document).ready(function() {
     
     // DataTable
     var table = $('#example').DataTable( {
-      "order": [6, 'desc'],
+      "order": [7, 'desc'],
       "pageLength": -1,
       "lengthMenu": [[10, 50, 100, -1], [10, 50, 100, "All"]],
       "columnDefs": [
@@ -19,7 +19,8 @@ $(document).ready(function() {
 	{ "width": "40px", "targets": [ "fourty" ] },
 	{ "width": "60px", "targets": [ "sixty" ] },
 	{ "width": "90px", "targets": [ "ninety" ] },
-	{ "width": "110px", "targets": [ "hundredten" ] }
+	{ "width": "110px", "targets": [ "hundredten" ] },
+	{ "visible": false, "targets": [6, -1, -4] }
       ],
       "dom": 'ifBrt',
       "buttons": [

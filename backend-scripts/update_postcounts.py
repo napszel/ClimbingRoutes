@@ -17,8 +17,8 @@ try:
 
     # Ge the list of posts (comments) form Disqus. This returns a list of all posts ordered by date, starting with the most recent.
     disqus = DisqusAPI("tomRM9FzpoPUBVaTpj9EzJBi7EGtRRJHAK9LWO1LKQxphtyHLRF9Ryq7zrnhWGZc", "g0hQCAzqMrVq2M8DFwpQmnviE22ZSYw4AsuQbRkMTniMD3W5lpIzyvqWEbFNRHt2")
-    posts_list = disqus.posts.list(forum='climbingroutes')
-
+    posts_list = disqus.posts.list(forum='climbingroutes', sortType='date', order='desc', limit='100')
+    
     # Find the first post that we haven't seen yet.
     i_not_seen_post = 0
     for post in posts_list:
@@ -34,10 +34,22 @@ try:
     if i_not_seen_post == 0:
         exit(0)
 
-    # Update our post counts DB table
+    # Update our last seen post DB table
     list_not_seen_posts = posts_list[0:i_not_seen_post]
+    
+    last_post_to_insert = (str(list_not_seen_posts[0]['id']), )
+    c.execute("UPDATE lastseenpost SET postid=?", last_post_to_insert)
+
+    # Update our post counts DB table
+    list_not_seen_posts = reversed(list_not_seen_posts) # reversed because if multiple comments came to the same thread we want the latest
+
     for post in list_not_seen_posts:
+        latest = post['createdAt']
+        commenter = post['author']['name']
+
+        # get the thread of the comment
         thread = disqus.threads.list(thread=post['thread'])[0]
+
         thread_posts_count = thread['posts']
         thread_link = thread['link']
         threadid = thread['id']
@@ -50,12 +62,8 @@ try:
         place = route_id_parts[2]
         rid = route_id_parts[3]
         
-        next_post_to_insert = [(dat, typ, place, rid, threadid, thread_posts_count)]
-        c.executemany("INSERT OR REPLACE INTO postcount VALUES (?,?,?,?,?,?)", next_post_to_insert)
-
-    # Update our last seen post DB table
-    last_post_to_insert = (str(list_not_seen_posts[0]['id']), )
-    c.execute("UPDATE lastseenpost SET postid=?", last_post_to_insert)
+        next_post_to_insert = [(dat, typ, place, rid, threadid, thread_posts_count, latest, commenter)]
+        c.executemany("INSERT OR REPLACE INTO postcount VALUES (?,?,?,?,?,?,?,?)", next_post_to_insert)
 
     conn.commit()
 except conn.Error:

@@ -87,36 +87,38 @@ table = """
 <table id="example" class="display compact order-column" cellspacing="0" width="100%">
 <thead>
 <tr>
-<th title="Field #15" class="twenty">Pl.</th>
-<th title="Field #1" class="twenty">#</th>
+<th title="Field #1" class="twenty">Pl.</th>
+<th title="Field #2" class="twenty">#</th>
 <th title="Field #3">Route Name</th>
-<th title="Field #6" class="twenty">Gr.</th>
-<th title="Field #2" class="twenty">Comments</th>
-<th title="Field #8">Setter's Name</th>
-<th title="Field #18" class="ninety">Date</th>
-<th title="Field #12" class="hundredten">Color</th>
-<th title="Field #20" class="fourty">Bould / Sport</th>
-<th title="Field #21" class="hundredten">Belay</th>
-<th title="Field #13">Sector</th>
-<th title="Field #10" class="sixty">New / Last Call / Retired</th>
-<th title="Field #19" class="twenty">Kids</th>
+<th title="Field #4" class="twenty">Gr.</th>
+<th title="Field #5" class="hundredten">Lates comment</th>
+<th title="Field #6" class="twenty">sum</th>
+<th title="Field #7">Setter's Name</th>
+<th title="Field #8" class="ninety">Date</th>
+<th title="Field #9" class="hundredten">Color</th>
+<th title="Field #10" class="fourty">Bould / Sport</th>
+<th title="Field #11" class="hundredten">Belay</th>
+<th title="Field #12">Sector</th>
+<th title="Field #13" class="sixty">New / Last Call / Retired</th>
+<th title="Field #14" class="twenty">Kids</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th title="Field #15">Mil/Gas</th>
-<th title="Field #1">#</th>
+<th title="Field #1">Mil/Gas</th>
+<th title="Field #2">#</th>
 <th title="Field #3">Filer by route name</th>
-<th title="Field #6">6a+</th>
-<th title="Field #2"></th>
-<th title="Field #8">Filter by setter's name</th>
-<th title="Field #18">Filter by date</th>
-<th title="Field #12">Color</th>
-<th title="Field #20">Bould/Sport</th>
-<th title="Field #21">Toppas/Lead/Toprope</th>
-<th title="Field #13">Filter by sector name</th>
-<th title="Field #10">New/Last Call/Retired</th>
-<th title="Field #19">Kids</th>
+<th title="Field #4">6a+</th>
+<th title="Field #5">Lates comment</th>
+<th title="Field #6">no. of comments</th>
+<th title="Field #7">Filter by setter's name</th>
+<th title="Field #8">Filter by date</th>
+<th title="Field #9">Color</th>
+<th title="Field #10">Bould/Sport</th>
+<th title="Field #11">Toppas/Lead/Toprope</th>
+<th title="Field #12">Filter by sector name</th>
+<th title="Field #13">New/Last Call/Retired</th>
+<th title="Field #14">Kids</th>
 </tr>
 </tfoot>
 <tbody>
@@ -125,7 +127,7 @@ table = """
 def getElement(s):
     return "<td>" + s + "</td>"
 
-for route in c.execute('SELECT routes.*, postcount.posts FROM routes LEFT JOIN postcount ON routes.dat = postcount.dat AND routes.typ = postcount.typ AND routes.place = postcount.place AND routes.rid = postcount.rid ORDER BY dat DESC'):
+for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, postcount.latest FROM routes LEFT JOIN postcount ON routes.dat = postcount.dat AND routes.typ = postcount.typ AND routes.place = postcount.place AND routes.rid = postcount.rid ORDER BY dat DESC'):
     table += "<tr>"
 
     place = route['place']
@@ -142,15 +144,19 @@ for route in c.execute('SELECT routes.*, postcount.posts FROM routes LEFT JOIN p
     table += getElement(route['grade'])
 
     route_type = route['typ']
-
     date = route['dat']
 
     route_identifier = date + ":" + route_type + ":" + place + ":" + route_number
+
     if route['posts'] == None:
-        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\"> &#128172;</a></td>"
+        table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\"> leave a comment</a></td>"
+        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">0</a></td>"
     else:
-        table += "<td class=\"centered\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + str(route['posts']) + "</a></td>"
-    
+        commenter = route['commenter']
+        latest_comment = route['latest'].split("T")[0] + " " + route['latest'].split("T")[1]
+        table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + latest_comment + "<br/>" + commenter + "</a></td>"
+        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + str(route['posts']) + "</a></td>"
+
     table += getElement(route['setter'])
     table += getElement(date)
     table += getElement(route['color'])

@@ -15,6 +15,8 @@ CREATE TABLE postcount
        , rid INT
        , threadid TEXT
        , posts INT
+       , latest TEXT
+       , commenter TEXT
        , PRIMARY KEY (dat, typ, place, rid)
        );
 
