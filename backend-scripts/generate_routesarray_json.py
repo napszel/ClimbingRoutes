@@ -76,6 +76,6 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
         table["kids"] = False
     bigtable.append(table)
 
-html = open('../routesarray.json', 'w')
+html = open('../routesarray.js', 'w')
 html.write("routesarray = " + json.dumps(bigtable) + "\n")
 html.close()
