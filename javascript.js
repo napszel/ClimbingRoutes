@@ -72,16 +72,22 @@ $(document).ready(function() {
     
     $("#hold").attr("src", "http://www.kletterzentrum.com/" + routesarray[index]["imgurl"]);
     $("#hold_caption").text(routesarray[index]["color"]);
-    
-    if (routesarray[index]["belay"].indexOf("Lead") != -1) {
-      $("#lead").attr("src", "lead.png");
+
+    if (routesarray[index]["typ"] == "Bould") {
+      $("#lead").attr("src", "boulder.png");
       $("#lead").css("width", "190px");
-      $("#lead_caption").text("Lead");
-    }
-    if (routesarray[index]["belay"].indexOf("Toprope") != -1 || routesarray[index]["belay"].indexOf("Toppas") != -1) {
-      $("#toprope").attr("src", "toppas.png");
-      $("#toprope").css("width", "190px");
-      $("#toprope_caption").text("Toprope");
+      $("#lead_caption").text("Boulder");
+    } else {
+      if (routesarray[index]["belay"].indexOf("Lead") != -1) {
+	$("#lead").attr("src", "lead.png");
+	$("#lead").css("width", "190px");
+	$("#lead_caption").text("Lead");
+      }
+      if (routesarray[index]["belay"].indexOf("Toprope") != -1 || routesarray[index]["belay"].indexOf("Toppas") != -1) {
+	$("#toprope").attr("src", "toppas.png");
+	$("#toprope").css("width", "190px");
+	$("#toprope_caption").text("Toprope");
+      }
     }
 
     $('#number').html("#" + routesarray[index]["number"]);
@@ -91,6 +97,20 @@ $(document).ready(function() {
 
     if (routesarray[index]["kids"]) {
       $('#kids').html("KIDS");
+    }
+
+    if (routesarray[index]["place"] == "Gas") {
+      $("#map").attr("src", "gaswerk_map.png");
+      $("#map_link").attr("href", "gaswerk_map.png");
+    } else {
+      $("#map").attr("src", "milandia_map.png");
+      $("#map_link").attr("href", "milandia_map.png");
+    }
+
+    if (routesarray[index]["place"] == "Gas") {
+      $('#sector').text("Gaswerk, " + routesarray[index]["sector"]);
+    } else {
+      $('#sector').text("Milandia, " + routesarray[index]["sector"]);
     }
 
     $("#route_root").show();

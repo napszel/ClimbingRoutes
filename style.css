@@ -166,6 +166,10 @@ div.dt-buttons {
 #wrapper {
     overflow: hidden;
     padding: 20px;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: 0 0 3px #bebebe;
+    color: #235b9a;
 }
 
 #images {
@@ -204,6 +208,25 @@ div.dt-buttons {
     color: blue;
 }
 
+#sector {
+    font-size: 24px;
+    color: gray;
+}
+
 #images_table td {
     padding-right: 20px
+}
+
+#map_sector {
+    text-align: center;
+    padding-top: 10px;
+}
+
+#map {
+    margin-top: 5px;
+    width: 100%;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: 0 0 3px #bebebe;
+    color: #235b9a;
 }

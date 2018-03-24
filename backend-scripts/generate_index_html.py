@@ -58,8 +58,12 @@ html_headers = """
           <label id="name"></label><br/>
           <label id="grade"></label><br/>
           <label id="date_and_setter"></label><br/>
-          <label id="kids"></label>
+          <label id="kids"></label><br/>
         </div>
+      </div>
+      <div id="map_sector">
+         <label id="sector"></label>
+         <a id="map_link" target="_blank"><img id="map"></a>
       </div>
       <hr/>
       <div id="disqus_thread"></div>
