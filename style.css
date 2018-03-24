@@ -186,7 +186,7 @@ div.dt-buttons {
 
 #details label {
     display: block;
-    margin-left: 20px;
+    margin-left: 60px;
 }
 
 #status {
@@ -202,4 +202,8 @@ div.dt-buttons {
 #grade {
     font-size: 40px;
     color: blue;
+}
+
+#images_table td {
+    padding-right: 20px
 }

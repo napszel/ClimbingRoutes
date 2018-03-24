@@ -40,15 +40,15 @@ html_headers = """
     <div id="header"></div>
       <div id="wrapper">
         <div id="images">
-          <table>
+          <table id="images_table">
             <tr>
-              <td><img id="hold"/></td>
               <td><img id="lead"/></td>
               <td><img id="toprope"/></td>
+              <td><img id="hold"/></td>
             </tr>
-              <td id="hold_caption"></td>
               <td id="lead_caption"></td>
               <td id="toprope_caption"></td>
+              <td id="hold_caption"></td>
             </tr>
           </table>
         </div>
