@@ -38,9 +38,32 @@ html_headers = """
   <body>
   <div id="route_root" style="display: none">
     <div id="header"></div>
-    <hr/>
-    <div id="disqus_thread"></div>
-     <script>
+      <div id="wrapper">
+        <div id="images">
+          <table>
+            <tr>
+              <td><img id="hold"/></td>
+              <td><img id="lead"/></td>
+              <td><img id="toprope"/></td>
+            </tr>
+              <td id="hold_caption"></td>
+              <td id="lead_caption"></td>
+              <td id="toprope_caption"></td>
+            </tr>
+          </table>
+        </div>
+        <div id="details">
+          <label id="status" style="display: none"></label><br/>
+          <label id="number"></label><br/>
+          <label id="name"></label><br/>
+          <label id="grade"></label><br/>
+          <label id="date_and_setter"></label><br/>
+          <label id="kids"></label>
+        </div>
+      </div>
+      <hr/>
+      <div id="disqus_thread"></div>
+      <script>
         var disqus_config = function () {
           var startHash = window.location.search;
           this.page.url = 'http://napszel.com/climbingroutes' + startHash;
@@ -68,8 +91,8 @@ html_headers = """
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
       })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 
   <div id="main_table" style="display: none">

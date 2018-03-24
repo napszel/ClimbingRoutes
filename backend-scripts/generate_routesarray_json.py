@@ -17,12 +17,12 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     table["place"] = place.capitalize()
 
     route_number = str(route['rid'])
-    table["rno"] = route_number
+    table["number"] = route_number
 
     fullname = route['name']
     if route['subname']:
         fullname += " (" + route['subname'] + ")"
-    table["fullname"] = fullname
+    table["name"] = fullname
 
     table["grade"] = route['grade']
 
@@ -54,9 +54,9 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     if route['lead']:
         belays.append("Lead")
     if belays:
-        table["belays"] = str(belays).replace("'","").strip("[]")
+        table["belay"] = str(belays).replace("'","").strip("[]")
     else:
-        table["belays"] = "Mats"
+        table["belay"] = "Mats"
             
     table["sector"] = route['sector']
 
@@ -74,6 +74,9 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
         table["kids"] = True
     else:
         table["kids"] = False
+
+    table["imgurl"] = route['imgurl']
+
     bigtable.append(table)
 
 html = open('../routesarray.js', 'w')

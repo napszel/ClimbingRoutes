@@ -57,7 +57,42 @@ $(document).ready(function() {
     } else {
       type = "Sport";
     }
-    $("#header").append("<h2>Comments for <span style=\"color: #ff0000\">" + type + "</span> route <span style=\"color: #ff0000\">#" + number + "</span> of <span style=\"color: #ff0000\">" + place + "</span> set on <span style=\"color: #ff0000\">" + date + "</span></h2>");
+    $("#header").append("<h2><span style=\"color: #ff0000\">" + type + "</span> route <span style=\"color: #ff0000\">#" + number + "</span> of <span style=\"color: #ff0000\">" + place + "</span> set on <span style=\"color: #ff0000\">" + date + "</span></h2>");
+
+    rid = startHash.split("=")[1];
+    index = 0;
+    while (rid != routesarray[index]["rid"]) {
+      index++;
+    }
+
+    if (routesarray[index]["state"]) {
+      $('#status').text(routesarray[index]["state"]);
+      $('#status').css("display", "block");
+    }
+    
+    $("#hold").attr("src", "http://www.kletterzentrum.com/" + routesarray[index]["imgurl"]);
+    $("#hold_caption").text(routesarray[index]["color"]);
+    
+    if (routesarray[index]["belay"].indexOf("Lead") != -1) {
+      $("#lead").attr("src", "lead.png");
+      $("#lead").css("width", "190px");
+      $("#lead_caption").text("Lead");
+    }
+    if (routesarray[index]["belay"].indexOf("Toprope") != -1 || routesarray[index]["belay"].indexOf("Toppas") != -1) {
+      $("#toprope").attr("src", "toppas.png");
+      $("#toprope").css("width", "190px");
+      $("#toprope_caption").text("Toprope");
+    }
+
+    $('#number').html("#" + routesarray[index]["number"]);
+    $('#name').html(routesarray[index]["name"]);
+    $('#grade').html(routesarray[index]["grade"]);
+    $('#date_and_setter').html(routesarray[index]["date"] + ",  " + routesarray[index]["setter"]);
+
+    if (routesarray[index]["kids"]) {
+      $('#kids').html("KIDS");
+    }
+
     $("#route_root").show();
   }
 } );

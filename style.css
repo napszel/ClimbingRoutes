@@ -16,7 +16,7 @@ tfoot {
 }
 
 table {
-    padding-top:20px;
+    padding-top: 20px;
     border-collapse: collapse;
     table-layout: fixed; 
     word-wrap: break-word;
@@ -121,11 +121,28 @@ a:active {
     text-decoration: none;
 }
 
+input, select, textarea{
+    color: red;
+}
+
+textarea:focus, input:focus {
+    color: red;
+}
+
+div.dt-buttons {
+    float: right;
+    margin-right: 20px;
+}
+
+.dataTables_filter {
+    padding-top: 12px;
+}
+
 #route_root {
     margin: auto;
     width: 60%;
     background: #ffffff;
-    color: #235b9a;
+    color: #2a2e2e;
     letter-spacing: .1em;
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
@@ -143,21 +160,46 @@ a:active {
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: 0 0 3px #bebebe;
+    color: #235b9a;
 }
 
-input, select, textarea{
+#wrapper {
+    overflow: hidden;
+    padding: 20px;
+}
+
+#images {
+    width: 50%;
+    float:left;
+    text-align: center;
+}
+
+
+#hold {
+    width: 130px;
+}
+
+#details {
+    overflow: hidden;
+    font-size: 20px;
+}
+
+#details label {
+    display: block;
+    margin-left: 20px;
+}
+
+#status {
+    font-size: 24px;
     color: red;
 }
 
-textarea:focus, input:focus {
-    color: red;
+#kids {
+    font-size: 24px;
+    color: orange;
 }
 
-div.dt-buttons {
-    float: right;
-    margin-right: 20px;
-}
-
-.dataTables_filter {
-    padding-top: 12px;
+#grade {
+    font-size: 40px;
+    color: blue;
 }
