@@ -164,17 +164,17 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     route_number = str(route['rid'])
     table += getElement(route_number)
 
-    table += "<td>" + route['name']
-    if route['subname']:
-        table += " (" + route['subname'] + ")"
-    table += "</td>"
-
-    table += getElement(route['grade'])
-
     route_type = route['typ']
     date = route['dat']
 
     route_identifier = date + ":" + route_type + ":" + place + ":" + route_number
+
+    table += "<td><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + route['name']
+    if route['subname']:
+        table += " (" + route['subname'] + ")"
+    table += "</a></td>"
+
+    table += getElement(route['grade'])
 
     if route['posts'] == None:
         table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\"> leave a comment</a></td>"
