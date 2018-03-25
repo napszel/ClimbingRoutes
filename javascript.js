@@ -100,17 +100,32 @@ $(document).ready(function() {
     }
 
     if (routesarray[index]["place"] == "Gas") {
-      $("#map").attr("src", "gaswerk_map.png");
-      $("#map_link").attr("href", "gaswerk_map.png");
+      sector = routesarray[index]["sector"];
+      $('#sector').text("Gaswerk, " + sector);
+      if (sector.indexOf("Halle") != -1) {
+	halle_no = sector.slice(sector.indexOf("Halle") + 6, sector.indexOf("Halle") + 7);
+	$("#map").attr("src", "gaswerk_halle" + halle_no + ".png");
+	$("#map_link").attr("href", "gaswerk_halle" + halle_no + ".png");
+      } else if (sector.indexOf("Outdoor") != -1) {
+	$("#map").attr("src", "gaswerk_outdoor.png");
+	$("#map_link").attr("href", "gaswerk_outdoor.png");
+      } else if (routesarray[index]["typ"] == "Bould") {
+	$("#map").attr("src", "gaswerk_boulder.png");
+	$("#map_link").attr("href", "gaswerk_boulder.png");
+      } else {
+	$("#map").attr("src", "gaswerk_map.png");
+	$("#map_link").attr("href", "gaswerk_map.png");
+      }
     } else {
-      $("#map").attr("src", "milandia_map.png");
-      $("#map_link").attr("href", "milandia_map.png");
-    }
-
-    if (routesarray[index]["place"] == "Gas") {
-      $('#sector').text("Gaswerk, " + routesarray[index]["sector"]);
-    } else {
-      $('#sector').text("Milandia, " + routesarray[index]["sector"]);
+      sector = routesarray[index]["sector"];
+      $('#sector').text("Milandia, " + sector);
+      if (routesarray[index]["typ"] == "Bould") {
+	$("#map").attr("src", "milandia_boulder.png");
+	$("#map_link").attr("href", "milandia_boulder.png");
+      } else {
+	$("#map").attr("src", "milandia_" + sector.split(" ")[0] + ".png");
+	$("#map_link").attr("href", "milandia_" + sector.split(" ")[0] + ".png");
+      }
     }
 
     $("#route_root").show();
