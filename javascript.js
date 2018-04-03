@@ -123,8 +123,8 @@ $(document).ready(function() {
 	$("#map").attr("src", "milandia_boulder.png");
 	$("#map_link").attr("href", "milandia_boulder.png");
       } else {
-	$("#map").attr("src", "milandia_" + sector.split(" ")[0] + ".png");
-	$("#map_link").attr("href", "milandia_" + sector.split(" ")[0] + ".png");
+	$("#map").attr("src", "milandia_" + sector.split(" ")[0].toLowerCase() + ".png");
+	$("#map_link").attr("href", "milandia_" + sector.split(" ")[0].toLowerCase() + ".png");
       }
     }
 
