@@ -11,6 +11,17 @@ conn = sqlite3.connect('routes.db')
 conn.row_factory = sqlite3.Row
 c = conn.cursor()
 
+html_escape_table = {
+    "&": "&amp;",
+    '"': "&quot;",
+    "'": "&apos;",
+    ">": "&gt;",
+    "<": "&lt;",
+}
+
+def html_escape(text):
+    return "".join(html_escape_table.get(c, c) for c in text)
+
 html_headers = """
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -169,7 +180,7 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
 
     route_identifier = date + ":" + route_type + ":" + place + ":" + route_number
 
-    table += "<td><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + route['name']
+    table += "<td><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + html_escape(route['name'])
     if route['subname']:
         table += " (" + route['subname'] + ")"
     table += "</a></td>"
