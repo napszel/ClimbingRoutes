@@ -126,38 +126,40 @@ table = """
 <table id="example" class="display compact order-column" cellspacing="0" width="100%">
 <thead>
 <tr>
-<th title="Field #1" class="twenty">Pl.</th>
-<th title="Field #2" class="twenty">#</th>
-<th title="Field #3">Route Name</th>
-<th title="Field #4" class="twenty">Gr.</th>
-<th title="Field #5" class="hundredten">Lates comment</th>
-<th title="Field #6" class="twenty">sum</th>
-<th title="Field #7">Setter's Name</th>
-<th title="Field #8" class="ninety">Date</th>
-<th title="Field #9" class="hundredten">Color</th>
-<th title="Field #10" class="fourty">Bould / Sport</th>
-<th title="Field #11" class="hundredten">Belay</th>
-<th title="Field #12">Sector</th>
-<th title="Field #13" class="sixty">New / Last Call / Retired</th>
-<th title="Field #14" class="twenty">Kids</th>
+<th title="pl" class="twenty">Pl.</th>
+<th title="no" class="twenty">#</th>
+<th title="name">Route Name</th>
+<th title="gr" class="twenty">Gr.</th>
+<th title="comment" class="hundredten">Lates comment</th>
+<th title="sum" class="twenty">sum</th>
+<th title="setter">Setter's Name</th>
+<th title="date" class="ninety">Date</th>
+<th title="color" class="hundredten">Color</th>
+<th title="type" class="fourty">Bould / Sport</th>
+<th title="belay" class="hundredten">Belay</th>
+<th title="sector">Sector</th>
+<th title="new" class="sixty">New / Last Call</th>
+<th title="status" class="sixty">Active / Retired</th>
+<th title="kids" class="twenty">Kids</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<th title="Field #1">Mil/Gas</th>
-<th title="Field #2">#</th>
-<th title="Field #3">Filer by route name</th>
-<th title="Field #4">6a+</th>
-<th title="Field #5">Lates comment</th>
-<th title="Field #6">no. of comments</th>
-<th title="Field #7">Filter by setter's name</th>
-<th title="Field #8">Filter by date</th>
-<th title="Field #9">Color</th>
-<th title="Field #10">Bould/Sport</th>
-<th title="Field #11">Toppas/Lead/Toprope</th>
-<th title="Field #12">Filter by sector name</th>
-<th title="Field #13">New/Last Call/Retired</th>
-<th title="Field #14">Kids</th>
+<th title="pl" placeholder="Mil/Gas" />
+<th title="no" placeholder="#" />
+<th title="name" placeholder="Filer by route name" />
+<th title="gr" placeholder="6a+" />
+<th title="comment" placeholder="Lates comment" />
+<th title="sum" placeholder="no. of comments" />
+<th title="setter" placeholder="Filter by setter's name" />
+<th title="date" placeholder="Filter by date" />
+<th title="color" placeholder="Color" />
+<th title="type" placeholder="Bould/Sport" />
+<th title="belay" placeholder="Toppas/Lead/Toprope" />
+<th title="sector" placeholder="Filter by sector name" />
+<th title="new" placeholder="New/Last Call"/>
+<th title="status" placeholder="Active/Retired" default="Active"/>
+<th title="kids" placeholder="Kids" />
 </tr>
 </tfoot>
 <tbody>
@@ -215,16 +217,19 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
             
     table += getElement(route['sector'])
 
-    if route['new_'] or route['lastcall'] or route['retired']:
+    if route['new_'] or route['lastcall']:
         if route['new_']:
             table += getElement("New")
         if route['lastcall']:
             table += getElement("Last Call")
-        if route['retired']:
-            table += getElement("Retired")
     else:
         table += getElement("")
 
+    if route['retired']:
+        table += getElement("Retired")
+    else:
+        table += getElement("Active")
+    
     if route['kids']:
         table += "<td class=\"centered\">Y</td>"
     else:

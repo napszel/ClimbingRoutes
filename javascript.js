@@ -3,10 +3,19 @@ $(document).ready(function() {
   if (!startHash) {
     $("#main_table").show();
     
-    // Setup - add a text input to each footer cell
+    // Setup - add a text input to each footer cell -> search boxes for each column
+    // - also create the array with default searches
+    var default_search_values = []
     $('#example tfoot th').each( function () {
-      var title = $(this).text();
-      $(this).html( '<input type="text" placeholder="'+title+'" />' );
+      var placeholder = $(this)[0].attributes['placeholder'].value;
+      var default_value = ""
+      if ($(this)[0].attributes['default']) {
+	default_value = $(this)[0].attributes['default'].value;
+	default_search_values.push({"sSearch": default_value});
+      } else {
+	default_search_values.push(null);
+      }
+      $(this).html( '<input type="text" placeholder="'+placeholder+'" value="'+default_value+'"/>' );
     } );
     
     // DataTable
@@ -20,15 +29,15 @@ $(document).ready(function() {
 	{ "width": "60px", "targets": [ "sixty" ] },
 	{ "width": "90px", "targets": [ "ninety" ] },
 	{ "width": "110px", "targets": [ "hundredten" ] },
-	{ "visible": false, "targets": [6, -1, -4] }
+	{ "visible": false, "targets": [6, 10, 13, 14] }
       ],
       "dom": 'ifBrt',
       "buttons": [
         'colvis'
-      ]
+      ],
+      "aoSearchCols": default_search_values
     } );
-    
-    
+
     // Apply the search
     table.columns().every( function () {
       var that = this;
