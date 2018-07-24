@@ -128,11 +128,11 @@ table = """
 <tr>
 <th title="pl" class="twenty">Pl.</th>
 <th title="no" class="twenty">#</th>
-<th title="name">Route Name</th>
+<th title="name">Route</th>
 <th title="gr" class="twenty">Gr.</th>
-<th title="comment" class="hundredten">Lates comment</th>
+<th title="comment" class="hundredten">Latest comment</th>
 <th title="sum" class="twenty">sum</th>
-<th title="setter">Setter's Name</th>
+<th title="setter">Setter</th>
 <th title="date" class="ninety">Date</th>
 <th title="color" class="hundredten">Color</th>
 <th title="type" class="fourty">Bould / Sport</th>
@@ -149,9 +149,9 @@ table = """
 <th title="no" placeholder="#" />
 <th title="name" placeholder="Filer by route name" />
 <th title="gr" placeholder="6a+" />
-<th title="comment" placeholder="Lates comment" />
+<th title="comment" placeholder="Latest comment" />
 <th title="sum" placeholder="no. of comments" />
-<th title="setter" placeholder="Filter by setter's name" />
+<th title="setter" placeholder="Filter by route setter" />
 <th title="date" placeholder="Filter by date" />
 <th title="color" placeholder="Color" />
 <th title="type" placeholder="Bould/Sport" />
