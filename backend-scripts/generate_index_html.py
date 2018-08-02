@@ -215,7 +215,7 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
 
     route_identifier = date + ":" + route_type + ":" + place + ":" + route_number
 
-    table += "<td><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + html_escape_and_add_break_points(route['name'])
+    table += "<td><a href=\"?route-comment=" + route_identifier + "\" >" + html_escape_and_add_break_points(route['name'])
     if route['subname']:
         table += " (" + route['subname'] + ")"
     table += "</a></td>"
@@ -260,15 +260,15 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
         table += "<td class=\"centered\">N</td>"
 
     if route['posts'] == None:
-        table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\"> leave a comment</a></td>"
-        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">0</a></td>"
+        table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" > leave a comment</a></td>"
+        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" >0</a></td>"
     else:
         commenter = route['commenter'].split(" ")[0]
         if len(route['commenter'].split(" ")) > 1:
             commenter += " " + route['commenter'].split(" ")[1]
         latest_comment = route['latest'].split("T")[0]
-        table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + latest_comment + "<br/>" + commenter + "</a></td>"
-        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + str(route['posts']) + "</a></td>"
+        table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" >" + latest_comment + "<br/>" + commenter + "</a></td>"
+        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" >" + str(route['posts']) + "</a></td>"
 
     table += "</tr>"
     
