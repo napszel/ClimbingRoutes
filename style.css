@@ -18,14 +18,12 @@ tfoot {
 table {
     padding-top: 20px;
     border-collapse: collapse;
-    table-layout: fixed; 
     word-wrap: break-word;
 }
 
 th {
     background-color: #eef2f6;
     color: #235b9a;
-    letter-spacing: .1em;
 }
 
 hr {
@@ -41,17 +39,10 @@ td.tiny {
     font-size: 12px;
 }
 
-th.twenty {
-    font-size: 10px;
-}
-
-th.fourty {
+th {
     font-size: 12px;
 }
 
-th.sixty {
-    font-size: 10px;
-}
 
 #example_wrapper {
     padding: 20px;
@@ -63,8 +54,6 @@ th.sixty {
 
 #credits {
     padding-top: 10px;
-    position: absolute;
-    right: 20px;
     font-size: .7em;
     letter-spacing: .2em;
 }
@@ -138,9 +127,15 @@ div.dt-buttons {
     padding-top: 12px;
 }
 
+#main_table {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #route_root {
     margin: auto;
-    width: 60%;
+    width: 1200px;
     background: #ffffff;
     color: #2a2e2e;
     letter-spacing: .1em;

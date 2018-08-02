@@ -161,19 +161,19 @@ table = """
 <tr>
 <th title="pl" class="twenty">Pl.</th>
 <th title="no" class="twenty">#</th>
-<th title="name">Route</th>
+<th title="name" class="twohundred">Route</th>
 <th title="gr" class="twenty">Gr.</th>
-<th title="comment" class="hundredten">Latest comment</th>
-<th title="sum" class="twenty">sum</th>
 <th title="setter">Setter</th>
-<th title="date" class="ninety">Date</th>
+<th title="date" class="ninety">Setting&nbsp;Date</th>
 <th title="color" class="hundredten">Color</th>
-<th title="type" class="fourty">Bould / Sport</th>
+<th title="type" class="fourty">Bould/ Sport</th>
 <th title="belay" class="hundredten">Belay</th>
-<th title="sector">Sector</th>
-<th title="new" class="sixty">New / Last Call</th>
-<th title="status" class="sixty">Active / Retired</th>
+<th title="sector" class="twohundred">Sector</th>
+<th title="new" class="sixty">New/Last Call</th>
+<th title="status" class="sixty">Active/ Retired</th>
 <th title="kids" class="twenty">Kids</th>
+<th title="comment" class="hundredten">Latest Comment</th>
+<th title="sum" class="twenty">All</th>
 </tr>
 </thead>
 <tfoot>
@@ -182,8 +182,6 @@ table = """
 <th title="no" placeholder="#" />
 <th title="name" placeholder="Filer by route name" />
 <th title="gr" placeholder="6a+" />
-<th title="comment" placeholder="Latest comment" />
-<th title="sum" placeholder="no. of comments" />
 <th title="setter" placeholder="Filter by route setter" />
 <th title="date" placeholder="Filter by date" />
 <th title="color" placeholder="Color" />
@@ -193,6 +191,8 @@ table = """
 <th title="new" placeholder="New/Last Call"/>
 <th title="status" placeholder="Active/Retired" default="Active"/>
 <th title="kids" placeholder="Kids" />
+<th title="comment" placeholder="Latest comment" />
+<th title="sum" placeholder="no. of comm." />
 </tr>
 </tfoot>
 <tbody>
@@ -221,15 +221,6 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     table += "</a></td>"
 
     table += getElement(route['grade'])
-
-    if route['posts'] == None:
-        table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\"> leave a comment</a></td>"
-        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">0</a></td>"
-    else:
-        commenter = route['commenter']
-        latest_comment = route['latest'].split("T")[0] + " " + route['latest'].split("T")[1]
-        table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + latest_comment + "<br/>" + commenter + "</a></td>"
-        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + str(route['posts']) + "</a></td>"
 
     table += getElement(route['setter'])
     table += getElement(date)
@@ -267,6 +258,17 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
         table += "<td class=\"centered\">Y</td>"
     else:
         table += "<td class=\"centered\">N</td>"
+
+    if route['posts'] == None:
+        table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\"> leave a comment</a></td>"
+        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">0</a></td>"
+    else:
+        commenter = route['commenter'].split(" ")[0]
+        if len(route['commenter'].split(" ")) > 1:
+            commenter += " " + route['commenter'].split(" ")[1]
+        latest_comment = route['latest'].split("T")[0]
+        table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + latest_comment + "<br/>" + commenter + "</a></td>"
+        table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + str(route['posts']) + "</a></td>"
 
     table += "</tr>"
     
