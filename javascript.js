@@ -24,7 +24,6 @@ $(document).ready(function() {
       "pageLength": -1,
       "paging": false,
       "bAutoWidth": false,
-      "lengthMenu": [[10, 50, 100, -1], [10, 50, 100, "All"]],
       "columnDefs": [
 	{ "width": "20px", "targets": [ "twenty" ] },
 	{ "width": "40px", "targets": [ "fourty" ] },
