@@ -19,8 +19,41 @@ html_escape_table = {
     "<": "&lt;",
 }
 
+break_characters = "- "
+
+# Escape HTML characters
 def html_escape(text):
     return "".join(html_escape_table.get(c, c) for c in text)
+
+# Add break points so super long words doesn't mess up the UI
+def html_escape_and_add_break_points(text):
+    super_long_word = 24
+    bits = []
+    chars = ""
+    for i in range(0, len(text)):
+        if text[i] in break_characters:
+            if chars:
+                bits += [(chars, False)]
+                chars = ""
+            bits += [(text[i], False)]
+        else:
+            chars += text[i]
+            if len(chars) > super_long_word:
+                bits += [(chars, True)]
+                chars = ""
+
+    if chars:
+        bits += [(chars, False)]
+
+    result = ""
+
+    for bit in bits:
+        result += html_escape(bit[0])
+        if bit[1]:
+            result += "&#8203;"
+
+    return result
+
 
 html_headers = """
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -182,7 +215,7 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
 
     route_identifier = date + ":" + route_type + ":" + place + ":" + route_number
 
-    table += "<td><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + html_escape(route['name'])
+    table += "<td><a href=\"?route-comment=" + route_identifier + "\" target=\"_blank\">" + html_escape_and_add_break_points(route['name'])
     if route['subname']:
         table += " (" + route['subname'] + ")"
     table += "</a></td>"
