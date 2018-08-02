@@ -280,7 +280,7 @@ html.write(table)
 
 html_end = """
 <div id="credits">
-<a class=\"underline\" href="https://github.com/napszel/ClimbingRoutes" target="_blank" rel="noopener noreferrer">Napszel,</a> 2018
+<a class=\"underline\" href="https://github.com/napszel/ClimbingRoutes" target="_blank" rel="noopener noreferrer">Napszel</a>, 2018
 </div>
 </div>
 </body>
