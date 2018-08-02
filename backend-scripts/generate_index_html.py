@@ -263,9 +263,8 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
         table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" > leave a comment</a></td>"
         table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" >0</a></td>"
     else:
-        commenter = route['commenter'].split(" ")[0]
-        if len(route['commenter'].split(" ")) > 1:
-            commenter += " " + route['commenter'].split(" ")[1]
+        splcommenter = route['commenter'].split(" ")
+        commenter = " ".join(splcommenter[0:1])
         latest_comment = route['latest'].split("T")[0]
         table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" >" + latest_comment + "<br/>" + commenter + "</a></td>"
         table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" >" + str(route['posts']) + "</a></td>"
