@@ -156,7 +156,7 @@ html_headers = """
 html.write(html_headers)
 
 table = """
-<table id="example" class="compact stripe row-border" cellspacing="0" width="100%">
+<table id="example" class="stripe row-border" cellspacing="0" width="100%">
 <thead>
 <tr>
 <th title="pl" class="twenty">Pl.</th>

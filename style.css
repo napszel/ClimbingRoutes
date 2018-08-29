@@ -3,6 +3,7 @@ body {
     margin-left: 30px;
     margin-right: 30px;
     background: #f9f9f9;
+    color: #666;
     font-family: Helvetica, Arial;
 }
 
@@ -23,14 +24,13 @@ table {
 }
 
 th {
-    background-color: #eef2f6;
-    color: #235b9a;
+    background-color: #fff;
+    color: #666;
 }
 
 hr {
     border-color: #235b9a;
 }
-
 
 td.centered {
     text-align: center;
@@ -40,10 +40,20 @@ td.tiny {
     font-size: 12px;
 }
 
-th {
-    font-size: 12px;
+table.dataTable tfoot th {
+    padding: 5px;
+    border-top: 0px;
 }
 
+table.dataTable thead th {
+    padding: 5px;
+    font-size: 13px;
+    text-align: left;
+}
+
+table.dataTable tbody td {
+    padding: 8px 5px;
+}
 
 #example_wrapper {
     padding: 20px;
@@ -66,6 +76,7 @@ th {
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: 0 0 3px #bebebe;
+    color: #666;
 }
 
 .button {
@@ -84,7 +95,6 @@ th {
     font-size: 22px;
     font-weight: bold;
     letter-spacing: .1em;
-    color: #235b9a;
 }
 
 a.underline {
@@ -156,7 +166,6 @@ div.dt-buttons {
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: 0 0 3px #bebebe;
-    color: #235b9a;
 }
 
 #wrapper {
@@ -165,7 +174,6 @@ div.dt-buttons {
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: 0 0 3px #bebebe;
-    color: #235b9a;
 }
 
 #images {
