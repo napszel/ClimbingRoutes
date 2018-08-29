@@ -198,6 +198,42 @@ table = """
 <tbody>
 """
 
+def getColorFromGrade(grade, type):
+    if type == "sport":
+        no = int(grade[0:1])
+        l = grade[1:2]
+        if (no < 5):
+            return "yellow";
+        if (no == 5):
+            if (l == "c"):
+                return "blue";
+            else:
+                return "yellow";
+        if (no == 6):
+            if (l == "c"):
+                return "red";
+            else:
+                return "blue";
+        if (no == 7):
+            if (l == "c"):
+                return "black";
+            else:
+                return "red";
+        if (no > 7):
+            return "black"
+    else:
+        no = int(grade[1:2]);
+        if no <= 1:
+            return "yellow";
+        if no == 2:
+            return "green";
+        if no == 3:
+            return "blue";
+        if no == 4:
+            return "red";
+        if no >= 5:
+            return "black";
+
 def getElement(s):
     return "<td>" + s + "</td>"
 
@@ -220,7 +256,8 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
         table += " (" + route['subname'] + ")"
     table += "</a></td>"
 
-    table += getElement(route['grade'])
+    color = getColorFromGrade(route['grade'], route['typ'])
+    table += "<td><span class=\"table-grade " + color + "\">" + route['grade'] + "</span></td>"
 
     table += getElement(route['setter'])
     table += getElement(date)

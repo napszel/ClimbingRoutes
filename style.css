@@ -209,7 +209,33 @@ div.dt-buttons {
 
 #grade {
     font-size: 40px;
-    color: blue;
+}
+
+.table-grade {
+    padding: 1px 3px;
+    color: white;
+    font-weight: lighter;
+}
+
+.yellow {
+    background: #ffec01;
+    color: black;
+}
+
+.green {
+    background: #00b259;
+}
+
+.blue {
+    background: #018ccf;
+}
+
+.red {
+    background: #f00;
+}
+
+.black {
+    background: black;
 }
 
 #sector {
