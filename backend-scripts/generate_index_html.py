@@ -81,7 +81,10 @@ html_headers = """
   
   <body>
   <div id="route_root" style="display: none">
-    <div id="header"></div>
+    <div id="header">
+      <div id="back_button"><a href="index.html"><img src="back.png"/></a></div>
+      <div id="title"></div>
+    </div>
       <div id="wrapper">
         <div id="images">
           <table id="images_table">

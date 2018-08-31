@@ -146,7 +146,6 @@ div.dt-buttons {
     margin: auto;
     width: 1200px;
     background: #ffffff;
-    color: #2a2e2e;
     letter-spacing: .1em;
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
@@ -158,12 +157,21 @@ div.dt-buttons {
 }
 
 #header {
+    display: flex;
     background: #ffffff;
     padding: 5px 0px 5px 0px;
     text-align: center;
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: 0 0 3px #bebebe;
+}
+
+#back_button {
+    width: 50px;
+}
+
+#title {
+    flex: 1;
 }
 
 #wrapper {

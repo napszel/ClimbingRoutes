@@ -68,7 +68,7 @@ $(document).ready(function() {
     } else {
       type = "Sport";
     }
-    $("#header").append("<h2><span style=\"color: #ff0000\">" + type + "</span> route <span style=\"color: #ff0000\">#" + number + "</span> of <span style=\"color: #ff0000\">" + place + "</span> set on <span style=\"color: #ff0000\">" + date + "</span></h2>");
+    $("#title").append("<h2><span style=\"color: #ff0000\">" + type + "</span> route <span style=\"color: #ff0000\">#" + number + "</span> of <span style=\"color: #ff0000\">" + place + "</span> set on <span style=\"color: #ff0000\">" + date + "</span></h2>");
 
     rid = startHash.split("=")[1];
     index = 0;
