@@ -83,10 +83,11 @@ html_headers = """
   <div id="route_root" style="display: none">
     <div id="header">
       <div id="back_button"><a href="index.html"><img src="back.png"/></a></div>
-      <div id="title"></div>
+      <div id="title-div"></div>
     </div>
-      <div id="wrapper">
-        <div id="images">
+    <hr/>
+    <div id="wrapper">
+       <div id="images">
           <table id="images_table">
             <tr>
               <td><img id="lead"/></td>
@@ -98,8 +99,8 @@ html_headers = """
               <td id="hold_caption"></td>
             </tr>
           </table>
-        </div>
-        <div id="details">
+    </div>
+    <div id="details">
           <label id="status" style="display: none"></label><br/>
           <label id="number"></label><br/>
           <label id="name"></label><br/>
@@ -107,14 +108,14 @@ html_headers = """
           <label id="date_and_setter"></label><br/>
           <label id="kids"></label><br/>
         </div>
-      </div>
-      <div id="map_sector">
+    </div>
+    <div id="map_sector">
          <label id="sector"></label>
          <a id="map_link" target="_blank"><img id="map"></a>
-      </div>
-      <hr/>
-      <div id="disqus_thread"></div>
-      <script>
+    </div>
+    <hr/>
+    <div id="disqus_thread"></div>
+    <script>
         var disqus_config = function () {
           var startHash = window.location.search;
           this.page.url = 'http://napszel.com/climbingroutes' + startHash;
@@ -142,8 +143,8 @@ html_headers = """
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
       })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 
   <div id="main_table" style="display: none">

@@ -68,13 +68,13 @@ table.dataTable tbody td {
 }
 
 .buttons_container {
+    height: 60px;
+    line-height: 60px;
     background: #ffffff;
-    padding: 15px 0px 15px 0px;
     text-align: center;
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: 0 0 3px #bebebe;
-    color: #666;
 }
 
 .button {
@@ -145,21 +145,22 @@ div.dt-buttons {
 #route_root {
     margin: auto;
     width: 1200px;
-    background: #ffffff;
     letter-spacing: .1em;
+}
+
+#disqus_thread {
+    padding: 20px;
+    background: white;
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: 0 0 3px #bebebe;
 }
 
-#disqus_thread {
-    padding: 20px;
-}
-
 #header {
+    height: 60px;
+    line-height: 60px;
     display: flex;
     background: #ffffff;
-    padding: 5px 0px 5px 0px;
     text-align: center;
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
@@ -170,7 +171,7 @@ div.dt-buttons {
     width: 50px;
 }
 
-#title {
+#title-div {
     flex: 1;
 }
 
@@ -180,6 +181,8 @@ div.dt-buttons {
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: 0 0 3px #bebebe;
+    background: white;
+    margin-bottom: 16px;
 }
 
 #images {
@@ -245,6 +248,8 @@ div.dt-buttons {
 }
 
 #sector {
+    display: block;
+    padding: 20px;
     font-size: 24px;
     color: gray;
 }
@@ -256,13 +261,13 @@ div.dt-buttons {
 #map_sector {
     text-align: center;
     padding-top: 10px;
-}
-
-#map {
-    margin-top: 5px;
-    width: 100%;
+    background: white;
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: 0 0 3px #bebebe;
+}
+
+#map {
+    width: 100%;
     color: #235b9a;
 }
