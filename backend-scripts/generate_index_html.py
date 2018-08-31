@@ -163,21 +163,21 @@ table = """
 <table id="example" class="stripe row-border" cellspacing="0" width="100%">
 <thead>
 <tr>
-<th title="pl" class="twenty">Pl.</th>
-<th title="no" class="twenty">#</th>
-<th title="name" class="twohundred">Route</th>
-<th title="gr" class="twenty">Gr.</th>
-<th title="setter">Setter</th>
-<th title="date" class="ninety">Setting&nbsp;Date</th>
-<th title="color" class="hundredten">Color</th>
-<th title="type" class="fourty">Bould/ Sport</th>
-<th title="belay" class="hundredten">Belay</th>
-<th title="sector" class="twohundred">Sector</th>
-<th title="new" class="sixty">New/Last Call</th>
-<th title="status" class="sixty">Active/ Retired</th>
-<th title="kids" class="twenty">Kids</th>
-<th title="comment" class="hundredten">Latest Comment</th>
-<th title="sum" class="twenty">All</th>
+<th title="Place - Gaswerk or Milandia" class="twenty">Pl.</th>
+<th title="Route number" class="twenty">#</th>
+<th title="Route name" class="twohundred">Route</th>
+<th title="Grade" class="twenty">Gr.</th>
+<th title="Setter name">Setter</th>
+<th title="Setting date" class="ninety">Setting&nbsp;Date</th>
+<th title="Route color" class="hundredten">Color</th>
+<th title="Type - Boulder or Sport" class="fourty">Bould/ Sport</th>
+<th title="Belay type - Toprope, Lead, Toppas" class="hundredten">Belay</th>
+<th title="Sector" class="twohundred">Sector</th>
+<th title="New or Last call" class="sixty">New/Last Call</th>
+<th title="Status - Active or Retired" class="sixty">Active/ Retired</th>
+<th title="For kids" class="twenty">Kids</th>
+<th title="Latest comment" class="hundredten">Latest Comment</th>
+<th title="Sum of all comments" class="twenty">All</th>
 </tr>
 </thead>
 <tfoot>
@@ -296,9 +296,9 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
         table += getElement("Active")
     
     if route['kids']:
-        table += "<td class=\"centered\">Y</td>"
+        table += getElement("Kids")
     else:
-        table += "<td class=\"centered\">N</td>"
+        table += getElement("")
 
     if route['posts'] == None:
         table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" > leave a comment</a></td>"
