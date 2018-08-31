@@ -117,7 +117,7 @@ $(document).ready(function() {
     } else {
       type = "Sport";
     }
-    $("#title-div").append("<label class=\"title\"><span style=\"color: #ff0000\">" + type + "</span> route <span style=\"color: #ff0000\">#" + number + "</span> of <span style=\"color: #ff0000\">" + place + "</span> set on <span style=\"color: #ff0000\">" + date + "</span></label>");
+    $("#title-div").append("<label class=\"title\"><span class=\"emphasis\">" + type + "</span> route <span class=\"emphasis\">#" + number + "</span> of <span class=\"emphasis\">" + place + "</span> set on <span class=\"emphasis\">" + date + "</span></label>");
 
     rid = startHash.split("=")[1];
     index = 0;
@@ -126,8 +126,14 @@ $(document).ready(function() {
     }
 
     if (routesarray[index]["state"]) {
-      $('#status').text(routesarray[index]["state"]);
+      var state = routesarray[index]["state"];
+      $('#status').text(state);
       $('#status').css("display", "block");
+      if (state == 'New') {
+	$('#status').addClass("green-text");
+      } else {
+	$('#status').addClass("red-text");
+      }
     }
     
     $("#hold").attr("src", "http://www.kletterzentrum.com/" + routesarray[index]["imgurl"]);
