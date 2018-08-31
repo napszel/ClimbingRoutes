@@ -25,7 +25,7 @@ break_characters = "- "
 def html_escape(text):
     return "".join(html_escape_table.get(c, c) for c in text)
 
-# Add break points so super long words doesn't mess up the UI
+# Add break points so super long words don't mess up the UI
 def html_escape_and_add_break_points(text):
     super_long_word = 24
     bits = []
@@ -104,7 +104,7 @@ html_headers = """
           <label id="status" style="display: none"></label><br/>
           <label id="number"></label><br/>
           <label id="name"></label><br/>
-          <label id="grade"></label><br/>
+          <label><span id="grade" class="table-grade"></span></label><br/>
           <label id="date_and_setter"></label><br/>
           <label id="kids"></label><br/>
         </div>

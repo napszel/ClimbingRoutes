@@ -1,3 +1,52 @@
+function getColorFromGrade(grade, type) {
+  if (type == "Sport") {
+    var no = parseInt(grade.substring(0, 1));
+    var l = grade.substring(1, 2);
+    if (no < 5) return "yellow";
+    if (no == 5) {
+      if (l == "c") {
+	return "blue";
+      } else {
+	return "yellow";
+      }
+    }
+    if (no == 6) {
+      if (l == "c") {
+	return "red";
+      } else {
+	return "blue";
+      }
+    }
+    if (no == 7) {
+      if (l == "c") {
+	return "black";
+      } else {
+	return "red";
+      }
+    }
+    if (no > 7) {
+      return "black";
+    }
+  } else {
+    var no = parseInt(grade.substring(1, 2));
+    if (no <= 1) {
+      return "yellow";
+    }
+    if (no == 2) {
+      return "green";
+    }
+    if (no == 3) {
+      return "blue";
+    }
+    if (no == 4) {
+      return "red";
+    }
+    if (no >= 5) {
+      return "black";
+    }
+  }
+}
+
 $(document).ready(function() {
   var startHash = window.location.search;
   if (!startHash) {
@@ -104,6 +153,7 @@ $(document).ready(function() {
     $('#number').html("#" + routesarray[index]["number"]);
     $('#name').html(routesarray[index]["name"]);
     $('#grade').html(routesarray[index]["grade"]);
+    $('#grade').addClass(getColorFromGrade(routesarray[index]["grade"], routesarray[index]["typ"]));
     $('#date_and_setter').html(routesarray[index]["date"] + ",  " + routesarray[index]["setter"]);
 
     if (routesarray[index]["kids"]) {
