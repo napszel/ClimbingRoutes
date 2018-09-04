@@ -154,7 +154,7 @@ html_headers = """
     <hr/>
     <div id="quick-buttons">
       <div id="quick-filters">
-        <label class="quick-filter">Gym:</label>
+        <label class="quick-filter">Filter Gym:</label>
         <input type="button" class="button" id="mil" value="Milandia" onclick="filterMilandia()" />
         <input type="button" class="button" id="gas" value="Gaswerk" onclick="filterGaswerk()" />
         <label class="quick-filter">Route Type:</label>
