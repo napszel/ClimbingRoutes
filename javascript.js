@@ -60,23 +60,13 @@ function replaceSpecialLetters(text) {
   return text;
 }
 
-function filterMilandia() {
-  $('#pl-filter').val('Mil');
+function filterPlace(word) {
+  $('#pl-filter').val(word);
   $('#pl-filter').trigger('input');
 }
 
-function filterGaswerk() {
-  $('#pl-filter').val('Gas');
-  $('#pl-filter').trigger('input');
-}
-
-function filterBoulder() {
-  $('#type-filter').val('Bould');
-  $('#type-filter').trigger('input');
-}
-
-function filterSport() {
-  $('#type-filter').val('Sport');
+function filterType(word) {
+  $('#type-filter').val(word);
   $('#type-filter').trigger('input');
 }
 
