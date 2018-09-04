@@ -155,11 +155,11 @@ html_headers = """
     <div id="quick-buttons">
       <div id="quick-filters">
         <label class="quick-filter">Filter Gym:</label>
-        <input type="button" class="button" id="mil" value="Milandia" onclick="filterPlace('Mil')" />
-        <input type="button" class="button" id="gas" value="Gaswerk" onclick="filterPlace('Gas')" />
+        <input type="button" class="button" id="mil" value="Milandia" onclick="applyFilter('Mil', '#pl-filter')" />
+        <input type="button" class="button" id="gas" value="Gaswerk" onclick="applyFilter('Gas', '#pl-filter')" />
         <label class="quick-filter">Route Type:</label>
-        <input type="button" class="button" id="sport" value="Sport" onclick="filterType('Sport')" />
-        <input type="button" class="button" id="bould" value="Boulder" onclick="filterType('Bould')" />
+        <input type="button" class="button" id="sport" value="Sport" onclick="applyFilter('Sport', '#type-filter')" />
+        <input type="button" class="button" id="bould" value="Boulder" onclick="applyFilter('Bould', '#type-filter')" />
       </div>
       <div id="map-buttons">
         <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk" onclick="window.open('gaswerk_map.png')" />

@@ -60,14 +60,9 @@ function replaceSpecialLetters(text) {
   return text;
 }
 
-function filterPlace(word) {
-  $('#pl-filter').val(word);
-  $('#pl-filter').trigger('input');
-}
-
-function filterType(word) {
-  $('#type-filter').val(word);
-  $('#type-filter').trigger('input');
+function applyFilter(word, field) {
+  $(field).val(word);
+  $(field).trigger('input');
 }
 
 $(document).ready(function() {
