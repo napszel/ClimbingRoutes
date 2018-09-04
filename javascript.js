@@ -47,6 +47,19 @@ function getColorFromGrade(grade, type) {
   }
 }
 
+var special_letters = [
+  ['ä', 'a'],
+  ['ö', 'o'],
+  ['ü', 'u']
+];
+
+function replaceSpecialLetters(text) {
+  for (var i=0; i<special_letters.length; i++) {
+    text = text.replace(special_letters[i][0], special_letters[i][1]);
+  }
+  return text;
+}
+
 $(document).ready(function() {
   var startHash = window.location.search;
   if (!startHash) {
@@ -169,19 +182,21 @@ $(document).ready(function() {
     if (routesarray[index]["place"] == "Gas") {
       sector = routesarray[index]["sector"];
       $('#sector').text("Gaswerk, " + sector);
-      if (sector.indexOf("Halle") != -1) {
-	halle_no = sector.slice(sector.indexOf("Halle") + 6, sector.indexOf("Halle") + 7);
-	$("#map").attr("src", "gaswerk_halle" + halle_no + ".png");
-	$("#map_link").attr("href", "gaswerk_halle" + halle_no + ".png");
-      } else if (sector.indexOf("Outdoor") != -1) {
-	$("#map").attr("src", "gaswerk_outdoor.png");
-	$("#map_link").attr("href", "gaswerk_outdoor.png");
-      } else if (routesarray[index]["typ"] == "Bould") {
+      if (routesarray[index]["typ"] == "Bould") {
 	$("#map").attr("src", "gaswerk_boulder.png");
 	$("#map_link").attr("href", "gaswerk_boulder.png");
       } else {
-	$("#map").attr("src", "gaswerk_map.png");
-	$("#map_link").attr("href", "gaswerk_map.png");
+	var sub_sector = sector.replace( /\s+/g , "-");
+	if (sector.indexOf("Halle") != -1) {
+	  sub_sector = sub_sector.split('-').slice(2).join('-').toLowerCase();
+	  sub_sector = replaceSpecialLetters(sub_sector);
+	} else {
+	  sub_sector = sub_sector.split('-').slice(1).join('-').toLowerCase();
+	  sub_sector = replaceSpecialLetters(sub_sector);
+	}
+	var filename = "gaswerk_" + sub_sector + ".png";
+	$("#map").attr("src", filename);
+	$("#map_link").attr("href", filename);
       }
     } else {
       sector = routesarray[index]["sector"];
@@ -190,8 +205,10 @@ $(document).ready(function() {
 	$("#map").attr("src", "milandia_boulder.png");
 	$("#map_link").attr("href", "milandia_boulder.png");
       } else {
-	$("#map").attr("src", "milandia_" + sector.split(" ")[0].toLowerCase() + ".png");
-	$("#map_link").attr("href", "milandia_" + sector.split(" ")[0].toLowerCase() + ".png");
+	var sub_sector = sector.split(" ")[0].toLowerCase();
+	sub_sector = replaceSpecialLetters(sub_sector);
+	$("#map").attr("src", "milandia_" + sub_sector + ".png");
+	$("#map_link").attr("href", "milandia_" + sub_sector + ".png");
       }
     }
 
