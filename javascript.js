@@ -60,15 +60,36 @@ function replaceSpecialLetters(text) {
   return text;
 }
 
+function filterMilandia() {
+  $('#pl-filter').val('Mil');
+  $('#pl-filter').trigger('input');
+}
+
+function filterGaswerk() {
+  $('#pl-filter').val('Gas');
+  $('#pl-filter').trigger('input');
+}
+
+function filterBoulder() {
+  $('#type-filter').val('Bould');
+  $('#type-filter').trigger('input');
+}
+
+function filterSport() {
+  $('#type-filter').val('Sport');
+  $('#type-filter').trigger('input');
+}
+
 $(document).ready(function() {
   var startHash = window.location.search;
   if (!startHash) {
     $("#main_table").show();
-    
+
     // Setup - add a text input to each footer cell -> search boxes for each column
     // - also create the array with default searches
     var default_search_values = []
     $('#example tfoot th').each( function () {
+      var title = $(this)[0].attributes['title'].value;
       var placeholder = $(this)[0].attributes['placeholder'].value;
       var default_value = ""
       if ($(this)[0].attributes['default']) {
@@ -77,7 +98,7 @@ $(document).ready(function() {
       } else {
 	default_search_values.push(null);
       }
-      $(this).html( '<input type="text" placeholder="'+placeholder+'" value="'+default_value+'"/>' );
+      $(this).html( '<input id="'+title+'-filter" type="text" placeholder="'+placeholder+'" value="'+default_value+'"/>' );
     } );
     
     // DataTable
@@ -106,7 +127,7 @@ $(document).ready(function() {
     table.columns().every( function () {
       var that = this;
       
-      $( 'input', this.footer() ).on( 'keyup change', function () {
+      $( 'input', this.footer() ).on('input', function () {
 	if ( that.search() !== this.value ) {
           that
             .search( this.value )

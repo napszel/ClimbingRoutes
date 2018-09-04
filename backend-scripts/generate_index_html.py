@@ -150,10 +150,22 @@ html_headers = """
   <div id="main_table" style="display: none">
     <div class="buttons_container">
       <label class="title">Climbing Routes of <a class=\"underline\" href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-gaswerk/">Gaswerk</a> and <a class=\"underline\" href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-milandia/">Milandia</a></label>
-      <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk" onclick="window.open('gaswerk_map.png')" />
-      <input type="button" class="button" id="milandia_map" value="Map of Milandia" onclick="window.open('milandia_map.png')" />
     </div>
     <hr/>
+    <div id="quick-buttons">
+      <div id="quick-filters">
+        <label class="quick-filter">Gym:</label>
+        <input type="button" class="button" id="mil" value="Milandia" onclick="filterMilandia()" />
+        <input type="button" class="button" id="gas" value="Gaswerk" onclick="filterGaswerk()" />
+        <label class="quick-filter">Route Type:</label>
+        <input type="button" class="button" id="sport" value="Sport" onclick="filterSport()" />
+        <input type="button" class="button" id="bould" value="Boulder" onclick="filterBoulder()" />
+      </div>
+      <div id="map-buttons">
+        <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk" onclick="window.open('gaswerk_map.png')" />
+        <input type="button" class="button" id="milandia_map" value="Map of Milandia" onclick="window.open('milandia_map.png')" />
+      </div>
+  </div>
 
 """
 

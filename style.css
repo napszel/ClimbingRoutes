@@ -226,6 +226,27 @@ div.dt-buttons {
     font-size: 40px;
 }
 
+.quick-filter {
+    margin-left: 14px;
+}
+
+#quick-filters {
+    float: left;
+}
+
+#quick-buttons {
+    height: 30px;
+    background: #f9f9f9;
+    padding: 9px;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: inset 0 0 3px #bebebe;
+}
+
+#map-buttons {
+    float: right;
+}
+
 .emphasis {
     color: black;
     font-weight: bold;
@@ -281,4 +302,12 @@ div.dt-buttons {
 #map {
     width: 100%;
     color: #235b9a;
+}
+
+#gaswerk_map {
+    background: url("map-icon.png") no-repeat scroll 0 0 transparent;
+}
+
+#milandia_map {
+    background: url("map-icon-mil.png") no-repeat scroll 0 0 transparent;
 }
