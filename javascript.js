@@ -193,12 +193,12 @@ $(document).ready(function() {
 
     if (routesarray[index]["place"] == "Gas") {
       sector = routesarray[index]["sector"];
+      var sub_sector = sector.replace( /\s+/g , "-");
       $('#sector').text("Gaswerk, " + sector);
       if (routesarray[index]["typ"] == "Bould") {
-	$("#map").attr("src", "gaswerk_boulder.png");
-	$("#map_link").attr("href", "gaswerk_boulder.png");
+	sub_sector = sub_sector.split('-').slice(0,2).join('-').toLowerCase();
+	sub_sector = replaceSpecialLetters(sub_sector);
       } else {
-	var sub_sector = sector.replace( /\s+/g , "-");
 	if (sector.indexOf("Halle") != -1) {
 	  sub_sector = sub_sector.split('-').slice(2).join('-').toLowerCase();
 	  sub_sector = replaceSpecialLetters(sub_sector);
@@ -206,10 +206,10 @@ $(document).ready(function() {
 	  sub_sector = sub_sector.split('-').slice(1).join('-').toLowerCase();
 	  sub_sector = replaceSpecialLetters(sub_sector);
 	}
-	var filename = "gaswerk_" + sub_sector + ".png";
-	$("#map").attr("src", filename);
-	$("#map_link").attr("href", filename);
       }
+      var filename = "gaswerk_" + sub_sector + ".png";
+      $("#map").attr("src", filename);
+      $("#map_link").attr("href", filename);
     } else {
       sector = routesarray[index]["sector"];
       $('#sector').text("Milandia, " + sector);
