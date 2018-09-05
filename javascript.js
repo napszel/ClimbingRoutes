@@ -61,7 +61,11 @@ function replaceSpecialLetters(text) {
 }
 
 function applyFilter(word, field) {
-  $(field).val(word);
+  if ($(field).val() != word) {
+    $(field).val(word);
+  } else {
+    $(field).val("");
+  }
   $(field).trigger('input');
 }
 
