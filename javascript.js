@@ -207,20 +207,20 @@ $(document).ready(function() {
 	  sub_sector = replaceSpecialLetters(sub_sector);
 	}
       }
-      var filename = "gaswerk_" + sub_sector + ".png";
+      var filename = "map-images/gaswerk_" + sub_sector + ".png";
       $("#map").attr("src", filename);
       $("#map_link").attr("href", filename);
     } else {
       sector = routesarray[index]["sector"];
       $('#sector').text("Milandia, " + sector);
       if (routesarray[index]["typ"] == "Bould") {
-	$("#map").attr("src", "milandia_boulder.png");
-	$("#map_link").attr("href", "milandia_boulder.png");
+	$("#map").attr("src", "map-images/milandia_boulder.png");
+	$("#map_link").attr("href", "map-images/milandia_boulder.png");
       } else {
 	var sub_sector = sector.split(" ")[0].toLowerCase();
 	sub_sector = replaceSpecialLetters(sub_sector);
-	$("#map").attr("src", "milandia_" + sub_sector + ".png");
-	$("#map_link").attr("href", "milandia_" + sub_sector + ".png");
+	$("#map").attr("src", "map-images/milandia_" + sub_sector + ".png");
+	$("#map_link").attr("href", "map-images/milandia_" + sub_sector + ".png");
       }
     }
 
