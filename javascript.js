@@ -66,7 +66,7 @@ function applyFilter(word, field) {
 }
 
 $(document).ready(function() {
-  var startHash = window.location.search;
+  var startHash = window.location.search; // the text after the ? in the path
   if (!startHash) {
     $("#main_table").show();
 
@@ -120,6 +120,12 @@ $(document).ready(function() {
 	}
       } );
     } );
+
+    // Apply the filter from path if any
+    var startFilter = window.location.hash; // the text after the # in the path
+    if (startFilter) {
+      applyFilter(startFilter.substring(1).split('-').join(' '), '#sector-filter');
+    }
   } else {
     parts = startHash.split(":");
     date = parts[0].split("=")[1];

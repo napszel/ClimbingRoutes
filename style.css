@@ -65,16 +65,6 @@ table.dataTable tbody td {
     letter-spacing: .2em;
 }
 
-.buttons_container {
-    height: 60px;
-    line-height: 60px;
-    background: #ffffff;
-    text-align: center;
-    -moz-box-shadow: 0 0 3px #bebebe;
-    -webkit-box-shadow: 0 0 3px #bebebe;
-    box-shadow: 0 0 3px #bebebe;
-}
-
 .button {
     font-size: 16px;
     margin-left: 15px;
@@ -153,10 +143,9 @@ div.dt-buttons {
     box-shadow: 0 0 3px #bebebe;
 }
 
-#header {
+.header {
     height: 60px;
     line-height: 60px;
-    display: flex;
     background: #ffffff;
     text-align: center;
     -moz-box-shadow: 0 0 3px #bebebe;
@@ -164,7 +153,11 @@ div.dt-buttons {
     box-shadow: 0 0 3px #bebebe;
 }
 
-#back_button {
+.flex {
+    display: flex;
+}
+
+.back_button {
     width: 50px;
 }
 
@@ -309,3 +302,5 @@ div.dt-buttons {
 #milandia_map {
     background: url("map-icon-mil.png") no-repeat scroll 0 0 transparent;
 }
+
+

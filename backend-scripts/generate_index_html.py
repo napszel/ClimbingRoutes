@@ -81,8 +81,8 @@ html_headers = """
   
   <body>
   <div id="route_root" style="display: none">
-    <div id="header">
-      <div id="back_button"><a href="index.html"><img src="back.png"/></a></div>
+    <div class="flex header">
+      <div class="back_button"><a href="index.html"><img src="back.png"/></a></div>
       <div id="title-div"></div>
     </div>
     <hr/>
@@ -148,7 +148,7 @@ html_headers = """
   </div>
 
   <div id="main_table" style="display: none">
-    <div class="buttons_container">
+    <div class="header">
       <label class="title">Climbing Routes of <a class=\"underline\" href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-gaswerk/">Gaswerk</a> and <a class=\"underline\" href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-milandia/">Milandia</a></label>
     </div>
     <hr/>
@@ -162,7 +162,7 @@ html_headers = """
         <input type="button" class="button" id="bould" value="Boulder" onclick="applyFilter('Bould', '#type-filter')" />
       </div>
       <div id="map-buttons">
-        <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk" onclick="window.open('gaswerk_map.png')" />
+        <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk" onclick="window.location.assign('gaswerk-map/gaswerk_map.html');" />
         <input type="button" class="button" id="milandia_map" value="Map of Milandia" onclick="window.open('milandia_map.png')" />
       </div>
   </div>
