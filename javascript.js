@@ -196,40 +196,33 @@ $(document).ready(function() {
       $('#kids').html("KIDS");
     }
 
+    var filename = "map-images/";
+
+    sector = routesarray[index]["sector"];
+    var sub_sector = sector.replace( /\s+/g , "-").toLowerCase();
+    sub_sector = replaceSpecialLetters(sub_sector);
+    
     if (routesarray[index]["place"] == "Gas") {
-      sector = routesarray[index]["sector"];
-      var sub_sector = sector.replace( /\s+/g , "-");
       $('#sector').text("Gaswerk, " + sector);
+
       if (routesarray[index]["typ"] == "Bould") {
-	sub_sector = sub_sector.split('-').slice(0,2).join('-').toLowerCase();
-	sub_sector = replaceSpecialLetters(sub_sector);
+	sub_sector = sub_sector.split('-').slice(0,2).join('-');
       } else {
 	if (sector.indexOf("Halle") != -1) {
-	  sub_sector = sub_sector.split('-').slice(2).join('-').toLowerCase();
-	  sub_sector = replaceSpecialLetters(sub_sector);
+	  sub_sector = sub_sector.split('-').slice(2).join('-');
 	} else {
-	  sub_sector = sub_sector.split('-').slice(1).join('-').toLowerCase();
-	  sub_sector = replaceSpecialLetters(sub_sector);
+	  sub_sector = sub_sector.split('-').slice(1).join('-');
 	}
       }
-      var filename = "map-images/gaswerk_" + sub_sector + ".png";
-      $("#map").attr("src", filename);
-      $("#map_link").attr("href", filename);
+      filename += "gaswerk_" + sub_sector + ".png";
     } else {
-      sector = routesarray[index]["sector"];
       $('#sector').text("Milandia, " + sector);
-      var sub_sector = sector.toLowerCase();
-      sub_sector = replaceSpecialLetters(sub_sector);
-      console.log(sub_sector);
-      if (routesarray[index]["typ"] == "Bould") {
-	sub_sector = sub_sector.replace( /\s+/g , "-");
-      } else {
-	sub_sector = sub_sector.split(" ")[0];
-      }
-      var filename = "map-images/milandia_" + sub_sector + ".png";
-      $("#map").attr("src", filename);
-      $("#map_link").attr("href", filename);
+      filename += "milandia_" + sub_sector + ".png";
     }
+    console.log(sub_sector);
+
+    $("#map").attr("src", filename);
+    $("#map_link").attr("href", filename);
 
     $("#route_root").show();
   }
