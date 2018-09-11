@@ -219,8 +219,6 @@ $(document).ready(function() {
       $('#sector').text("Milandia, " + sector);
       filename += "milandia_" + sub_sector + ".png";
     }
-    console.log(sub_sector);
-
     $("#map").attr("src", filename);
     $("#map_link").attr("href", filename);
 
