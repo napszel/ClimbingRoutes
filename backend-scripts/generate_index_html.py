@@ -163,7 +163,7 @@ html_headers = """
       </div>
       <div id="map-buttons">
         <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk" onclick="window.location.assign('gaswerk-map/gaswerk_map.html');" />
-        <input type="button" class="button" id="milandia_map" value="Map of Milandia" onclick="window.open('map-images/milandia_map.png')" />
+        <input type="button" class="button" id="milandia_map" value="Map of Milandia" onclick="window.location.assign('milandia-map/milandia_map.html')" />
       </div>
   </div>
 
