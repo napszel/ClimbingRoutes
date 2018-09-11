@@ -15,11 +15,11 @@ body {
 }
 
 #Table_01 img[alt="sector"]:hover {
-    background: #99ff00;
+    background: #2aff00;
 }
 
 #Table_01 img[alt="boulder"]:hover {
-    background: #b80325;
+    background: #ff0000;
 }
 
 #map-title {
