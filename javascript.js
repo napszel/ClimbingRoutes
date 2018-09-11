@@ -50,7 +50,8 @@ function getColorFromGrade(grade, type) {
 var special_letters = [
   ['ä', 'a'],
   ['ö', 'o'],
-  ['ü', 'u']
+  ['ü', 'u'],
+  [',', ' ']
 ];
 
 function replaceSpecialLetters(text) {
@@ -217,15 +218,17 @@ $(document).ready(function() {
     } else {
       sector = routesarray[index]["sector"];
       $('#sector').text("Milandia, " + sector);
+      var sub_sector = sector.toLowerCase();
+      sub_sector = replaceSpecialLetters(sub_sector);
+      console.log(sub_sector);
       if (routesarray[index]["typ"] == "Bould") {
-	$("#map").attr("src", "map-images/milandia_boulder.png");
-	$("#map_link").attr("href", "map-images/milandia_boulder.png");
+	sub_sector = sub_sector.replace( /\s+/g , "-");
       } else {
-	var sub_sector = sector.split(" ")[0].toLowerCase();
-	sub_sector = replaceSpecialLetters(sub_sector);
-	$("#map").attr("src", "map-images/milandia_" + sub_sector + ".png");
-	$("#map_link").attr("href", "map-images/milandia_" + sub_sector + ".png");
+	sub_sector = sub_sector.split(" ")[0];
       }
+      var filename = "map-images/milandia_" + sub_sector + ".png";
+      $("#map").attr("src", filename);
+      $("#map_link").attr("href", filename);
     }
 
     $("#route_root").show();
