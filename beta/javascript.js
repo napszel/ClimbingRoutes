@@ -104,7 +104,7 @@ $(document).ready(function() {
 	{ "width": "90px", "targets": [ "ninety" ] },
 	{ "width": "110px", "targets": [ "hundredten" ] },
 	{ "width": "200px", "targets": [ "twohundred" ] },
-	{ "visible": false, "targets": [4, 8, 11, 12] }
+	{ "visible": false, "targets": [4, 8, 12] }
       ],
       "dom": 'ifBrt',
       "buttons": [

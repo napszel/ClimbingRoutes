@@ -5,7 +5,7 @@ import json
 from pprint import pprint
 import sqlite3
 
-html = open('../index.html', 'w')
+html = open('../beta/index.html', 'w')
 
 conn = sqlite3.connect('routes.db')
 conn.row_factory = sqlite3.Row
@@ -205,7 +205,7 @@ table = """
 <th title="belay" placeholder="Toppas/Lead/Toprope" />
 <th title="sector" placeholder="Filter by sector name" />
 <th title="new" placeholder="New/Last Call"/>
-<th title="status" placeholder="Active/Retired" default="Active"/>
+<th title="status" placeholder="Active/Retired"/>
 <th title="kids" placeholder="Kids" />
 <th title="comment" placeholder="Latest comment" />
 <th title="sum" placeholder="no. of comm." />
@@ -253,7 +253,7 @@ def getColorFromGrade(grade, type):
 def getElement(s):
     return "<td>" + s + "</td>"
 
-for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, postcount.latest FROM routes LEFT JOIN postcount ON routes.dat = postcount.dat AND routes.typ = postcount.typ AND routes.place = postcount.place AND routes.rid = postcount.rid WHERE retired=0 ORDER BY dat DESC'):
+for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, postcount.latest FROM routes LEFT JOIN postcount ON routes.dat = postcount.dat AND routes.typ = postcount.typ AND routes.place = postcount.place AND routes.rid = postcount.rid ORDER BY dat DESC'):
     table += "<tr>"
 
     place = route['place']
