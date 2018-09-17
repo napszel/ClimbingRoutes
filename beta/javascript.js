@@ -186,6 +186,14 @@ $(document).ready(function() {
       }
     }
 
+    $("#heart").click(function() {
+      if ($("#heart").hasClass("red-text")) {
+	$("#heart").removeClass("red-text");
+      } else {
+	$("#heart").addClass("red-text");
+      }
+    });
+    
     $('#number').html("#" + routesarray[index]["number"]);
     $('#name').html(routesarray[index]["name"]);
     $('#grade').html(routesarray[index]["grade"]);

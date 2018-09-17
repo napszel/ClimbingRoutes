@@ -101,6 +101,7 @@ html_headers = """
           </table>
     </div>
     <div id="details">
+          <label id="heart">❤</label> ️
           <label id="status" style="display: none"></label><br/>
           <label id="number"></label><br/>
           <label id="name"></label><br/>

@@ -189,6 +189,7 @@ div.dt-buttons {
 #details {
     overflow: hidden;
     font-size: 20px;
+    position: relative;
 }
 
 #details label {
@@ -215,6 +216,12 @@ div.dt-buttons {
 
 #grade {
     font-size: 40px;
+}
+
+#heart {
+    font-size: 40px;
+    position: absolute;
+    right: 0px;
 }
 
 .quick-filter {
