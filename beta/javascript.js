@@ -186,13 +186,40 @@ $(document).ready(function() {
       }
     }
 
-    $("#heart").click(function() {
-      if ($("#heart").hasClass("red-text")) {
-	$("#heart").removeClass("red-text");
+    $(".opinion").click(function() {
+      if ($(this).hasClass("faded")) {
+	$(this).removeClass("faded");
+	if (this.id == 'hard') {
+	  $("#easy").addClass("faded");
+	} else {
+	  if (this.id == 'easy') {
+	    $("#hard").addClass("faded");
+	  }
+	}
       } else {
-	$("#heart").addClass("red-text");
+	$(this).addClass("faded");
       }
     });
+
+    $(".result-button").click(function() {
+      if ($(this).hasClass("clicked-result-button")) {
+	$(".result-button").removeClass("clicked-result-button");
+	$("#results-form").find("input[type=radio]").prop('checked', false);
+      } else {
+	$(".result-button").removeClass("clicked-result-button");
+	$("#results-form").find("input[type=radio]").prop('checked', false);
+	$(this).addClass("clicked-result-button");
+	if (this.id == 'attempt-button') {
+	  $("#attempt1").prop('checked', true);
+	}
+      }
+    });
+
+    $(".radio").click(function() {
+      $(".result-button").removeClass("clicked-result-button");
+      $("#attempt-button").addClass("clicked-result-button");
+    });
+    
     
     $('#number').html("#" + routesarray[index]["number"]);
     $('#name').html(routesarray[index]["name"]);
@@ -211,6 +238,7 @@ $(document).ready(function() {
     sub_sector = replaceSpecialLetters(sub_sector);
     
     if (routesarray[index]["place"] == "Gas") {
+      $('#sector-link').text("Gaswerk, " + sector);
       $('#sector').text("Gaswerk, " + sector);
 
       if (routesarray[index]["typ"] == "Bould") {
@@ -225,6 +253,8 @@ $(document).ready(function() {
       filename += "gaswerk_" + sub_sector + ".png";
     } else {
       $('#sector').text("Milandia, " + sector);
+      $('#sector-link').text("Milandia, " + sector);
+
       filename += "milandia_" + sub_sector + ".png";
     }
     $("#map").attr("src", filename);

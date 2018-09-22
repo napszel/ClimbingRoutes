@@ -81,12 +81,13 @@ html_headers = """
   
   <body>
   <div id="route_root" style="display: none">
-    <div class="flex header">
+    <div class="flex header shadowbox">
       <div class="back_button"><a href="index.html"><img src="back.png"/></a></div>
       <div id="title-div"></div>
     </div>
     <hr/>
-    <div id="wrapper">
+
+    <div id="wrapper" class="shadowbox">
        <div id="images">
           <table id="images_table">
             <tr>
@@ -99,23 +100,43 @@ html_headers = """
               <td id="hold_caption"></td>
             </tr>
           </table>
-    </div>
-    <div id="details">
-          <label id="heart">❤</label> ️
+       </div>
+       <div id="details">
+          <label id="heart" class="opinion faded" title="I like this route">❤</label>
+          <label id="hard" class="opinion faded" title="Too hard for this grade">💪</label>
+          <label id="easy" class="opinion faded" title="Too easy for this grade">🍃</label>
+
           <label id="status" style="display: none"></label><br/>
           <label id="number"></label><br/>
           <label id="name"></label><br/>
           <label><span id="grade" class="table-grade"></span></label><br/>
           <label id="date_and_setter"></label><br/>
+          <a href="#map_sector"><label id="sector-link"></label></a><br/>
           <label id="kids"></label><br/>
+       </div>
+    </div>
+    <div id="results" class="shadowbox">
+        <label id="your-results">Your latest result</label>
+        <form id="results-form">
+        <input type="button" class="result-button" value="👀 On-sighted" />
+        <input type="button" class="result-button" value="⚡ Flashed" />
+        <input type="button" class="result-button" value="🔴 Red-pointed" />
+        <input type="button" id="attempt-button" class="result-button" value="🤔 Attempted: " />
+
+         <input type="radio" name="attempts" id="attempt1" class="radio"><label for="attempt1">1 stop</label>
+         <input type="radio" name="attempts" id="attempt2" class="radio"><label for="attempt2">2 stops</label>
+         <input type="radio" name="attempts" id="attempt3" class="radio"><label for="attempt3">>2 stops</label>
+         <input type="radio" name="attempts" id="gaveup" class="radio"><label for="gaveup">Gave up</label>
+
+        <input type="button" class="result-button" value="ᐿ Toproped" />
+        </form>
+
+        <div class="plotly">
+          <iframe width="500" height="250" frameborder="0" scrolling="no" src="//plot.ly/~napszel/1.embed?showlink=false"></iframe>
         </div>
     </div>
-    <div id="map_sector">
-         <label id="sector"></label>
-         <a id="map_link" target="_blank"><img id="map"></a>
-    </div>
-    <hr/>
-    <div id="disqus_thread"></div>
+
+    <div id="disqus_thread" class="shadowbox"></div>
     <script>
         var disqus_config = function () {
           var startHash = window.location.search;
@@ -146,14 +167,20 @@ html_headers = """
       })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    <hr/>
+    <div id="map_sector" class="shadowbox">
+       <label id="sector"></label>
+       <a id="map_link" target="_blank"><img id="map"></a>
+    </div>
   </div>
 
   <div id="main_table" style="display: none">
-    <div class="header">
+    <div class="header shadowbox">
       <label class="title">Climbing Routes of <a class=\"underline\" href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-gaswerk/">Gaswerk</a> and <a class=\"underline\" href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-milandia/">Milandia</a></label>
     </div>
     <hr/>
-    <div id="quick-buttons">
+    <div id="quick-buttons" class="shadowbox">
       <div id="quick-filters">
         <label class="quick-filter">Filter Gym:</label>
         <input type="button" class="button" id="mil" value="Milandia" onclick="applyFilter('Mil', '#pl-filter')" />

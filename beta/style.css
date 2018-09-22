@@ -51,14 +51,6 @@ table.dataTable tbody td {
     padding: 8px 5px;
 }
 
-#example_wrapper {
-    padding: 20px;
-    background: #ffffff;
-    -moz-box-shadow: 0 0 3px #bebebe;
-    -webkit-box-shadow: 0 0 3px #bebebe;
-    box-shadow: 0 0 3px #bebebe;
-}
-
 #credits {
     padding-top: 10px;
     font-size: .7em;
@@ -75,6 +67,36 @@ table.dataTable tbody td {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+}
+
+.result-button {
+    font-size: 16px;
+    margin-left: 15px;
+    background: none;
+    border: none;
+    color: #666;
+    padding: 6px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer; 
+}
+
+.clicked-result-button {
+    background: #235b9a;
+    color: white;
+}
+
+#attempt-button {
+    padding-right: 5px;
+}
+
+#disqus_thread {
+    padding: 20px;
+}
+
+.plotly {
+    margin-top: 10px;
 }
 
 .title {
@@ -106,11 +128,11 @@ a:active {
     text-decoration: none;
 }
 
-input, select, textarea{
+input[type="text"], select, textarea{
     color: red;
 }
 
-textarea:focus, input:focus {
+textarea:focus, input[type="text"]:focus {
     color: red;
 }
 
@@ -132,15 +154,7 @@ div.dt-buttons {
 #route_root {
     margin: auto;
     width: 1200px;
-    letter-spacing: .1em;
-}
-
-#disqus_thread {
-    padding: 20px;
-    background: white;
-    -moz-box-shadow: 0 0 3px #bebebe;
-    -webkit-box-shadow: 0 0 3px #bebebe;
-    box-shadow: 0 0 3px #bebebe;
+    letter-spacing: .05em;
 }
 
 .header {
@@ -148,9 +162,6 @@ div.dt-buttons {
     line-height: 60px;
     background: #ffffff;
     text-align: center;
-    -moz-box-shadow: 0 0 3px #bebebe;
-    -webkit-box-shadow: 0 0 3px #bebebe;
-    box-shadow: 0 0 3px #bebebe;
 }
 
 .flex {
@@ -168,10 +179,6 @@ div.dt-buttons {
 #wrapper {
     overflow: hidden;
     padding: 20px;
-    -moz-box-shadow: 0 0 3px #bebebe;
-    -webkit-box-shadow: 0 0 3px #bebebe;
-    box-shadow: 0 0 3px #bebebe;
-    background: white;
     margin-bottom: 16px;
 }
 
@@ -218,10 +225,37 @@ div.dt-buttons {
     font-size: 40px;
 }
 
-#heart {
+.faded {
+    opacity: 0.3;
+}
+
+.opinion {
     font-size: 40px;
     position: absolute;
     right: 0px;
+    cursor: pointer;
+}
+
+#heart {
+    color: red;
+}
+
+#hard {
+    top: 50px;
+}
+
+#easy {
+    top: 100px;
+}
+
+#results {
+    padding: 20px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+#results-form {
+    margin-top: 13px;
 }
 
 .quick-filter {
@@ -236,9 +270,6 @@ div.dt-buttons {
     height: 30px;
     background: #f9f9f9;
     padding: 9px;
-    -moz-box-shadow: 0 0 3px #bebebe;
-    -webkit-box-shadow: 0 0 3px #bebebe;
-    box-shadow: inset 0 0 3px #bebebe;
 }
 
 #map-buttons {
@@ -279,9 +310,13 @@ div.dt-buttons {
 
 #sector {
     display: block;
-    padding: 20px;
-    font-size: 24px;
+    padding: 15px;
+    font-size: 20px;
     color: black;
+}
+
+#sector-link {
+    cursor: pointer;
 }
 
 #images_table td {
@@ -291,7 +326,18 @@ div.dt-buttons {
 #map_sector {
     text-align: center;
     padding-top: 10px;
+}
+
+.shadowbox {
     background: white;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: 0 0 3px #bebebe;
+}
+
+#example_wrapper {
+    padding: 20px;
+    background: #ffffff;
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: 0 0 3px #bebebe;
