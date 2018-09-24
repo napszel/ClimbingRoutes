@@ -6,9 +6,11 @@ The project ‘Climbing Routes’ is a web application that displays up to date 
 
 Data is downloaded from the official websites (http://www.kletterzentrum.com/routenfinder/) and updated automatically once a day.
 
-The displayed table is searchabe (for all fields) and filterable/sortable for each column.
+The displayed table is searchable (for all fields) and filterable/sortable for each column.
 
-You can ready about each feature in the [project's pdf documentation](climbing-routes-documentation.pdf).
+You can read about each existing and planned features in the [project's pdf documentation](climbing-routes-documentation.pdf).
+
+Future developments ideas are getting implemented at http://napszel.com/betaclimbingroutes
 
 ## The code
 
