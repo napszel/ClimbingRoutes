@@ -2,11 +2,13 @@
 
 http://napszel.com/climbingroutes
 
-This website displays a list of all climbing routes of Milandia and Gaswerk climbing centers of Zurich, Switzerland. 
+The project ‘Climbing Routes’ is a web application that displays up to date information of the currently available boulder and sport routes at Gaswerk and Milandia climbing gyms of Zürich, Switzerland.
 
-The data is taken from their official website: http://www.kletterzentrum.com/routenfinder/.
+Data is downloaded from the official websites (http://www.kletterzentrum.com/routenfinder/) and updated automatically once a day.
 
 The displayed table is searchabe (for all fields) and filterable/sortable for each column.
+
+You can ready about each feature in the [project's pdf documentation](climbing-routes-documentation.pdf).
 
 ## The code
 
