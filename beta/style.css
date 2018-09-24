@@ -82,6 +82,22 @@ table.dataTable tbody td {
     cursor: pointer; 
 }
 
+.fa-eye {
+    color: #0c7847;
+}
+
+.fa-bolt {
+    color: #da950e;
+}
+
+.fa-dot-circle {
+    color: red;
+}
+
+.fa-sort-numeric-up {
+    color: #018ccf;
+}
+
 .clicked-result-button {
     background: #235b9a;
     color: white;
@@ -241,10 +257,12 @@ div.dt-buttons {
 }
 
 #hard {
+    color: #da950e;
     top: 50px;
 }
 
 #easy {
+    color: #0c7847;
     top: 100px;
 }
 

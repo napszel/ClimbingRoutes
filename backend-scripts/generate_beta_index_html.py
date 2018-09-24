@@ -75,6 +75,9 @@ html_headers = """
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" media="screen"/>
     
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
     <link rel="shortcut icon" href="favicon.png" type="image/png"/>
   </head>
@@ -102,9 +105,9 @@ html_headers = """
           </table>
        </div>
        <div id="details">
-          <label id="heart" class="opinion faded" title="I like this route">❤</label>
-          <label id="hard" class="opinion faded" title="Too hard for this grade">💪</label>
-          <label id="easy" class="opinion faded" title="Too easy for this grade">🍃</label>
+          <label id="heart" class="opinion faded" title="I like this route"><i class="fas fa-heart"></i></label>
+          <label id="hard" class="opinion faded" title="Too hard for this grade"><i class="fas fa-cogs"></i></label>
+          <label id="easy" class="opinion faded" title="Too easy for this grade"><i class="fas fa-feather-alt"></i></label>
 
           <label id="status" style="display: none"></label><br/>
           <label id="number"></label><br/>
@@ -118,17 +121,18 @@ html_headers = """
     <div id="results" class="shadowbox">
         <label id="your-results">Your latest result</label>
         <form id="results-form">
-        <input type="button" class="result-button" value="👀 On-sighted" />
-        <input type="button" class="result-button" value="⚡ Flashed" />
-        <input type="button" class="result-button" value="🔴 Red-pointed" />
-        <input type="button" id="attempt-button" class="result-button" value="🤔 Attempted: " />
+        <label class="result-button"><i class="fas fa-eye"></i> On-sighted</label>
+        <label class="result-button"><i class="fas fa-bolt"></i> Flashed</label>
+        <label class="result-button"><i class="fas fa-dot-circle"></i> Red-pointed</label>
+        <label id="attempt-button" class="result-button"><i class="fas fa-sort-numeric-up"></i> Attempted</label>
 
          <input type="radio" name="attempts" id="attempt1" class="radio"><label for="attempt1">1 stop</label>
          <input type="radio" name="attempts" id="attempt2" class="radio"><label for="attempt2">2 stops</label>
          <input type="radio" name="attempts" id="attempt3" class="radio"><label for="attempt3">>2 stops</label>
          <input type="radio" name="attempts" id="gaveup" class="radio"><label for="gaveup">Gave up</label>
 
-        <input type="button" class="result-button" value="ᐿ Toproped" />
+        <label class="result-button"><i class="fas fa-project-diagram"></i> Toproped</label>
+
         </form>
 
         <div class="plotly">
