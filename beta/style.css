@@ -103,6 +103,11 @@ table.dataTable tbody td {
     color: white;
 }
 
+.fa-user {
+    font-size: 30px;
+    padding: 15px 20px;
+}
+
 #attempt-button {
     padding-right: 5px;
 }
@@ -246,7 +251,7 @@ div.dt-buttons {
 }
 
 .opinion {
-    font-size: 40px;
+    font-size: 30px;
     position: absolute;
     right: 0px;
     cursor: pointer;
@@ -351,6 +356,17 @@ div.dt-buttons {
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: 0 0 3px #bebebe;
+}
+
+.content {
+    padding: 20px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.content ol {
+    text-align: left;
+    line-height: 30px;
 }
 
 #example_wrapper {
