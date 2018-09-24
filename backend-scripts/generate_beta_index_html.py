@@ -87,6 +87,7 @@ html_headers = """
     <div class="flex header shadowbox">
       <div class="back_button"><a href="index.html"><img src="back.png"/></a></div>
       <div id="title-div"></div>
+      <a href="profile.html"><i class="fas fa-user"></i></a>
     </div>
     <hr/>
 
@@ -128,7 +129,7 @@ html_headers = """
 
          <input type="radio" name="attempts" id="attempt1" class="radio"><label for="attempt1">1 stop</label>
          <input type="radio" name="attempts" id="attempt2" class="radio"><label for="attempt2">2 stops</label>
-         <input type="radio" name="attempts" id="attempt3" class="radio"><label for="attempt3">>2 stops</label>
+         <input type="radio" name="attempts" id="attempt3" class="radio"><label for="attempt3">2 stops</label>
          <input type="radio" name="attempts" id="gaveup" class="radio"><label for="gaveup">Gave up</label>
 
         <label class="result-button"><i class="fas fa-project-diagram"></i> Toproped</label>
