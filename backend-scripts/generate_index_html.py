@@ -318,7 +318,7 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     else:
         splcommenter = route['commenter'].split(" ")
         commenter = " ".join(splcommenter[0:1])
-        latest_comment = route['latest'].split("T")[0]
+        latest_comment = route['latest'].split("T")[0] + " " + route['latest'].split("T")[1]
         table += "<td class=\"tiny\"><a href=\"?route-comment=" + route_identifier + "\" >" + latest_comment + "<br/>" + commenter + "</a></td>"
         table += "<td class=\"centered tiny\"><a href=\"?route-comment=" + route_identifier + "\" >" + str(route['posts']) + "</a></td>"
 
