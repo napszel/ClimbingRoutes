@@ -119,8 +119,9 @@ $(document).ready(function() {
       
       $( 'input', this.footer() ).on('input', function () {
 	if ( that.search() !== this.value ) {
+	  console.log(this.value);
           that
-            .search( this.value )
+            .search( this.value, true )
             .draw();
 	}
       } );
@@ -129,7 +130,7 @@ $(document).ready(function() {
     // Apply the filter from path if any
     var startFilter = window.location.hash; // the text after the # in the path
     if (startFilter) {
-      applyFilter(startFilter.substring(1).split('-').join(' '), '#sector-filter');
+      applyFilter(decodeURIComponent(startFilter.substring(1)), '#sector-filter');
     }
   } else {
     parts = startHash.split(":");
