@@ -119,7 +119,6 @@ $(document).ready(function() {
       
       $( 'input', this.footer() ).on('input', function () {
 	if ( that.search() !== this.value ) {
-	  console.log(this.value);
           that
             .search( this.value, true )
             .draw();

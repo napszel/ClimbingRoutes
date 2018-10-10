@@ -18,7 +18,7 @@ problematic_sectors = {
     "halle-1-turm": 'Halle 1 Turm',
     "halle-2-ngerwand": 'Halle 2 Anfängerwand',
     "halle-2-galerie-3": 'Halle 2 Galerie 3',
-    "halle-1-galerie-1": 'Halle 1 Galerie 1',
+    "halle-1-galerie-1": '"Halle 1  Galerie 1"',
     "halle-3-kinderwand": 'Halle 3 Kinderwand',
     "outdoor-arco-wand": 'Outdoor Arco-Wand',
     "outdoor-3d-wand": 'Outdoor 3D-Wand',
