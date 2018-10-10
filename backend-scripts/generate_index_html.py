@@ -197,7 +197,7 @@ table = """
 <th title="pl" placeholder="Mil/Gas" />
 <th title="no" placeholder="#" />
 <th title="name" placeholder="Filer by route name" />
-<th title="gr" placeholder="6a+" />
+<th title="gr" placeholder="6a\+" />
 <th title="setter" placeholder="Filter by route setter" />
 <th title="date" placeholder="Filter by date" />
 <th title="color" placeholder="Color" />
