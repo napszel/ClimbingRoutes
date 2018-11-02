@@ -22,7 +22,8 @@ problematic_sectors = {
     "halle-3-kinderwand": 'Halle 3 Kinderwand',
     "outdoor-arco-wand": 'Outdoor Arco-Wand',
     "outdoor-3d-wand": 'Outdoor 3D-Wand',
-    "new-age": 'Outdoor New Age'
+    "new-age": 'Outdoor New Age',
+    "halle-5": 'Halle 5'
 }
 
 f = open(sys.argv[1])
