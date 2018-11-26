@@ -199,7 +199,7 @@ $(document).ready(function() {
     var filename = "map-images/";
 
     sector = routesarray[index]["sector"];
-    var sub_sector = sector.replace(/,?\s+/g, "-").toLowerCase();
+    var sub_sector = sector.replace(/,?\s+/g , "-").toLowerCase();
     sub_sector = replaceSpecialLetters(sub_sector);
     
     if (routesarray[index]["place"] == "Gas") {
