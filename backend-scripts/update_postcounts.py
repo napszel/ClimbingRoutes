@@ -14,10 +14,11 @@ try:
     # Get the ID of the last seen post
     get_id = c.execute("SELECT postid FROM lastseenpost")
     last_postid = c.fetchone()[0]
-
+    
     # Ge the list of posts (comments) form Disqus. This returns a list of all posts ordered by date, starting with the most recent.
     disqus = DisqusAPI("tomRM9FzpoPUBVaTpj9EzJBi7EGtRRJHAK9LWO1LKQxphtyHLRF9Ryq7zrnhWGZc", "g0hQCAzqMrVq2M8DFwpQmnviE22ZSYw4AsuQbRkMTniMD3W5lpIzyvqWEbFNRHt2")
-    posts_list = disqus.posts.list(forum='climbingroutes', sortType='date', order='desc', limit='100')
+    all_post_states = ['deleted', 'approved', 'unapproved', 'spam', 'flagged', 'highlighted']
+    posts_list = disqus.posts.list(forum='climbingroutes', include=all_post_states, sortType='date', order='desc', limit='100')
     
     # Find the first post that we haven't seen yet.
     i_not_seen_post = 0
