@@ -19,7 +19,14 @@ problematic_sectors = {
     "grotte-rechts": 'Grotte, Turm rechts'
 }
 
+if len(sys.argv) < 2:
+    print("usage:")
+    print("python sectors_mapping.py gaswerk_map_by_ps.html > gaswerk_map.html")
+    print("python sectors_mapping.py milandia_map_by_ps.html > milandia_map.html")
+    sys.exit()
+    
 f = open(sys.argv[1])
+
 soup = BeautifulSoup(f, 'html.parser')
 
 for link in soup.find_all('a'):

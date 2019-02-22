@@ -26,11 +26,18 @@ problematic_sectors = {
     "halle-5": 'Halle 5'
 }
 
+if len(sys.argv) < 2:
+    print("usage:")
+    print("python sectors_mapping.py gaswerk_map_by_ps.html > gaswerk_map.html")
+    print("python sectors_mapping.py milandia_map_by_ps.html > milandia_map.html")
+    sys.exit()
+    
 f = open(sys.argv[1])
+
 soup = BeautifulSoup(f, 'html.parser')
 
 for link in soup.find_all('a'):
-    full_href = link.get('href') # ../index.html#boulderraum
+    full_href = link.get('href') # ../generated/index.html#boulderraum
     sector = full_href[full_href.find('#')+1:] # boulderraum
     if sector in problematic_sectors:
         new_sector = problematic_sectors[sector] # "boulderraum ii "

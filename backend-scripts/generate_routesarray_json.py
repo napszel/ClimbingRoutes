@@ -5,7 +5,7 @@ import json
 from pprint import pprint
 import sqlite3
 
-conn = sqlite3.connect('routes.db')
+conn = sqlite3.connect('../generated/routes.db')
 conn.row_factory = sqlite3.Row
 c = conn.cursor()
 
@@ -79,6 +79,6 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
 
     bigtable.append(table)
 
-html = open('../routesarray.js', 'w')
+html = open('../generated/routesarray.js', 'w')
 html.write("routesarray = " + json.dumps(bigtable) + "\n")
 html.close()

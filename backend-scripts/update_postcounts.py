@@ -6,7 +6,7 @@ from pprint import pprint
 import sqlite3
 from disqusapi import DisqusAPI
 
-conn = sqlite3.connect('routes.db')
+conn = sqlite3.connect('../generated/routes.db')
 
 try:
     c = conn.cursor()

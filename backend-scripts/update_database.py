@@ -5,7 +5,7 @@ import json
 from pprint import pprint
 import sqlite3
 
-conn = sqlite3.connect('routes.db')
+conn = sqlite3.connect('../generated/routes.db')
 
 try:
     c = conn.cursor()
@@ -14,7 +14,7 @@ try:
     c.execute("UPDATE routes SET new_=0")
     c.execute("UPDATE routes SET lastcall=0")
 
-    data = json.load(open('routes.json'))
+    data = json.load(open('../generated/routes.json'))
 
     for route in data:
         # things to get and insert to table:

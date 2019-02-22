@@ -5,6 +5,16 @@ body {
     font-family: Helvetica, Arial;
 }
 
+.main-content {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#profile-title {
+    flex: 1;
+}
+
 tfoot input {
     width: 100%;
 }
@@ -191,6 +201,7 @@ div.dt-buttons {
 
 .back_button {
     width: 50px;
+    border: none;
 }
 
 #title-div {
@@ -383,15 +394,15 @@ div.dt-buttons {
 }
 
 #gaswerk_map {
-    background: url("map-icon.png") no-repeat scroll 0 0 transparent;
+    background: url("images/map-icon.png") no-repeat scroll 0 0 transparent;
 }
 
 #gaswerk_boulders {
-    background: url("map-icon.png") no-repeat scroll 0 0 transparent;
+    background: url("images/map-icon.png") no-repeat scroll 0 0 transparent;
 }
 
 #milandia_map {
-    background: url("map-icon-mil.png") no-repeat scroll 0 0 transparent;
+    background: url("images/map-icon-mil.png") no-repeat scroll 0 0 transparent;
 }
 
 
