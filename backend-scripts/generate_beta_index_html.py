@@ -1,11 +1,12 @@
 #!/usr/bin/python
+
 # -*- coding: utf-8 -*-
 
 import json
 from pprint import pprint
 import sqlite3
 
-html = open('../generated/beta.html', 'w')
+html = open('../beta.html', 'w')
 
 conn = sqlite3.connect('../generated/routes.db')
 conn.row_factory = sqlite3.Row
@@ -68,8 +69,8 @@ html_headers = """
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
 
-    <script src="routesarray.js"></script>
-    <script src="../javascript-beta.js"></script>
+    <script src="generated/routesarray.js"></script>
+    <script src="javascript-beta.js"></script>
     
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css" media="screen"/>
@@ -78,8 +79,8 @@ html_headers = """
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="../style-beta.css" media="screen" />
-    <link rel="shortcut icon" href="../images/favicon.png" type="image/png"/>
+    <link rel="stylesheet" type="text/css" href="style-beta.css" media="screen" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png"/>
   </head>
   
   <body>
@@ -91,9 +92,9 @@ html_headers = """
 
   <div id="route_root" style="display: none">
     <div class="flex header shadowbox">
-      <button onclick="goBack()" class="back_button"><img src="../images/back.png"/></button>
+      <button onclick="goBack()" class="back_button"><img src="images/back.png"/></button>
       <div id="title-div"></div>
-      <a href="../profile.html"><i class="fas fa-user"></i></a>
+      <a href="profile.html"><i class="fas fa-user"></i></a>
     </div>
     <hr/>
 
@@ -201,9 +202,9 @@ html_headers = """
         <input type="button" class="button" id="bould" value="Boulder" onclick="applyFilter('Bould', '#type-filter')" />
       </div>
       <div id="map-buttons">
-        <input type="button" class="button" id="gaswerk_map" value="Gas Routes" onclick="window.location.assign('../gaswerk-map/gaswerk_beta_map.html');" />
-        <input type="button" class="button" id="gaswerk_boulders" value="Gas Boulders" onclick="window.location.assign('../gaswerk-map/gaswerk_beta_boulder_map.html');" />
-        <input type="button" class="button" id="milandia_map" value="Milandia" onclick="window.location.assign('../milandia-map/milandia_beta_map.html')" />
+        <input type="button" class="button" id="gaswerk_map" value="Gas Routes" onclick="window.location.assign('gaswerk-map/gaswerk_beta_map.html');" />
+        <input type="button" class="button" id="gaswerk_boulders" value="Gas Boulders" onclick="window.location.assign('gaswerk-map/gaswerk_beta_boulder_map.html');" />
+        <input type="button" class="button" id="milandia_map" value="Milandia" onclick="window.location.assign('milandia-map/milandia_beta_map.html')" />
       </div>
   </div>
 

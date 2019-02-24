@@ -170,17 +170,17 @@ $(document).ready(function() {
     $("#hold_caption").text(routesarray[index]["color"]);
 
     if (routesarray[index]["typ"] == "Bould") {
-      $("#lead").attr("src", "../images/boulder.png");
+      $("#lead").attr("src", "images/boulder.png");
       $("#lead").css("width", "190px");
       $("#lead_caption").text("Boulder");
     } else {
       if (routesarray[index]["belay"].indexOf("Lead") != -1) {
-	$("#lead").attr("src", "../images/lead.png");
+	$("#lead").attr("src", "images/lead.png");
 	$("#lead").css("width", "190px");
 	$("#lead_caption").text("Lead");
       }
       if (routesarray[index]["belay"].indexOf("Toprope") != -1 || routesarray[index]["belay"].indexOf("Toppas") != -1) {
-	$("#toprope").attr("src", "../images/toppas.png");
+	$("#toprope").attr("src", "images/toppas.png");
 	$("#toprope").css("width", "190px");
 	$("#toprope_caption").text("Toprope");
       }
@@ -196,7 +196,7 @@ $(document).ready(function() {
       $('#kids').html("KIDS");
     }
 
-    var filename = "../images/map-images/";
+    var filename = "images/map-images/";
 
     sector = routesarray[index]["sector"];
     var sub_sector = sector.replace(/,?\s+/g , "-").toLowerCase();
