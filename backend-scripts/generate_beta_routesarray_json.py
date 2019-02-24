@@ -10,7 +10,7 @@ conn.row_factory = sqlite3.Row
 c = conn.cursor()
 
 bigtable = []
-for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, postcount.latest FROM routes LEFT JOIN postcount ON routes.dat = postcount.dat AND routes.typ = postcount.typ AND routes.place = postcount.place AND routes.rid = postcount.rid WHERE retired=0 ORDER BY dat DESC'):
+for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, postcount.latest FROM routes LEFT JOIN postcount ON routes.dat = postcount.dat AND routes.typ = postcount.typ AND routes.place = postcount.place AND routes.rid = postcount.rid ORDER BY dat DESC'):
     table = {}
 
     place = route['place']
@@ -79,6 +79,6 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
 
     bigtable.append(table)
 
-html = open('../generated/routesarray.js', 'w')
+html = open('../generated/routesarray-beta.js', 'w')
 html.write("routesarray = " + json.dumps(bigtable) + "\n")
 html.close()
