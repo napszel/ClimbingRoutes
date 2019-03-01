@@ -10,7 +10,7 @@ The displayed table is searchable (for all fields) and filterable/sortable for e
 
 You can read about each existing and planned features in the [project's pdf documentation](climbing-routes-documentation.pdf).
 
-Future developments ideas are getting implemented at http://napszel.com/betaclimbingroutes
+Future developments ideas are getting implemented at http://napszel.com/climbingroutes/beta.html
 
 ## The code
 
