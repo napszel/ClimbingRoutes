@@ -23,7 +23,17 @@ problematic_sectors = {
     "outdoor-arco-wand": 'Outdoor Arco-Wand',
     "outdoor-3d-wand": 'Outdoor 3D-Wand',
     "new-age": 'Outdoor New Age',
-    "halle-5": 'Halle 5'
+    "halle-5": 'Halle 5',
+    "dachliland": 'Dächliland',
+    "schnaggli": 'Schnäggli',
+    "affenkafig": 'Affenkäfig',
+    "wilde13": 'Wilde 13',
+    "das-dach": 'Das Dach',
+    "die-platte": 'Die Platte',
+    "base-camp": 'Base Camp',
+    "red-carpet": 'Red Carpet',
+    "break-point": 'Break Point',
+    "fight-club": 'Fight Cub'
 }
 
 if len(sys.argv) < 2:
