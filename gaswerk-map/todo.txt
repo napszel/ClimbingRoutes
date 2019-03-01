@@ -1,30 +1,18 @@
-A beta maphez le kell cserelni az index.html-t beta.html-re
-A psd fileokban meg nincs benne a generated a linkekben ezert azokat is cserelni ki mindenhol
-
+1. Replace complicated sectors with correct ones:
 python sectors_mapping.py gaswerk_map_by_ps.html > gaswerk_map.html
-sed -i '' 's/index.html/generated\/index.html/g' gaswerk_map.html
-
-python sectors_mapping.py gaswerk_map_by_ps.html > gaswerk_beta_map.html
-sed -i '' 's/index.html/generated\/beta.html/g' gaswerk_beta_map.html
-
 python sectors_mapping.py gaswerk_boulders_by_ps.html > gaswerk_boulder_map.html
-sed -i '' 's/index.html/generated\/index.html/g' gaswerk_boulder_map.html
-
-python sectors_mapping.py gaswerk_boulders_by_ps.html > gaswerk_beta_boulder_map.html
-sed -i '' 's/index.html/generated\/beta.html/g' gaswerk_beta_boulder_map.html
-
-
 python sectors_mapping.py milandia_map_by_ps.html > milandia_map.html
-python sectors_mapping.py milandia_map_by_ps.html > milandia_beta_map.html
 
-sed -i '' 's/index.html/generated\/index.html/g' milandia_map.html
-sed -i '' 's/index.html/generated\/beta.html/g' milandia_beta_map.html
+2. Create beta maps:
+sed -i 's/index.html/beta.html/g' < gaswerk_map.html > gaswerk_beta_map.html
+sed -i 's/index.html/beta.html/g' < gaswerk_boulder_map.html > gaswerk_beta_boulder_map.html
+sed -i 's/index.html/beta.html/g' < milandia_map.html > milandia_beta_map.html
 
-Copy and paste this to the beginning of these files:
-gaswerk_beta_map.html
+3. Copy and paste this to the beginning of these files:
 gaswerk_map.html
-gaswerk_beta_boulder_map.html
+gaswerk_beta_map.html
 gaswerk_boulder_map.html
+gaswerk_beta_boulder_map.html
 milandia_map.html
 milandia_beta_map.html
 
@@ -57,3 +45,8 @@ milandia_beta_map.html
    </div>
    <hr/>
    <div id="map-table-container">
+
+4. Replace Gaswerk with:
+Milandia
+Gaswerk Boulders
+Milandia Boulders
