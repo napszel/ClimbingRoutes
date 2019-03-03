@@ -68,7 +68,7 @@ try:
         if status == 1:
             new_ = True
         else:
-            if status == 2:
+            if status == 3:
                 lastcall = True
 
         kids = route['IstKinderfreundlich']
