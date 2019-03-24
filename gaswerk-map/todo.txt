@@ -4,9 +4,9 @@ python sectors_mapping.py gaswerk_boulders_by_ps.html > gaswerk_boulder_map.html
 python sectors_mapping.py milandia_map_by_ps.html > milandia_map.html
 
 2. Create beta maps:
-sed -i 's/index.html/beta.html/g' < gaswerk_map.html > gaswerk_beta_map.html
-sed -i 's/index.html/beta.html/g' < gaswerk_boulder_map.html > gaswerk_beta_boulder_map.html
-sed -i 's/index.html/beta.html/g' < milandia_map.html > milandia_beta_map.html
+sed 's/index.html/beta.html/g' < gaswerk_map.html > gaswerk_beta_map.html
+sed 's/index.html/beta.html/g' < gaswerk_boulder_map.html > gaswerk_beta_boulder_map.html
+sed 's/index.html/beta.html/g' < milandia_map.html > milandia_beta_map.html
 
 3. Copy and paste this to the beginning of these files:
 gaswerk_map.html
