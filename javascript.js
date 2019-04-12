@@ -166,7 +166,7 @@ $(document).ready(function() {
       }
     }
     
-    $("#hold").attr("src", "http://www.kletterzentrum.com/" + routesarray[index]["imgurl"]);
+    $("#hold").attr("src", "https://www.kletterzentrum.com/" + routesarray[index]["imgurl"]);
     $("#hold_caption").text(routesarray[index]["color"]);
 
     if (routesarray[index]["typ"] == "Bould") {
