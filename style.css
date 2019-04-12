@@ -77,6 +77,16 @@ table.dataTable tbody td {
     display: inline-block;
 }
 
+.grade-button {
+    font-size: 14px;
+    margin-left: 5px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
 .title {
     font-size: 22px;
     letter-spacing: .1em;
@@ -222,12 +232,8 @@ div.dt-buttons {
     margin-left: 14px;
 }
 
-#quick-filters {
-    float: left;
-}
-
 #quick-buttons {
-    height: 30px;
+    height: 80px;
     background: #f9f9f9;
     padding: 9px;
     -moz-box-shadow: 0 0 3px #bebebe;
@@ -236,7 +242,7 @@ div.dt-buttons {
 }
 
 #map-buttons {
-    float: right;
+    padding-bottom: 15px;
 }
 
 .emphasis {
@@ -257,18 +263,22 @@ div.dt-buttons {
 
 .green {
     background: #00b259;
+    color: white;
 }
 
 .blue {
     background: #018ccf;
+    color: white;
 }
 
 .red {
     background: #f00;
+    color: white;
 }
 
 .black {
     background: black;
+    color: white;
 }
 
 #sector {
@@ -297,15 +307,21 @@ div.dt-buttons {
 }
 
 #gaswerk_map {
-    background: url("images/map-icon.png") no-repeat scroll 0 0 transparent;
+    background: url("images/map-icon.png") scroll 0 0 transparent;
+    width: 23%;
 }
 
 #gaswerk_boulders {
-    background: url("images/map-icon.png") no-repeat scroll 0 0 transparent;
+    background: url("images/map-icon.png") scroll 0 0 transparent;
+    width: 23%;
 }
 
 #milandia_map {
-    background: url("images/map-icon-mil.png") no-repeat scroll 0 0 transparent;
+    background: url("images/map-icon-mil.png") scroll 0 0 transparent;
+    width: 23%;
 }
 
-
+#milandia_boulders {
+    background: url("images/map-icon-mil.png") scroll 0 0 transparent;
+    width: 23%;
+}

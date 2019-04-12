@@ -188,25 +188,40 @@ html_headers = """
   </div>
 
   <div id="main_table" style="display: none">
-    <div class="header shadowbox">
+    <div class="header">
       <label class="title">Climbing Routes of <a class=\"underline\" href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-gaswerk/">Gaswerk</a> and <a class=\"underline\" href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-milandia/">Milandia</a></label>
     </div>
     <hr/>
-    <div id="quick-buttons" class="shadowbox">
-      <div id="quick-filters">
-        <label class="quick-filter">Filter Gym:</label>
+    <div id="quick-buttons">
+      <div id="map-buttons">
+        <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk Routes" onclick="window.location.assign('gaswerk-map/gaswerk_beta_map.html');" />
+        <input type="button" class="button" id="gaswerk_boulders" value="Map of Gaswerk Boulders" onclick="window.location.assign('gaswerk-map/gaswerk_beta_boulder_map.html');" />
+        <input type="button" class="button" id="milandia_map" value="Map of Milandia Routes" onclick="window.location.assign('milandia-map/milandia-leads/milandia_beta_map.html')" />
+        <input type="button" class="button" id="milandia_boulders" value="Map of Milandia Boulders" onclick="window.location.assign('milandia-map/milandia-boulders/milandia_beta_boulder_map.html')" />
+      </div>
+      <div id="quick-filter">
+        <label class="quick-filter">Quick Filters:</label>
         <input type="button" class="button" id="mil" value="Milandia" onclick="applyFilter('Mil', '#pl-filter')" />
         <input type="button" class="button" id="gas" value="Gaswerk" onclick="applyFilter('Gas', '#pl-filter')" />
-        <label class="quick-filter">Route Type:</label>
+        <label class="quick-filter">|</label>
         <input type="button" class="button" id="sport" value="Sport" onclick="applyFilter('Sport', '#type-filter')" />
         <input type="button" class="button" id="bould" value="Boulder" onclick="applyFilter('Bould', '#type-filter')" />
+        <label class="quick-filter">|</label>
+        <input type="button" class="grade-button blue" id="5c" value="5c" onclick="applyFilter('5c', '#gr-filter')" />
+        <input type="button" class="grade-button blue" id="6a" value="6a" onclick="applyFilter('6a', '#gr-filter')" />
+        <input type="button" class="grade-button blue" id="6aplus" value="6a+" onclick="applyFilter('6a\\\+', '#gr-filter')" />
+        <input type="button" class="grade-button blue" id="6b" value="6b" onclick="applyFilter('6b', '#gr-filter')" />
+        <input type="button" class="grade-button blue" id="6bplus" value="6b+" onclick="applyFilter('6b\\\+', '#gr-filter')" />
+        <input type="button" class="grade-button red" id="6c" value="6c" onclick="applyFilter('6c', '#gr-filter')" />
+        <label class="quick-filter">|</label>
+        <input type="button" class="grade-button yellow" id="B1" value="B1" onclick="applyFilter('B1', '#gr-filter')" />
+        <input type="button" class="grade-button yellow" id="B1plus" value="B1+" onclick="applyFilter('B1\\\+', '#gr-filter')" />
+        <input type="button" class="grade-button green" id="B2" value="B2" onclick="applyFilter('B2', '#gr-filter')" />
+        <input type="button" class="grade-button green" id="B2plus" value="B2+" onclick="applyFilter('B2\\\+', '#gr-filter')" />
+        <input type="button" class="grade-button blue" id="B3" value="B3" onclick="applyFilter('B3', '#gr-filter')" />
+        <input type="button" class="grade-button blue" id="B3plus" value="B3+" onclick="applyFilter('B3\\\+', '#gr-filter')" />
       </div>
-      <div id="map-buttons">
-        <input type="button" class="button" id="gaswerk_map" value="Gas Routes" onclick="window.location.assign('gaswerk-map/gaswerk_beta_map.html');" />
-        <input type="button" class="button" id="gaswerk_boulders" value="Gas Boulders" onclick="window.location.assign('gaswerk-map/gaswerk_beta_boulder_map.html');" />
-        <input type="button" class="button" id="milandia_map" value="Milandia" onclick="window.location.assign('milandia-map/milandia_beta_map.html')" />
-      </div>
-  </div>
+    </div>
 
 """
 

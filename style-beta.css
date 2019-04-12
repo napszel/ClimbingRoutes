@@ -5,16 +5,6 @@ body {
     font-family: Helvetica, Arial;
 }
 
-.main-content {
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#profile-title {
-    flex: 1;
-}
-
 tfoot input {
     width: 100%;
 }
@@ -61,6 +51,14 @@ table.dataTable tbody td {
     padding: 8px 5px;
 }
 
+#example_wrapper {
+    padding: 20px;
+    background: #ffffff;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: 0 0 3px #bebebe;
+}
+
 #credits {
     padding-top: 10px;
     font-size: .7em;
@@ -79,55 +77,14 @@ table.dataTable tbody td {
     display: inline-block;
 }
 
-.result-button {
-    font-size: 16px;
-    margin-left: 15px;
-    background: none;
+.grade-button {
+    font-size: 14px;
+    margin-left: 5px;
     border: none;
-    color: #666;
-    padding: 6px 20px;
+    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    cursor: pointer; 
-}
-
-.fa-eye {
-    color: #0c7847;
-}
-
-.fa-bolt {
-    color: #da950e;
-}
-
-.fa-dot-circle {
-    color: red;
-}
-
-.fa-sort-numeric-up {
-    color: #018ccf;
-}
-
-.clicked-result-button {
-    background: #235b9a;
-    color: white;
-}
-
-.fa-user {
-    font-size: 30px;
-    padding: 15px 20px;
-}
-
-#attempt-button {
-    padding-right: 5px;
-}
-
-#disqus_thread {
-    padding: 20px;
-}
-
-.plotly {
-    margin-top: 10px;
 }
 
 .title {
@@ -159,11 +116,11 @@ a:active {
     text-decoration: none;
 }
 
-input[type="text"], select, textarea{
+input, select, textarea{
     color: red;
 }
 
-textarea:focus, input[type="text"]:focus {
+textarea:focus, input:focus {
     color: red;
 }
 
@@ -185,7 +142,15 @@ div.dt-buttons {
 #route_root {
     margin: auto;
     width: 1200px;
-    letter-spacing: .05em;
+    letter-spacing: .1em;
+}
+
+#disqus_thread {
+    padding: 20px;
+    background: white;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: 0 0 3px #bebebe;
 }
 
 .header {
@@ -193,6 +158,9 @@ div.dt-buttons {
     line-height: 60px;
     background: #ffffff;
     text-align: center;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: 0 0 3px #bebebe;
 }
 
 .flex {
@@ -211,6 +179,10 @@ div.dt-buttons {
 #wrapper {
     overflow: hidden;
     padding: 20px;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: 0 0 3px #bebebe;
+    background: white;
     margin-bottom: 16px;
 }
 
@@ -228,7 +200,6 @@ div.dt-buttons {
 #details {
     overflow: hidden;
     font-size: 20px;
-    position: relative;
 }
 
 #details label {
@@ -257,57 +228,21 @@ div.dt-buttons {
     font-size: 40px;
 }
 
-.faded {
-    opacity: 0.3;
-}
-
-.opinion {
-    font-size: 30px;
-    position: absolute;
-    right: 0px;
-    cursor: pointer;
-}
-
-#heart {
-    color: red;
-}
-
-#hard {
-    color: #da950e;
-    top: 50px;
-}
-
-#easy {
-    color: #0c7847;
-    top: 100px;
-}
-
-#results {
-    padding: 20px;
-    margin-bottom: 16px;
-    text-align: center;
-}
-
-#results-form {
-    margin-top: 13px;
-}
-
 .quick-filter {
     margin-left: 14px;
 }
 
-#quick-filters {
-    float: left;
-}
-
 #quick-buttons {
-    height: 30px;
+    height: 80px;
     background: #f9f9f9;
     padding: 9px;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: inset 0 0 3px #bebebe;
 }
 
 #map-buttons {
-    float: right;
+    padding-bottom: 15px;
 }
 
 .emphasis {
@@ -328,29 +263,29 @@ div.dt-buttons {
 
 .green {
     background: #00b259;
+    color: white;
 }
 
 .blue {
     background: #018ccf;
+    color: white;
 }
 
 .red {
     background: #f00;
+    color: white;
 }
 
 .black {
     background: black;
+    color: white;
 }
 
 #sector {
     display: block;
-    padding: 15px;
-    font-size: 20px;
+    padding: 20px;
+    font-size: 24px;
     color: black;
-}
-
-#sector-link {
-    cursor: pointer;
 }
 
 #images_table td {
@@ -360,29 +295,7 @@ div.dt-buttons {
 #map_sector {
     text-align: center;
     padding-top: 10px;
-}
-
-.shadowbox {
     background: white;
-    -moz-box-shadow: 0 0 3px #bebebe;
-    -webkit-box-shadow: 0 0 3px #bebebe;
-    box-shadow: 0 0 3px #bebebe;
-}
-
-.content {
-    padding: 20px;
-    background: #ffffff;
-    text-align: center;
-}
-
-.content ol {
-    text-align: left;
-    line-height: 30px;
-}
-
-#example_wrapper {
-    padding: 20px;
-    background: #ffffff;
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: 0 0 3px #bebebe;
@@ -394,15 +307,21 @@ div.dt-buttons {
 }
 
 #gaswerk_map {
-    background: url("images/map-icon.png") no-repeat scroll 0 0 transparent;
+    background: url("images/map-icon.png") scroll 0 0 transparent;
+    width: 23%;
 }
 
 #gaswerk_boulders {
-    background: url("images/map-icon.png") no-repeat scroll 0 0 transparent;
+    background: url("images/map-icon.png") scroll 0 0 transparent;
+    width: 23%;
 }
 
 #milandia_map {
-    background: url("images/map-icon-mil.png") no-repeat scroll 0 0 transparent;
+    background: url("images/map-icon-mil.png") scroll 0 0 transparent;
+    width: 23%;
 }
 
-
+#milandia_boulders {
+    background: url("images/map-icon-mil.png") scroll 0 0 transparent;
+    width: 23%;
+}
