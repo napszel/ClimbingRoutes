@@ -69,7 +69,7 @@ html_headers = """
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
 
-    <script src="generated/routesarray.js"></script>
+    <script src="generated/routesarray-beta.js"></script>
     <script src="javascript.js"></script>
     <script src="javascript-beta.js"></script>
     
