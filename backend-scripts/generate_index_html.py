@@ -160,8 +160,8 @@ html_headers = """
     <hr/>
     <div id="quick-buttons">
       <div id="map-buttons">
-        <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk Routes" onclick="window.location.assign('gaswerk-map/gaswerk_map.html');" />
-        <input type="button" class="button" id="gaswerk_boulders" value="Map of Gaswerk Boulders" onclick="window.location.assign('gaswerk-map/gaswerk_boulder_map.html');" />
+        <input type="button" class="button" id="gaswerk_map" value="Map of Gaswerk Routes" onclick="window.location.assign('gaswerk-map/gaswerk-leads/gaswerk_map.html');" />
+        <input type="button" class="button" id="gaswerk_boulders" value="Map of Gaswerk Boulders" onclick="window.location.assign('gaswerk-map/gaswerk-boulders/gaswerk_boulder_map.html');" />
         <input type="button" class="button" id="milandia_map" value="Map of Milandia Routes" onclick="window.location.assign('milandia-map/milandia-leads/milandia_map.html')" />
         <input type="button" class="button" id="milandia_boulders" value="Map of Milandia Boulders" onclick="window.location.assign('milandia-map/milandia-boulders/milandia_boulder_map.html')" />
       </div>

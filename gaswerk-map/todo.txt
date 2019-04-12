@@ -1,6 +1,6 @@
 1. Replace complicated sectors with correct ones:
-python sectors_mapping.py gaswerk_map_by_ps.html > gaswerk_map.html
-python sectors_mapping.py gaswerk_boulders_by_ps.html > gaswerk_boulder_map.html
+python sectors_mapping.py ./gaswerk-leads/gaswerk_map_by_ps.html > ./gaswerk-leads/gaswerk_map.html
+python sectors_mapping.py ./gaswerk-boulders/gaswerk_boulders_by_ps.html > ./gaswerk-boulders/gaswerk_boulder_map.html
 python sectors_mapping.py ./milandia-boulders/milandia_boulders_by_ps.html > ./milandia-boulders/milandia_boulder_map.html
 python sectors_mapping.py ./milandia-leads/milandia_map_by_ps.html > ./milandia-leads/milandia_map.html
 
