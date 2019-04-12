@@ -1,11 +1,13 @@
 1. Replace complicated sectors with correct ones:
 python sectors_mapping.py gaswerk_map_by_ps.html > gaswerk_map.html
 python sectors_mapping.py gaswerk_boulders_by_ps.html > gaswerk_boulder_map.html
-python sectors_mapping.py milandia_map_by_ps.html > milandia_map.html
+python sectors_mapping.py ./milandia-boulders/milandia_boulders_by_ps.html > ./milandia-boulders/milandia_boulder_map.html
+python sectors_mapping.py ./milandia-leads/milandia_map_by_ps.html > ./milandia-leads/milandia_map.html
 
 2. Create beta maps:
 sed 's/index.html/beta.html/g' < gaswerk_map.html > gaswerk_beta_map.html
 sed 's/index.html/beta.html/g' < gaswerk_boulder_map.html > gaswerk_beta_boulder_map.html
+sed 's/index.html/beta.html/g' < milandia_boulder_map.html > milandia_beta_boulder_map.html
 sed 's/index.html/beta.html/g' < milandia_map.html > milandia_beta_map.html
 
 3. Copy and paste this to the beginning of these files:
@@ -13,8 +15,11 @@ gaswerk_map.html
 gaswerk_beta_map.html
 gaswerk_boulder_map.html
 gaswerk_beta_boulder_map.html
+
 milandia_map.html
 milandia_beta_map.html
+milandia_boulder_map.html
+milandia_beta_boulder_map.html 
 
 <html>
  <head>
@@ -22,8 +27,8 @@ milandia_beta_map.html
   <title>
    ~ Climbing Routes ~
   </title>
-  <link href="style.css" media="screen" rel="stylesheet" type="text/css"/>
   <link href="../style.css" media="screen" rel="stylesheet" type="text/css"/>
+  <link href="../../style.css" media="screen" rel="stylesheet" type="text/css"/>
  </head>
  <body bgcolor="#FFFFFF" leftmargin="0" marginheight="0" marginwidth="0" topmargin="0">
    <script>
@@ -33,7 +38,7 @@ milandia_beta_map.html
    </script>
   <div class="html-map">
    <div class="flex header">
-     <button onclick="goBack()" class="back_button"><img src="../images/back.png"/></button>
+     <button onclick="goBack()" class="back_button"><img src="../../images/back.png"/></button>
     <div id="map-title">
      <label class="title">
       Map of

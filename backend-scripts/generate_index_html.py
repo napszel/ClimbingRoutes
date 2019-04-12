@@ -170,7 +170,7 @@ html_headers = """
       <div id="map-buttons">
         <input type="button" class="button" id="gaswerk_map" value="Gas Routes" onclick="window.location.assign('gaswerk-map/gaswerk_map.html');" />
         <input type="button" class="button" id="gaswerk_boulders" value="Gas Boulders" onclick="window.location.assign('gaswerk-map/gaswerk_boulder_map.html');" />
-        <input type="button" class="button" id="milandia_map" value="Milandia" onclick="window.location.assign('milandia-map/milandia_map.html')" />
+        <input type="button" class="button" id="milandia_map" value="Milandia" onclick="window.location.assign('milandia-map/milandia-leads/milandia_map.html')" />
       </div>
   </div>
 
