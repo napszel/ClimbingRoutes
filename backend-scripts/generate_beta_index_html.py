@@ -69,7 +69,8 @@ html_headers = """
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
 
-    <script src="generated/routesarray-beta.js"></script>
+    <script src="generated/routesarray.js"></script>
+    <script src="javascript.js"></script>
     <script src="javascript-beta.js"></script>
     
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" media="screen"/>
@@ -79,7 +80,9 @@ html_headers = """
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="style-beta.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="beta.css" media="screen" />
+
     <link rel="shortcut icon" href="images/favicon.png" type="image/png"/>
   </head>
   

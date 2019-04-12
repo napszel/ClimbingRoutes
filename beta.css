@@ -1,0 +1,124 @@
+.main-content {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#profile-title {
+    flex: 1;
+}
+
+.fa-eye {
+    color: #0c7847;
+}
+
+.fa-bolt {
+    color: #da950e;
+}
+
+.fa-dot-circle {
+    color: red;
+}
+
+.fa-sort-numeric-up {
+    color: #018ccf;
+}
+
+.clicked-result-button {
+    background: #235b9a;
+    color: white;
+}
+
+.fa-user {
+    font-size: 30px;
+    padding: 15px 20px;
+}
+
+#attempt-button {
+    padding-right: 5px;
+}
+
+.plotly {
+    margin-top: 10px;
+}
+
+.title {
+    font-size: 22px;
+    letter-spacing: .1em;
+}
+
+#main_table {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faded {
+    opacity: 0.3;
+}
+
+.opinion {
+    font-size: 30px;
+    float: right;
+    cursor: pointer;
+}
+
+#heart {
+    color: red;
+}
+
+#hard {
+    color: #da950e;
+    top: 50px;
+}
+
+#easy {
+    color: #0c7847;
+    top: 100px;
+}
+
+#results {
+    padding: 20px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+#results-form {
+    margin-top: 13px;
+}
+
+.quick-filter {
+    margin-left: 14px;
+}
+
+#quick-filters {
+    float: left;
+}
+
+#sector-link {
+    cursor: pointer;
+}
+
+#images_table td {
+    padding-right: 20px
+}
+
+.shadowbox {
+    background: white;
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+    box-shadow: 0 0 3px #bebebe;
+}
+
+.content {
+    padding: 20px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.content ol {
+    text-align: left;
+    line-height: 30px;
+}
+
+
