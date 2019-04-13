@@ -75,6 +75,8 @@ table.dataTable tbody td {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    cursor: pointer;
+    margin-top: 15px;
 }
 
 .grade-button {
@@ -85,6 +87,19 @@ table.dataTable tbody td {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    cursor: pointer;
+}
+
+.map-button {
+    font-size: 20px;
+    margin-left: 15px;
+    color: white;
+    padding: 6px 20px;
+    text-align: center;
+    text-shadow: 2px 2px 5px black;
+    width: 23.2%;
+    height: 100%;
+    cursor: pointer;
 }
 
 .title {
@@ -233,16 +248,26 @@ div.dt-buttons {
 }
 
 #quick-buttons {
-    height: 80px;
+    height: auto;
     background: #f9f9f9;
-    padding: 9px;
+    padding: 15px;
+    /* Shadow stuff */
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: inset 0 0 3px #bebebe;
 }
 
 #map-buttons {
-    padding-bottom: 15px;
+    height: 40px;
+    /* Animation stuff */
+    -webkit-transition: height 0.5s; /* Safari */
+    transition-timing-function: ease; /* Safari */
+    transition: height 0.5s;
+    -webkit-transition-timing-function: ease;
+}
+
+#map-buttons:hover {
+    height: 200px;
 }
 
 .emphasis {
@@ -306,22 +331,19 @@ div.dt-buttons {
     color: #235b9a;
 }
 
+
 #gaswerk_map {
-    background: url("images/map-icon.png") scroll 0 0 transparent;
-    width: 23%;
+    background: url("gaswerk-map/gaswerk_map_image.png") scroll 0 0 transparent;
 }
 
 #gaswerk_boulders {
-    background: url("images/map-icon.png") scroll 0 0 transparent;
-    width: 23%;
+    background: url("gaswerk-map/gaswerk_boulders_image.png") scroll 0 0 transparent;
 }
 
 #milandia_map {
-    background: url("images/map-icon-mil.png") scroll 0 0 transparent;
-    width: 23%;
+    background: url("milandia-map/milandia_map_image.png") scroll 0 0 transparent;
 }
 
 #milandia_boulders {
-    background: url("images/map-icon-mil.png") scroll 0 0 transparent;
-    width: 23%;
+    background: url("milandia-map/milandia_boulders_image.png") scroll 0 0 transparent;
 }
