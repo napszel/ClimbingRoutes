@@ -105,16 +105,20 @@ $(document).ready(function() {
 	{ "width": "90px", "targets": [ "ninety" ] },
 	{ "width": "110px", "targets": [ "hundredten" ] },
 	{ "width": "200px", "targets": [ "twohundred" ] },
-	{ "visible": false, "targets": [8, 11, 12] }
+	{ "visible": false, "targets": [8, 11, 12] },
       ],
       "dom": 'ifBrt',
       "buttons": [
-        'colvis'
+        'colvis',
       ],
-      language: {
-        buttons: {
-          colvis: 'Hide columns'
-        }
+      "oLanguage": {
+        "buttons": {
+          "colvis": 'Hide columns',
+        },
+	"sInfo": "",
+	"sInfoFiltered": "_TOTAL_ routes found (out of _MAX_)",
+	"sInfoEmpty": "",
+	"sZeroRecords": "No such route",
       },
       "aoSearchCols": default_search_values
     } );
