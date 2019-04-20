@@ -107,7 +107,7 @@ $(document).ready(function() {
 	{ "width": "200px", "targets": [ "twohundred" ] },
 	{ "visible": false, "targets": [8, 11, 12] },
       ],
-      "dom": 'ifBrt',
+      "dom": 'iBrt',
       "buttons": [
         'colvis',
       ],
