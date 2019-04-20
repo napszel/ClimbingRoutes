@@ -111,6 +111,11 @@ $(document).ready(function() {
       "buttons": [
         'colvis'
       ],
+      language: {
+        buttons: {
+          colvis: 'Hide columns'
+        }
+      },
       "aoSearchCols": default_search_values
     } );
 
