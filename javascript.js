@@ -50,8 +50,7 @@ function getColorFromGrade(grade, type) {
 var special_letters = [
   ['ä', 'a'],
   ['ö', 'o'],
-  ['ü', 'u'],
-  [',', ' ']
+  ['ü', 'u']
 ];
 
 function replaceSpecialLetters(text) {
@@ -196,31 +195,33 @@ $(document).ready(function() {
       $('#kids').html("KIDS");
     }
 
-    var filename = "images/map-images/";
-
     sector = routesarray[index]["sector"];
-    var sub_sector = sector.replace(/,?\s+/g , "-").toLowerCase();
-    sub_sector = replaceSpecialLetters(sub_sector);
-    
-    if (routesarray[index]["place"] == "Gas") {
-      $('#sector').text("Gaswerk, " + sector);
+    var formatted_sector = sector.replace(/,?\s+/g , "-").toLowerCase();
+    formatted_sector = replaceSpecialLetters(formatted_sector);
 
-      if (routesarray[index]["typ"] == "Bould") {
-	sub_sector = sub_sector.split('-').slice(0,2).join('-');
-      } else {
-	if (sector.indexOf("Halle") != -1) {
-	  sub_sector = sub_sector.split('-').slice(2).join('-');
+    $('#map_iframe').on('load', function() {
+      if (routesarray[index]["place"] == "Gas") {
+	$('#sector').text("Gaswerk, " + sector);
+	if (routesarray[index]["typ"] == "Bould") {
+	  $("#map_iframe").attr("src", "./gaswerk-map/gaswerk-boulders/iframe/gaswerk_boulders_iframe.html");
 	} else {
-	  sub_sector = sub_sector.split('-').slice(1).join('-');
+	  $("#map_iframe").attr("src", "./gaswerk-map/gaswerk-leads/gaswerk_map.html");
+	}
+      } else {
+	$('#sector').text("Milandia, " + sector);
+	if (routesarray[index]["typ"] == "Bould") {
+	  $("#map_iframe").attr("src", "./milandia-map/milandia-boulders/milandia_boulder_map.html");
+	} else {
+	  $("#map_iframe").attr("src", "./milandia-map/milandia-leads/milandia_map.html");
 	}
       }
-      filename += "gaswerk_" + sub_sector + ".png";
-    } else {
-      $('#sector').text("Milandia, " + sector);
-      filename += "milandia_" + sub_sector + ".png";
-    }
-    $("#map").attr("src", filename);
-    $("#map_link").attr("href", filename);
+      
+      formatted_sector = "halle-5-titanic";
+      formatted_sector = "halle-5-rooftop";
+      var sector_image = $('#map_iframe').contents().find('img[alt="' + formatted_sector +'"]')
+      sector_image.css("background", "red");
+      console.log(sector_image);
+    })
 
     $("#route_root").show();
   }

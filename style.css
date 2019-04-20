@@ -154,6 +154,13 @@ div.dt-buttons {
     margin-right: auto;
 }
 
+#map_iframe {
+    width: 1038px;
+    height: 666px;
+    overflow: hidden;
+    border: none;
+}
+
 #route_root {
     margin: auto;
     width: 1200px;

@@ -117,7 +117,7 @@ html_headers = """
     </div>
     <div id="map_sector">
          <label id="sector"></label>
-         <a id="map_link" target="_blank"><img id="map"></a>
+         <iframe id="map_iframe" scrolling="no"></iframe>
     </div>
     <hr/>
     <div id="disqus_thread"></div>
