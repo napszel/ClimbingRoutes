@@ -52,11 +52,20 @@ table.dataTable tbody td {
 }
 
 #example_wrapper {
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     background: #ffffff;
     -moz-box-shadow: 0 0 3px #bebebe;
     -webkit-box-shadow: 0 0 3px #bebebe;
     box-shadow: 0 0 3px #bebebe;
+}
+
+#example {
+    padding-top: 0px;
+}
+
+#example_info {
+    font-size: 14px;
+    padding-top: 0px;
 }
 
 #credits {
@@ -77,6 +86,14 @@ table.dataTable tbody td {
     display: inline-block;
     cursor: pointer;
     margin-top: 15px;
+}
+
+.buttons-colvis {
+    padding: 1px 3px 1px 3px !important;
+}
+
+.dt-buttons {
+    margin-right: 0 !important;
 }
 
 .grade-button {
