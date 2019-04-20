@@ -51,7 +51,8 @@ var special_letters = [
   ['ä', 'a'],
   ['ö', 'o'],
   ['ü', 'u'],
-  [',', ' ']
+  [',', ' '],
+  ['#', '']
 ];
 
 function replaceSpecialLetters(text) {
@@ -206,7 +207,9 @@ $(document).ready(function() {
       $('#sector').text("Gaswerk, " + sector);
 
       if (routesarray[index]["typ"] == "Bould") {
-	sub_sector = sub_sector.split('-').slice(0,2).join('-');
+	if (sub_sector.split('-').length > 2) {
+	  sub_sector = sub_sector.split('-').slice(2).join('-');
+	}
       } else {
 	if (sector.indexOf("Halle") != -1) {
 	  sub_sector = sub_sector.split('-').slice(2).join('-');
