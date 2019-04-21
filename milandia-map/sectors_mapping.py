@@ -7,7 +7,7 @@ import sys
 problematic_sectors = {
     "toppas-i" : '"Toppas I$"',
     "flower-tower": 'Flower Tower',
-    "trib": 'Tribüne',
+    "boulder-tribune": 'Tribüne',
     "toppas-ii": 'Toppas II',
     "trango-tower": 'Trango Tower',
     "kleiner-block": 'Kleiner Block',
@@ -15,8 +15,9 @@ problematic_sectors = {
     "grosser-block": 'Grosser Block',
     "tower": '"^tower$"',
     "grotte": '"Grotte$"',
-    "grotte-links": 'Grotte, Turm links',
-    "grotte-rechts": 'Grotte, Turm rechts'
+    "grotte-turm-links": 'Grotte, Turm links',
+    "grotte-turm-rechts": 'Grotte, Turm rechts',
+    "wettkampfwand-rechts": 'Wettkampfwand rechts'
 }
 
 if len(sys.argv) < 2:
