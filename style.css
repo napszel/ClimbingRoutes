@@ -65,7 +65,8 @@ table.dataTable tbody td {
 
 #example_info {
     font-size: 14px;
-    padding-top: 0px;
+    padding-top: 10px;
+    color: #666;
 }
 
 #credits {
@@ -88,8 +89,15 @@ table.dataTable tbody td {
     margin-top: 15px;
 }
 
-.buttons-colvis {
-    padding: 1px 3px 1px 3px !important;
+.dt-button {
+    background: white !important;
+    color: #666 !important;
+    font-size: 12px !important;
+    box-shadow: none !important;
+}
+
+.dt-button.active:not(.disabled) {
+    background: url("images/tick.png") no-repeat scroll 0 0 transparent !important;
 }
 
 .dt-buttons {
