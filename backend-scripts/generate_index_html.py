@@ -211,7 +211,7 @@ table = """
 <th title="Status - Active or Retired" class="sixty">Active/ Retired</th>
 <th title="For kids" class="twenty">Kids</th>
 <th title="Latest comment" class="hundredten">Latest Comment</th>
-<th title="Sum of all comments" class="twenty">All</th>
+<th title="Sum of all comments" class="twenty">Sum</th>
 </tr>
 </thead>
 <tfoot>
@@ -230,7 +230,7 @@ table = """
 <th title="status" placeholder="Active/Retired" default="Active"/>
 <th title="kids" placeholder="Kids" />
 <th title="comment" placeholder="Latest comment" />
-<th title="sum" placeholder="no. of comm." />
+<th title="sum" placeholder="sum of comments" />
 </tr>
 </tfoot>
 <tbody>

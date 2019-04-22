@@ -109,7 +109,17 @@ $(document).ready(function() {
       ],
       "dom": 'iBrt',
       "buttons": [
-        'colvis',
+	{
+	  extend: 'colvis',
+	  collectionLayout: 'fixed two-column',
+	  columnText: function (dt, idx, title) {
+	    if (title == "Sum") {
+	      return "Sum of comments";
+	    } else {
+	      return title;
+	    }
+          }
+	}
       ],
       "oLanguage": {
         "buttons": {
