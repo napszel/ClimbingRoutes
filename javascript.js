@@ -112,6 +112,9 @@ $(document).ready(function() {
 	{
 	  extend: 'colvis',
 	  collectionLayout: 'fixed two-column',
+	  postfixButtons: [
+	    'colvisRestore'
+	  ],
 	  columnText: function (dt, idx, title) {
 	    if (title == "Sum") {
 	      return "Sum of comments";
