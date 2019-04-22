@@ -160,10 +160,6 @@ input, select, textarea{
     color: red;
 }
 
-textarea:focus, input:focus {
-    color: red;
-}
-
 div.dt-buttons {
     float: right;
     margin-right: 20px;
