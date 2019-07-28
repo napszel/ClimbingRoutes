@@ -22,6 +22,10 @@ try:
         # dat (date)
         dat = route['RouteErstellungsdatum'].split('T')[0]
 
+        # To fix the typo in their Json:
+        if dat.startswith('2109'):
+            dat = dat.replace('2109', '2019', 1)
+
         # typ (type), toprope, roppas, lead
         typ = "bould"
         toprope = False
