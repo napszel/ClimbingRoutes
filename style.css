@@ -204,8 +204,7 @@ div.dt-buttons {
 }
 
 .back_button {
-    width: 50px;
-    border: none;
+    padding-left: 8px;
 }
 
 #title-div {

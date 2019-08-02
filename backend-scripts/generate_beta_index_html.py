@@ -87,15 +87,10 @@ html_headers = """
   </head>
   
   <body>
-   <script>
-    function goBack() {
-      window.history.back(); 
-    }
-   </script>
 
   <div id="route_root" style="display: none">
     <div class="flex header shadowbox">
-      <button onclick="goBack()" class="back_button"><img src="images/back.png"/></button>
+      <a href="beta.html"><img class="back_button" src="images/back.png"/></a>
       <div id="title-div"></div>
       <a href="profile.html"><i class="fas fa-user"></i></a>
     </div>
