@@ -71,6 +71,8 @@ function applyFilter(word, field) {
   $(field).trigger('input');
 }
 
+var emptygrip = "images/empty-grip.png";
+
 $(document).ready(function() {
   var startHash = window.location.search; // the text after the ? in the path
   if (!startHash) {
@@ -188,6 +190,13 @@ $(document).ready(function() {
 	$('#status').addClass("red-text");
       }
     }
+
+    $("#hold").on("error", function () {
+      if (emptygrip !== "") {
+	$("#hold").attr("src", emptygrip);
+	emptygrip = "";
+      }
+    });
     
     $("#hold").attr("src", "https://www.kletterzentrum.com/" + routesarray[index]["imgurl"]);
     $("#hold_caption").text(routesarray[index]["color"]);
