@@ -18,7 +18,7 @@ try:
 
     for route in data:
         # things to get and insert to table:
-        # dat, typ, place, rid, name, subname, grade, setter, color, toprope, toppas, lead, sector, new_, lastcall, retired, kids, imgurl
+        # dat, typ, place, rid, name, grade, setter, color, toprope, toppas, lead, sector, new_, lastcall, retired, kids, imgurl
         # dat (date)
         dat = route['RouteErstellungsdatum'].split('T')[0]
 
@@ -52,10 +52,11 @@ try:
         else:
             name = route['RouteBez'].strip()
 
-        if typ == "sport":
-            subname = route['BemerkungRoutenschild']
-        else:
-            subname = ""
+        if 'BemerkungRoutenschild' in route:
+            subname = route['BemerkungRoutenschild'].strip()
+            if typ == "sport" and len(subname) > 0:
+                name += " (" + subname + ")"
+
         grade = route['SchwierigkeitsgradBez']
         setter = route['RoutenbauerVornameNachname']
 
@@ -79,9 +80,9 @@ try:
 
         imgurl = '_routenFarben/' +str(route['GrifffarbeID']) + '.png'
 
-        next_route_to_insert = [(dat, typ, place, rid, name, subname, grade, setter, color, toprope, toppas, lead, sector, new_, lastcall, retired, kids, imgurl)]
+        next_route_to_insert = [(dat, typ, place, rid, name, grade, setter, color, toprope, toppas, lead, sector, new_, lastcall, retired, kids, imgurl)]
     
-        c.executemany("INSERT OR REPLACE INTO routes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", next_route_to_insert)
+        c.executemany("INSERT OR REPLACE INTO routes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", next_route_to_insert)
 
     conn.commit()
 except conn.Error:

@@ -26,7 +26,6 @@ CREATE TABLE routes
        , place TEXT
        , rid INT
        , name TEXT
-       , subname TEXT
        , grade TEXT
        , setter TEXT
        , color TEXT

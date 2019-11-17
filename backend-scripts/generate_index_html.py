@@ -285,8 +285,6 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     route_identifier = date + ":" + route_type + ":" + place + ":" + route_number
 
     table += "<td><a href=\"?route-comment=" + route_identifier + "\" >" + html_escape_and_add_break_points(route['name'])
-    if route['subname']:
-        table += " (" + route['subname'] + ")"
     table += "</a></td>"
 
     color = getColorFromGrade(route['grade'], route['typ'])

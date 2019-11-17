@@ -20,8 +20,6 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     table["number"] = route_number
 
     fullname = route['name']
-    if route['subname']:
-        fullname += " (" + route['subname'] + ")"
     table["name"] = fullname
 
     table["grade"] = route['grade']

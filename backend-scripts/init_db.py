@@ -12,15 +12,17 @@ try:
     c = conn.cursor()
 
     disqus = DisqusAPI("tomRM9FzpoPUBVaTpj9EzJBi7EGtRRJHAK9LWO1LKQxphtyHLRF9Ryq7zrnhWGZc", "g0hQCAzqMrVq2M8DFwpQmnviE22ZSYw4AsuQbRkMTniMD3W5lpIzyvqWEbFNRHt2")
-    posts_list = disqus.posts.list(forum='climbingroutes', sortType='date', order='asc', limit='100')
+    all_post_states = ['deleted', 'approved', 'unapproved', 'spam', 'flagged', 'highlighted']
+    posts_list = disqus.posts.list(forum='climbingroutes', include=all_post_states, sortType='date', order='desc', limit='100')
 
-    post = posts_list[0]
-    thread = disqus.threads.list(thread=post['thread'])[0]
+    post = posts_list[-1]
+    threads = disqus.threads.list(thread=post['thread'])
+    thread = threads[0]
     thread_posts_count = thread['posts']
     thread_link = thread['link']
     threadid = thread['id']
-    latest = posts_list[0]['createdAt']
-    commenter = posts_list[0]['author']['name']
+    latest = post['createdAt']
+    commenter = post['author']['name']
 
     route_id_start = thread_link.find("route-comment=") + 14
     route_id = thread_link[route_id_start:].split('&')[0]
