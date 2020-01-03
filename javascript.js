@@ -71,7 +71,7 @@ function applyFilter(word, field) {
   $(field).trigger('input');
 }
 
-var emptygrip = "images/empty-grip.png";
+var emptygrip = "images/grip-images/empty-grip.png";
 
 $(document).ready(function() {
   var startHash = window.location.search; // the text after the ? in the path
