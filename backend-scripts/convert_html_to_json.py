@@ -79,7 +79,7 @@ def main(args=None):
 
     all_routes = milandia_routes + milandia_boulders + gaswerk_routes + gaswerk_boulders
 
-    print(json.dumps(all_routes, indent=4))
+    print(json.dumps(all_routes, indent=4, ensure_ascii=False))
 
 if __name__ == '__main__':
   df = main()
