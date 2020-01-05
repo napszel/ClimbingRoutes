@@ -9,8 +9,8 @@ import time
 import json
 
 #test_html = '../daily-saves/test-format.html'
-milandia_html = '../daily-saves/20200104-mil-routes.html'
-gaswerk_html = '../daily-saves/20200104-gas-routes.html'
+milandia_html = '../daily-saves/20200105-mil-routes.html'
+gaswerk_html = '../daily-saves/20200105-gas-routes.html'
 
 
 def parse_html_to_routes_dict(html, place):
