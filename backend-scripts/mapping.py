@@ -62,11 +62,11 @@ def do_the_matching(jd, verbose):
         matched_name = db.fetchall()
         
         if (len(matched_name) == 0):
-            not_matched_routes[route['name']] = {route['number'], route['sector'], route['dat']}
+            not_matched_routes[route['name']] = {route['number'], route['place'], route['sector'], route['dat'], route['grade'], route['setter']}
             continue
     
         if (len(matched_name) > 1):
-            too_many_matches[route['name']] = {route['number'], route['sector'], route['dat']}
+            too_many_matches[route['name']] = {route['number'], route['place'], route['sector'], route['dat'], route['grade'], route['setter']}
             continue
 
         matched_routes[route['number']] = matched_name[0]
