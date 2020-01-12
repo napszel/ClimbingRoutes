@@ -1,0 +1,56 @@
+Number of routes in old DB: (1277,)
+Number of routes in new json: 1125
+No matches for 
+OrderedDict([
+             ('(pair? (List "Hänkel" "Sloper"))#t',
+              {59022,
+               ' Tereza Svobodova',
+               '2019-11-05',
+               '6b',
+               'Alpstein',
+               'mil'}),
+	       
+             ('Zwergespaziergang',
+              {58643,
+               ' Tereza Svobodova',
+               '2019-11-04',
+               '6a',
+               'Alpstein',
+               'mil'}),
+	       
+             ('DoDo',
+              {57277,
+               ' Ubaldo Montes De Oca ',
+               '2019-10-01',
+               '6a',
+               'Cerro Torre',
+               'mil'}),
+	       
+             ('as easy as coiut < < "Hello world" ;',
+              {60501,
+               ' Tereza Svobodova',
+               '2019-09-02',
+               '5b',
+               'Reality Wall',
+               'gas'}),
+	       
+             ('int foo ( ) ={Frog, Chicken T-Rex };',
+              {60505,
+               ' Tereza Svobodova',
+               '2019-09-02',
+               '7a',
+               'Reality Wall',
+               'gas'}),
+	       
+             ('int foo ( ) = {Principessa, Squirrel }',
+              {60506,
+               ' Tereza Svobodova',
+               '2019-09-02',
+               '6b+',
+               'Reality Wall',
+               'gas'}),
+	       
+	     ('Grillllllparty',
+              {'gas', '2019-05-02', 60874, 'Nasenwand', ' Kevin Huser', '4b'}),
+	      
+Number of not matched routes: 46 - 39 = 7 (39 already matched by hand) 

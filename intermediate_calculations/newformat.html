@@ -1,0 +1,113 @@
+TODO:
+- download all route comments save it and link it from route details
+- color mapping
+- get toppas, toprope, lead from secotr or old db
+- match rid to new number
+- status: nothing from old routes should be last call
+- remove kids
+- mapping table check if the given long id is found: dict key: long id, value: PK from DB
+- DB 'newid'
+- rename Gas, Halle 1, Galerie 2 to Old School
+
+
+Next:
+*1. edit mapping.py so that it writes the dict (key: long id, value: PK from DB) to output, save it
+*2. the not matched ones it can print out for further processing
+3. Do something with the not matched routes: fill it in by hand
+4. Do something with the multiple matched routes
+5. Do something with boulders: match them by sector somehow, maybe only the ones we have comments on
+6. DB migration: new columns: vlid (veritcal life id, int), color_codes (string)
+7. If matching file is ready: write a new update_database script:
+.   a. reads in the json_from_html_with_good_names.json
+.   b. reads in the mapping file (dict)
+.   c. does the same as current update_database except:
+.   d. compare route that came from json to mapping. If there is a match:
+.   e. fill in the db row new id, old id and details: make sure to not overwrite details that were there before and we don't get any more. Like toppas, toprope, lead, kids, imgurl. But do overwrite the name! (So that manually matched routes show the new names)
+.   f. If this route I haven't seen before then the rid is the new id, the vlid is also the new id; if I've seen it then rid is the old rid and vlid is Null; If I matched then rid is old but vlid is new id.
+
+
+
+
+<table class="table table-striped iframe-table">
+  <tbody class="list">
+    <tr>
+      <td>
+	<div class="iframe-circle" style="border-top-color: #ffa500; border-right-color: #ffa500; border-bottom-color: #ffa500; border-left-color: #ffa500;">
+	  <div class="new-small-badge" style="background-image: url(/assets/icons/badge-faf0832adf784f8fc9004244da191201b0f990a78d426d734529717ed4044c7c.png); background-size: 40px 40px; background-repeat: no-repeat;">
+	    new
+	  </div>
+
+	  <div class="iframe-circle-content route_number">
+            4.1
+	  </div>
+	</div>
+      </td>
+      <td class="iframe-table-zlaggable-name"><a class="route_name" data-remote="true" href="/en/gaswerk-schlieren/iframe/64397/iframe_route_detail">machs wie der Frosch</a></td>
+      <td class="text-center grade">6c+</td>
+      <td class="sector"><a data-remote="true" href="/en/gaswerk-schlieren/iframe/2121/iframe_sector_zlaggables">Gelbe Wand</a></td>
+      <td class="route_setter hidden-xs"> Soraija Baumgartner</td>
+      <td style="display: none;" class="date">1576785192</td>
+      <td class="hidden-xs">19.12.2019</td>
+      <td class="text-center zlags hidden-xs">6</td>
+    </tr>
+  </tbody>
+</table>
+
+Two of these tables: first one for routes, second one for boulders.
+
+Place:
+Comes from the fact that there are sperate links for the two gyms
+https://gyms.vertical-life.info/en/gaswerk-schlieren/iframe
+https://gyms.vertical-life.info/en/gaswerk-greifensee/iframe
+
+Route number in href of route name (rid):
+<a class="route_name" href="/en/gaswerk-schlieren/iframe/64397/iframe_route_detail"></a> -> 64397
+<div class="route_number">4.1</div> What the hell is this? Can it be used?
+Needs mapping to old numbers...
+
+Route name (name):
+<a class="route_name">My route name</a>
+<a class="boulder_name">My boulder name</a>
+
+Grade:
+<td class="grade">6c+</td>
+
+Setter:
+<td class="route_setter">Soraija Baumgartner</td>
+
+Setting Date is twice (dat):
+<td class="date">1575576708</td>
+<td class="hidden-xs">05.12.2019</td> But this is not unique!
+
+Color:
+<div class="iframe-circle" style="border-top-color: #ffa500; border-right-color: #ffa500; border-bottom-color: #ffa500; border-left-color: #ffa500;"></div>
+Needs mapping from color code to old, German color names. Otherwise you can't search by color.
+Create dict with color names to 0-255, 0-255, 0-255 color codes.
+Take all four color numbers from website but unique.
+Get the color name from the color code. (Get 3 numbers from 0-255, square them, add them together, find the smallest diff)
+Separate the names with dashes.
+Download all old route grip images: https://www.kletterzentrum.com/_routenFarben/108.png
+Match the numbers to the colors in a dictionary.
+Match the gotten color name with dashes to this dict.
+
+Type (typ):
+<td class="iframe-table-zlaggable-name"><a class="boulder_name" or class="boulder_name"></a></td>
+
+Toprope, toppas, lead:
+No info comes from the html but it could be matched by secor quite accurately. Or matched exactly by old route numbers.
+We could get this info out from the DB now as it has this info for each route number.
+
+Sector:
+<td class="sector"><a>Gelbe Wand</a></td>
+
+New (new_):
+IF <div class="iframe-circle"><div class="new-small-badge"></div></div>
+
+Last call (lastcall):
+No info. Except in the route details there is an expiration date but it doesn't seem to be correct.
+
+Kids:
+No such info. Let's remove it.
+
+Image url (imgurl):
+If we have the colors matched to codes, just save the generated code based on the color.
