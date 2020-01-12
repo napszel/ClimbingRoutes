@@ -13,17 +13,18 @@ TODO:
 Next:
 *1. edit mapping.py so that it writes the dict (key: long id, value: PK from DB) to output, save it
 *2. the not matched ones it can print out for further processing
-3. Do something with the not matched routes: fill it in by hand
-4. Do something with the multiple matched routes
+*3. Do something with the not matched routes: fill it in by hand
+*4. Do something with the multiple matched routes
 5. Do something with boulders: match them by sector somehow, maybe only the ones we have comments on
 6. DB migration: new columns: vlid (veritcal life id, int), color_codes (string)
 7. If matching file is ready: write a new update_database script:
 .   a. reads in the json_from_html_with_good_names.json
-.   b. reads in the mapping file (dict)
+.   b. reads in the mapping file (dict), both
 .   c. does the same as current update_database except:
-.   d. compare route that came from json to mapping. If there is a match:
-.   e. fill in the db row new id, old id and details: make sure to not overwrite details that were there before and we don't get any more. Like toppas, toprope, lead, kids, imgurl. But do overwrite the name! (So that manually matched routes show the new names)
-.   f. If this route I haven't seen before then the rid is the new id, the vlid is also the new id; if I've seen it then rid is the old rid and vlid is Null; If I matched then rid is old but vlid is new id.
+.   d. matches the new format of the json
+.   e. compare route that came from json to mapping. If there is a match:
+.   f. fill in the db row new id, old id and details: make sure to not overwrite details that were there before and we don't get any more. Like toppas, toprope, lead, kids, imgurl. But do overwrite (or save) the new name! (So that manually matched routes show the new names)
+.   g. If this route I haven't seen before then the rid is the new id, the vlid is also the new id; if I've seen it then rid is the old rid and vlid is Null; If I matched then rid is old but vlid is new id.
 
 
 
