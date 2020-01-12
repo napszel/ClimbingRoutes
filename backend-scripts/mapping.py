@@ -5,6 +5,7 @@ import json
 from pprint import pprint
 import sqlite3
 import sys
+from collections import OrderedDict
 
 def get_the_real_names():
     full_names = open("../intermediate_calculations/nevek.jo", "r")
@@ -37,8 +38,8 @@ def do_the_matching(jd, verbose):
         print("Number of routes in old DB: {}".format(db.fetchone()))
         print("Number of routes in new json: {}".format(len(jd)))
 
-    not_matched_routes = []
-    too_many_matches = []
+    not_matched_routes = OrderedDict()
+    too_many_matches = OrderedDict()
 
     matched_routes = {}
 
@@ -61,21 +62,21 @@ def do_the_matching(jd, verbose):
         matched_name = db.fetchall()
         
         if (len(matched_name) == 0):
-            not_matched_routes.append(route['name'])
+            not_matched_routes[route['name']] = {route['number'], route['sector'], route['dat']}
             continue
     
         if (len(matched_name) > 1):
-            too_many_matches.append(route['name'])
+            too_many_matches[route['name']] = {route['number'], route['sector'], route['dat']}
             continue
 
         matched_routes[route['number']] = matched_name[0]
 
     if verbose:
         print("No matches for ")
-        print(not_matched_routes)
+        pprint(not_matched_routes)
         print("Number of not matched routes: {}".format(len(not_matched_routes)))
         print("Too many routes matched to ")
-        print(too_many_matches)
+        pprint(too_many_matches)
 
     return matched_routes
     
