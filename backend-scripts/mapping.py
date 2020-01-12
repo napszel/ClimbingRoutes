@@ -7,7 +7,7 @@ import sqlite3
 import sys
 
 def get_the_real_names():
-    full_names = open("../generated/nevek.jo", "r")
+    full_names = open("../intermediate_calculations/nevek.jo", "r")
     names_list = full_names.readlines()
     numbers_names = {}
     for item in names_list:
@@ -29,14 +29,13 @@ def fix_json_with_full_names(real_names_with_numbers):
     return correct_routes_json
 
 
-def do_the_matching(jd):
+def do_the_matching(jd, verbose):
     conn = sqlite3.connect('../generated/routes.db')
     db = conn.cursor()
     db.execute('SELECT count(*) from routes')
-    print("Number of routes in old DB: {}".format(db.fetchone()))
-    
-#    jd = json.load(open('../generated/json_from_html.json'))
-    print("Number of routes in new json: {}".format(len(jd)))
+    if verbose:
+        print("Number of routes in old DB: {}".format(db.fetchone()))
+        print("Number of routes in new json: {}".format(len(jd)))
 
     not_matched_routes = []
     too_many_matches = []
@@ -44,7 +43,7 @@ def do_the_matching(jd):
     matched_routes = {}
 
     for route in jd:
-        # Boulders can't be matched by name as they didn't have names before, and now they just can a color as name
+        # Boulders can't be matched by name as they didn't have names before, and now they just have a color as name
         if route['typ'] == 'bould':
             continue
 
@@ -71,12 +70,14 @@ def do_the_matching(jd):
 
         matched_routes[route['number']] = matched_name[0]
 
-    print("No matches for ")
-    print(not_matched_routes)
-    print("Number of not matched routes: {}".format(len(not_matched_routes)))
-    print("Too many routes matched to ")
-    print(too_many_matches)
-    print(matched_routes)
+    if verbose:
+        print("No matches for ")
+        print(not_matched_routes)
+        print("Number of not matched routes: {}".format(len(not_matched_routes)))
+        print("Too many routes matched to ")
+        print(too_many_matches)
+
+    return matched_routes
     
     conn.close()
     
@@ -84,9 +85,9 @@ def do_the_matching(jd):
 def main(args=None):
     real_names_with_numbers = get_the_real_names()
     correct_routes_json = fix_json_with_full_names(real_names_with_numbers)
-    do_the_matching(correct_routes_json)
+    matched_routes = do_the_matching(correct_routes_json, verbose=False)
 
-    #print(json.dumps(correct_routes_json, indent=4, ensure_ascii=False))
+    print(json.dumps(matched_routes, indent=4, ensure_ascii=False))
 
 if __name__ == '__main__':
   df = main()
