@@ -51,24 +51,16 @@ def parse_html_to_routes_dict(html, place):
     next_route = OrderedDict()
 
     next_route['place'] = place
-    next_route['rid'] = None
     next_route['number'] = int(route.find("a", {"class": 'route_name'}).get('href').split('/')[4])
     next_route['name'] = route.find("a", {"class": 'route_name'}).text
     next_route['full_name'] = None
     next_route['grade'] = route.find("td", {"class": 'grade'}).text
     next_route['setter'] = route.find("td", {"class": 'route_setter'}).text
     next_route['dat'] = time.strftime('%Y-%m-%d', time.localtime(int(route.find("td", {"class": 'date'}).text)))
-    next_route['color'] = None
     next_route['color_codes'] = route.find("div", {"class": 'iframe-circle'}).get("style")
     next_route['typ'] = 'sport'
-    next_route['toprope'] = None
-    next_route['toppas'] = None
-    next_route['lead'] = None
-    next_route['sector'] = route.find("td", {"class": 'sector'}).find('a').text
+    next_route['vlsector'] = route.find("td", {"class": 'sector'}).find('a').text
     next_route['new_'] = 1 if route.find("div", {"class": 'new-small-badge'}) else 0
-    next_route['last_call'] = 0
-    next_route['kids'] = 0
-    next_route['imgurl'] = None
     
     routes.append(next_route)
   
@@ -79,24 +71,16 @@ def parse_html_to_routes_dict(html, place):
     next_boulder = OrderedDict()
     
     next_boulder['place'] = place
-    next_boulder['rid'] = None
     next_boulder['number'] = int(boulder.find("a", {"class": 'boulder_name'}).get('href').split('/')[4])
     next_boulder['name'] = boulder.find("a", {"class": 'boulder_name'}).text
     next_boulder['full_name'] = None
     next_boulder['grade'] = boulder.find("td", {"class": 'grade'}).text
     next_boulder['setter'] = boulder.find("td", {"class": 'route_setter'}).text
     next_boulder['dat'] = time.strftime('%Y-%m-%d', time.localtime(int(boulder.find("td", {"class": 'date'}).text)))
-    next_boulder['color'] = None
     next_boulder['color_codes'] = boulder.find("div", {"class": 'iframe-circle'}).get("style")
     next_boulder['typ'] = 'bould'
-    next_boulder['toprope'] = 0
-    next_boulder['toppas'] = 0
-    next_boulder['lead'] = 0
-    next_boulder['sector'] = boulder.find("td", {"class": 'sector'}).find('a').text
+    next_boulder['vlsector'] = boulder.find("td", {"class": 'sector'}).find('a').text
     next_boulder['new_'] = 1 if boulder.find("div", {"class": 'new-small-badge'}) else 0
-    next_boulder['last_call'] = 0
-    next_boulder['kids'] = 0
-    next_boulder['imgurl'] = None
     
     boulders.append(next_boulder)
 
