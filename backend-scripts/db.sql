@@ -25,14 +25,18 @@ CREATE TABLE routes
        , typ TEXT
        , place TEXT
        , rid INT
+       , vlid INT
        , name TEXT
+       , full_name TEXT
        , grade TEXT
        , setter TEXT
        , color TEXT
+       , color_codes TEXT
        , toprope BOOLEAN
        , toppas BOOLEAN
        , lead BOOLEAN
        , sector TEXT
+       , vlsector TEXT
        , new_ BOOLEAN
        , lastcall BOOLEAN
        , retired BOOLEAN
@@ -41,3 +45,4 @@ CREATE TABLE routes
        , PRIMARY KEY (dat, typ, place, rid)
        );
 
+CREATE UNIQUE INDEX vlid_unique on routes(vlid);
