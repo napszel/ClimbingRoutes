@@ -10,7 +10,7 @@ conn.row_factory = sqlite3.Row
 c = conn.cursor()
 
 bigtable = []
-for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, postcount.latest FROM routes LEFT JOIN postcount ON routes.dat = postcount.dat AND routes.typ = postcount.typ AND routes.place = postcount.place AND routes.rid = postcount.rid WHERE routes.retired=0 ORDER BY routes.dat DESC'):
+for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, postcount.latest FROM routes LEFT JOIN postcount ON routes.dat = postcount.dat AND routes.typ = postcount.typ AND routes.place = postcount.place AND routes.rid = postcount.rid ORDER BY routes.dat DESC'):
     table = {}
 
     place = route['place']
