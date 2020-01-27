@@ -309,8 +309,11 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
         table += getElement(str(belays).replace("'","").strip("[]"))
     else:
         table += getElement("Mats")
-            
-    table += getElement(route['sector'])
+
+    if route['sector']:
+        table += getElement(route['sector'])
+    else:
+        table += getElement(route['vlsector'])
 
     if route['new_'] or route['lastcall']:
         if route['new_']:
