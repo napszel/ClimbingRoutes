@@ -292,7 +292,10 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
 
     table += getElement(route['setter'])
     table += getElement(date)
-    table += getElement(route['color'])
+    if route['color']:
+        table += getElement(route['color'])
+    else:
+        table += getElement(route['color_codes'])
     table += getElement(route['typ'].capitalize())
 
     belays = []
