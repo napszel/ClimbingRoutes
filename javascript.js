@@ -231,13 +231,14 @@ $(document).ready(function() {
     var filename = "images/map-images/";
 
     var sub_sector = ""
-    if routesarray[index]["sector"] {
-      sector = routesarray[index]["sector"];
-      sub_sector = sector.replace(/,?\s+/g , "-").toLowerCase();
-      sub_sector = replaceSpecialLetters(sub_sector);
-    } else {
-      sector = routesarray[index]["vlsector"];
-    }
+     sector = ""
+    //if ("sector" in routesarray[index]) {
+  //    sector = routesarray[index]["sector"];
+   //   sub_sector = sector.replace(/,?\s+/g , "-").toLowerCase();
+    //  sub_sector = replaceSpecialLetters(sub_sector);
+   // } else {
+   //   sector = routesarray[index]["vlsector"];
+   // }
     
     if (routesarray[index]["place"] == "Gas") {
       $('#sector').text("Gaswerk, " + sector);
