@@ -1,11 +1,15 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import os
+import time
+os.environ["TZ"] = "Europe/Budapest"
+time.tzset()
+
 from bs4 import BeautifulSoup
 import codecs
 import pprint
 from collections import OrderedDict
-import time
 import json
 from datetime import date
 import sys
