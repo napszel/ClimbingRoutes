@@ -5,7 +5,7 @@ import json
 from pprint import pprint
 import sqlite3
 
-html = open('../index.html', 'w')
+html = open('../index.html', 'w', encoding='utf-8')
 
 conn = sqlite3.connect('../generated/routes.db')
 conn.row_factory = sqlite3.Row
@@ -103,7 +103,7 @@ html_headers = """
     </div>
     <div id="details">
           <label id="status" style="display: none"></label><br/>
-          <label id="number"></label><br/>
+          <label id="rid"></label><br/>
           <label id="name"></label><br/>
           <label><span id="grade" class="table-grade"></span></label><br/>
           <label id="date_and_setter"></label><br/>
@@ -194,6 +194,7 @@ table = """
 <tr>
 <th title="Place - Gaswerk or Milandia" class="twenty">Pl.</th>
 <th title="Route number" class="twenty">#</th>
+<th title="VL number" class="twenty">#</th>
 <th title="Route name" class="twohundred">Route</th>
 <th title="Grade" class="twenty">Gr.</th>
 <th title="Setter name">Setter</th>
@@ -202,6 +203,7 @@ table = """
 <th title="Type - Boulder or Sport" class="fourty">Bould/ Sport</th>
 <th title="Belay type - Toprope, Lead, Toppas" class="hundredten">Belay</th>
 <th title="Sector" class="twohundred">Sector</th>
+<th title="VL Sector" class="twohundred">VL Sector</th>
 <th title="New or Last call" class="sixty">New/Last Call</th>
 <th title="Status - Active or Retired" class="sixty">Active/ Retired</th>
 <th title="For kids" class="twenty">Kids</th>
@@ -213,6 +215,7 @@ table = """
 <tr>
 <th title="pl" placeholder="Mil/Gas" />
 <th title="no" placeholder="#" />
+<th title="vlno" placeholder="vl#" />
 <th title="name" placeholder="Filer by route name" />
 <th title="gr" placeholder="6a\+" />
 <th title="setter" placeholder="Filter by route setter" />
@@ -221,6 +224,7 @@ table = """
 <th title="type" placeholder="Bould/Sport" />
 <th title="belay" placeholder="Toppas/Lead/Toprope" />
 <th title="sector" placeholder="Filter by sector name" />
+<th title="vlsector" placeholder="Filter by vl sector name" />
 <th title="new" placeholder="New/Last Call"/>
 <th title="status" placeholder="Active/Retired" default="Active"/>
 <th title="kids" placeholder="Kids" />
@@ -276,15 +280,22 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     place = route['place']
     table += getElement(place.capitalize())
 
-    route_number = str(route['rid'])
-    table += getElement(route_number)
+    route_rid = str(route['rid'])
+    table += getElement(route_rid)
+
+    route_vlid = str(route['vlid'])
+    table += getElement(route_vlid)
 
     route_type = route['typ']
     date = route['dat']
 
-    route_identifier = date + ":" + route_type + ":" + place + ":" + route_number
+    route_identifier = date + ":" + route_type + ":" + place + ":" + route_rid
 
-    table += "<td><a href=\"?route-comment=" + route_identifier + "\" >" + html_escape_and_add_break_points(route['name'])
+    route_name = route['name']
+    if route['full_name']:
+        route_name = route['full_name']
+        
+    table += "<td><a href=\"?route-comment=" + route_identifier + "\" >" + html_escape_and_add_break_points(route_name)
     table += "</a></td>"
 
     color = getColorFromGrade(route['grade'], route['typ'])
@@ -296,6 +307,7 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
         table += getElement(route['color'])
     else:
         table += getElement(route['color_codes'].split(':')[-1])
+        
     table += getElement(route['typ'].capitalize())
 
     belays = []
@@ -313,7 +325,12 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     if route['sector']:
         table += getElement(route['sector'])
     else:
+        table += getElement("")
+        
+    if route['vlsector']:
         table += getElement(route['vlsector'])
+    else:
+        table += getElement("")
 
     if route['new_'] or route['lastcall']:
         if route['new_']:

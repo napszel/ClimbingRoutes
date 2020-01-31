@@ -16,19 +16,25 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     place = route['place']
     table["place"] = place.capitalize()
 
-    route_number = str(route['rid'])
-    table["number"] = route_number
+    route_rid = str(route['rid'])
+    table["rid"] = route_rid
 
-    fullname = route['name']
-    table["name"] = fullname
+    route_vlid = str(route['vlid'])
+    table["vlid"] = route_vlid
+
+    name = route['name']
+    table["name"] = name
+
+    full_name = route['full_name']
+    table["full_name"] = full_name
 
     table["grade"] = route['grade']
 
     route_type = route['typ']
     date = route['dat']
 
-    route_identifier = date + ":" + route_type + ":" + place + ":" + route_number
-    table["rid"] = route_identifier
+    route_identifier = date + ":" + route_type + ":" + place + ":" + route_rid
+    table["pk"] = route_identifier
 
     if route['posts'] == None:
         table["last_commenter"] = None
@@ -57,6 +63,7 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
         table["belay"] = "Mats"
             
     table["sector"] = route['sector']
+    table["vlsector"] = route['vlsector']
 
     if route['new_'] or route['lastcall'] or route['retired']:
         if route['new_']:
@@ -74,6 +81,7 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
         table["kids"] = False
 
     table["imgurl"] = route['imgurl']
+    table["color_codes"] = route['color_codes']
 
     bigtable.append(table)
 

@@ -107,7 +107,7 @@ $(document).ready(function() {
 	{ "width": "90px", "targets": [ "ninety" ] },
 	{ "width": "110px", "targets": [ "hundredten" ] },
 	{ "width": "200px", "targets": [ "twohundred" ] },
-	{ "visible": false, "targets": [8, 11, 12] },
+	{ "visible": false, "targets": [5, 9, 12, 13, 14] },
       ],
       "dom": 'iBrt',
       "buttons": [
@@ -176,7 +176,7 @@ $(document).ready(function() {
 
     rid = startHash.split("=")[1];
     index = 0;
-    while (rid != routesarray[index]["rid"]) {
+    while (rid != routesarray[index]["pk"]) {
       index++;
     }
 
@@ -206,11 +206,9 @@ $(document).ready(function() {
       $("#lead").css("width", "190px");
       $("#lead_caption").text("Boulder");
     } else {
-      if (routesarray[index]["belay"].indexOf("Lead") != -1) {
-	$("#lead").attr("src", "images/lead.png");
-	$("#lead").css("width", "190px");
-	$("#lead_caption").text("Lead");
-      }
+      $("#lead").attr("src", "images/lead.png");
+      $("#lead").css("width", "190px");
+      $("#lead_caption").text("Sport");
       if (routesarray[index]["belay"].indexOf("Toprope") != -1 || routesarray[index]["belay"].indexOf("Toppas") != -1) {
 	$("#toprope").attr("src", "images/toppas.png");
 	$("#toprope").css("width", "190px");
@@ -231,14 +229,14 @@ $(document).ready(function() {
     var filename = "images/map-images/";
 
     var sub_sector = ""
-     sector = ""
-    //if ("sector" in routesarray[index]) {
-  //    sector = routesarray[index]["sector"];
-   //   sub_sector = sector.replace(/,?\s+/g , "-").toLowerCase();
-    //  sub_sector = replaceSpecialLetters(sub_sector);
-   // } else {
-   //   sector = routesarray[index]["vlsector"];
-   // }
+    sector = ""
+    if (routesarray[index]["sector"]) {
+      sector = routesarray[index]["sector"];
+      sub_sector = sector.replace(/,?\s+/g , "-").toLowerCase();
+      sub_sector = replaceSpecialLetters(sub_sector);
+    } else {
+      sector = replaceSpecialLetters(routesarray[index]["vlsector"]);
+    }
     
     if (routesarray[index]["place"] == "Gas") {
       $('#sector').text("Gaswerk, " + sector);
