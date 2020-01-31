@@ -18,9 +18,10 @@ gaswerk_html = '../daily-saves/{}-gas-routes.html'.format(formatted_today)
 
 def fill_in_full_names(all_routes):
   try:
-    full_names = open("nevek.jo", "r")
+    fullnames = "../intermediate_calculations/nevek.jo"
+    full_names = open(fullnames, "r")
   except (FileNotFoundError):
-#    print("nevek.jo file not found in directory. No full_name matching done.")
+    print("nevek.jo file not found in {}. No full_name matching done.".format(fullnames))
     return {}
     
   names_list = full_names.readlines()
