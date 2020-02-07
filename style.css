@@ -51,6 +51,11 @@ table.dataTable tbody td {
     padding: 8px 5px;
 }
 
+.newbg {
+    background-image: url(images/new.png);
+    background-repeat: no-repeat;
+}
+
 #example_wrapper {
     padding: 10px 20px 20px 20px;
     background: #ffffff;

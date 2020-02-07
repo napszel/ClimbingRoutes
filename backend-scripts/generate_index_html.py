@@ -271,8 +271,8 @@ def getColorFromGrade(grade, type):
         if no >= 5:
             return "black";
 
-def getElement(s):
-    return "<td>" + s + "</td>"
+def getElement(s, extraTag=""):
+    return "<td " + extraTag + ">" + s + "</td>"
 
 for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, postcount.latest FROM routes LEFT JOIN postcount ON routes.dat = postcount.dat AND routes.typ = postcount.typ AND routes.place = postcount.place AND routes.rid = postcount.rid ORDER BY routes.dat DESC'):
     table += "<tr>"
@@ -302,7 +302,12 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     table += "<td><span class=\"table-grade " + color + "\">" + route['grade'] + "</span></td>"
 
     table += getElement(route['setter'])
-    table += getElement(date)
+    
+    if route['new_']:
+        table += getElement(date, "class=\"newbg\"")
+    else:
+        table += getElement(date)
+
     if route['color']:
         table += getElement(route['color'])
     else:
