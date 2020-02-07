@@ -51,13 +51,24 @@ var special_letters = [
   ['ä', 'a'],
   ['ö', 'o'],
   ['ü', 'u'],
-  [',', ' '],
-  ['#', '']
+  [',', '-'],
+  ['(', '-'],
+  [' ', '-'],
+  ['#', ''],
+  [')', '']
 ];
+
+function escapeRegExp(str) {
+    return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+}
+
+function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+}
 
 function replaceSpecialLetters(text) {
   for (var i=0; i<special_letters.length; i++) {
-    text = text.replace(special_letters[i][0], special_letters[i][1]);
+    text = replaceAll(text, special_letters[i][0], special_letters[i][1]);
   }
   return text;
 }
@@ -233,35 +244,24 @@ $(document).ready(function() {
 
     var filename = "images/map-images/";
 
-    var sub_sector = ""
     sector = ""
-    if (routesarray[index]["sector"]) {
-      sector = routesarray[index]["sector"];
-      sub_sector = sector.replace(/,?\s+/g , "-").toLowerCase();
-      sub_sector = replaceSpecialLetters(sub_sector);
+    if (routesarray[index]["vlsector"]) {
+      sector = routesarray[index]["vlsector"];
     } else {
-      sector = replaceSpecialLetters(routesarray[index]["vlsector"]);
+      sector = routesarray[index]["sector"];
     }
-    
+
+    file_name_sector = replaceSpecialLetters(sector).split(" ").join("-").toLowerCase();
+
     if (routesarray[index]["place"] == "Gas") {
       $('#sector').text("Gaswerk, " + sector);
-
-      if (routesarray[index]["typ"] == "Bould") {
-	if (sub_sector.split('-').length > 2) {
-	  sub_sector = sub_sector.split('-').slice(2).join('-');
-	}
-      } else {
-	if (sector.indexOf("Halle") != -1) {
-	  sub_sector = sub_sector.split('-').slice(2).join('-');
-	} else {
-	  sub_sector = sub_sector.split('-').slice(1).join('-');
-	}
-      }
-      filename += "gaswerk_" + sub_sector + ".png";
+      filename += "gaswerk_" + file_name_sector + ".png";
     } else {
       $('#sector').text("Milandia, " + sector);
-      filename += "milandia_" + sub_sector + ".png";
+      filename += "milandia_" + file_name_sector + ".png";
     }
+    console.log(filename)
+
     $("#map").attr("src", filename);
     $("#map_link").attr("href", filename);
 
