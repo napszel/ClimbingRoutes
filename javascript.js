@@ -96,9 +96,13 @@ $(document).ready(function() {
     
     // DataTable
     var table = $('#example').DataTable( {
-      "order": [5, 'desc'],
+      // Show all routes
       "pageLength": -1,
+      // Remove pagination
       "paging": false,
+      // Order by date column
+      "order": [6, "desc"],
+      // Define column widths
       "bAutoWidth": false,
       "columnDefs": [
 	{ "width": "20px", "targets": [ "twenty" ] },
@@ -107,6 +111,7 @@ $(document).ready(function() {
 	{ "width": "90px", "targets": [ "ninety" ] },
 	{ "width": "110px", "targets": [ "hundredten" ] },
 	{ "width": "200px", "targets": [ "twohundred" ] },
+	// Hide some columns by default
 	{ "visible": false, "targets": [5, 9, 12, 13, 14] },
       ],
       "dom": 'iBrt',
