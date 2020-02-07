@@ -1,0 +1,57 @@
+gas  Aussenanlage
+gas  Halle 5 linke Seite
+gas  Halle 5 rechte Seite
+gas  Geneigte Platte
+gas  Pfeilerwand
+gas  Topropewand
+gas  Toppas L & R
+gas  Struktur
+gas  Nasenwand
+gas  Arcowand
+gas  Fensterfront
+gas  Galerie 3
+gas  New Age
+gas  Matterhorn
+gas  Feuerwand
+gas  Reality Wall
+gas  3D Wand
+gas  Old School
+gas  Megawall (grd)
+gas  Bigwall
+gas  Muschelwand
+gas  Turm
+gas  Gelbe Wand
+gas  Galerie 1
+gas  Gaswerkwand
+gas  Anfängerwand
+gas  Kinderwand
+gas  Affenkäfig (3rd floor)
+gas  Schnäggli & Mini (1st floor)
+gas  Dächliland & Schnäggli (1st floor)
+gas  Rampe (3rd floor)
+gas  Gasigipfel (3rd floor)
+gas  Dächliland (1st floor)
+gas  Boulderraum III (3rd floor)
+gas  Vitaparcours (1st floor)
+mil
+mil  Boulder Grotte
+mil  Boulder Blockfeld
+mil  Beginner
+mil  Flower Tower
+mil  Toppas I
+mil  Civetta
+mil  Smaragd
+mil  Dreadlock
+mil  Tower
+mil  Sidewall
+mil  Cerro Torre
+mil  Trango Tower
+mil  Alpstein
+mil  Toppas II
+mil  Competition
+mil  Boulder Tribüne
+mil  Boulder Outdoor
+mil  Kinder Boulder
+mil  Eldorado
+mil  Greenhorn
+mil  Spiderman	
