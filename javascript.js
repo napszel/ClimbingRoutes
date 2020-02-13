@@ -215,7 +215,11 @@ $(document).ready(function() {
     });
     
     $("#hold").attr("src", "https://www.kletterzentrum.com/" + routesarray[index]["imgurl"]);
-    $("#hold_caption").text(routesarray[index]["color"]);
+    if (routesarray[index]["color"])
+      $("#hold_caption").text(routesarray[index]["color"]);
+    else {
+      $("#hold_caption").text(routesarray[index]["color_codes"]);
+    }
 
     if (routesarray[index]["typ"] == "Bould") {
       $("#lead").attr("src", "images/boulder.png");

@@ -44,6 +44,23 @@ def fill_in_full_names(all_routes):
       
   return full_name_all_routes
 
+  # INPUT: "border-top-color: #000000; border-right-color: #000000; border-bottom-color: #ffffff; border-left-color: #ffffff;"
+  # RETURN: "#000000 #ffffff"
+def get_unique_colors(color_codes):
+  unique_colors = []
+  color_with_class = color_codes.split(':')
+  for i in range(1, 5):
+    unique_colors.append(color_with_class[i].split(';')[0].strip())
+
+  # remove duplicates and sort:
+  unique_colors = list(dict.fromkeys(unique_colors))
+  unique_colors.sort()
+
+  # flatten to string
+  unique_colors_as_string = ' '.join(unique_colors)
+  
+  return unique_colors_as_string
+
 
 def parse_html_to_routes_dict(html, place):
   page = codecs.open(html, 'r')
@@ -62,7 +79,7 @@ def parse_html_to_routes_dict(html, place):
     next_route['grade'] = route.find("td", {"class": 'grade'}).text
     next_route['setter'] = route.find("td", {"class": 'route_setter'}).text
     next_route['dat'] = time.strftime('%Y-%m-%d', time.localtime(int(route.find("td", {"class": 'date'}).text)))
-    next_route['color_codes'] = route.find("div", {"class": 'iframe-circle'}).get("style")
+    next_route['color_codes'] = get_unique_colors(route.find("div", {"class": 'iframe-circle'}).get("style"))
     next_route['typ'] = 'sport'
     next_route['vlsector'] = route.find("td", {"class": 'sector'}).find('a').text
     next_route['new_'] = 1 if route.find("div", {"class": 'new-small-badge'}) else 0
@@ -82,7 +99,7 @@ def parse_html_to_routes_dict(html, place):
     next_boulder['grade'] = boulder.find("td", {"class": 'grade'}).text
     next_boulder['setter'] = boulder.find("td", {"class": 'route_setter'}).text
     next_boulder['dat'] = time.strftime('%Y-%m-%d', time.localtime(int(boulder.find("td", {"class": 'date'}).text)))
-    next_boulder['color_codes'] = boulder.find("div", {"class": 'iframe-circle'}).get("style")
+    next_boulder['color_codes'] = get_unique_colors(boulder.find("div", {"class": 'iframe-circle'}).get("style"))
     next_boulder['typ'] = 'bould'
     next_boulder['vlsector'] = boulder.find("td", {"class": 'sector'}).find('a').text
     next_boulder['new_'] = 1 if boulder.find("div", {"class": 'new-small-badge'}) else 0

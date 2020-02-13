@@ -311,7 +311,7 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     if route['color']:
         table += getElement(route['color'])
     else:
-        table += getElement(route['color_codes'].split(':')[-1])
+        table += getElement(route['color_codes'])
         
     table += getElement(route['typ'].capitalize())
 
