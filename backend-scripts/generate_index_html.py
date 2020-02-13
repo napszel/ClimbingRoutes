@@ -235,6 +235,37 @@ table = """
 <tbody>
 """
 
+WebColorMap = {}
+WebColorMap["beige"] = "#DEB887" #was F5F5DC
+WebColorMap["black"] = "#000000"
+WebColorMap["blue"] = "#0000FF"
+WebColorMap["brown"] = "#A52A2A"
+WebColorMap["grey"] = "#808080"
+WebColorMap["green"] = "#008000"
+WebColorMap["orange"] = "#FFA500"
+WebColorMap["pink"] = "#FFC0CB"
+WebColorMap["red"] = "#FF0000"
+WebColorMap["violet"] = "#EE82EE"
+WebColorMap["white"] = "#FFFFFF"
+WebColorMap["yellow"] = "#FFFF00"
+
+def rgbFromStr(s):
+    # s starts with a #.
+    r, g, b = int(s[1:3],16), int(s[3:5], 16),int(s[5:7], 16)
+    return r, g, b
+
+def findNearestColorName(code, map = WebColorMap):
+    R, G, B = rgbFromStr(code)
+    mindiff = None
+    for key in map:
+        r, g, b = rgbFromStr(map[key])
+        diff = abs(R-r)*256 + abs(G-g)*256 + abs(B-b)*256
+        if mindiff is None or diff < mindiff:
+            mindiff = diff
+            mincolorname = key
+    return mincolorname
+
+
 def getColorFromGrade(grade, type):
     if type == "sport":
         no = int(grade[0:1])
@@ -311,7 +342,11 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     if route['color']:
         table += getElement(route['color'])
     else:
-        table += getElement(route['color_codes'])
+        new_element = ""
+        colors_list = route['color_codes'].split(' ')
+        for color in colors_list:
+            new_element += findNearestColorName(color) + ", "
+        table += getElement(new_element[:-2])
         
     table += getElement(route['typ'].capitalize())
 
