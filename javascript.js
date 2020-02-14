@@ -123,7 +123,7 @@ $(document).ready(function() {
 	{ "width": "110px", "targets": [ "hundredten" ] },
 	{ "width": "200px", "targets": [ "twohundred" ] },
 	// Hide some columns by default
-	{ "visible": false, "targets": [5, 9, 12, 13, 14] },
+	{ "visible": false, "targets": [5, 9, 10, 12, 13, 14] },
       ],
       "dom": 'iBrt',
       "buttons": [
@@ -170,7 +170,7 @@ $(document).ready(function() {
     // Apply the filter from path if any
     var startFilter = window.location.hash; // the text after the # in the path
     if (startFilter) {
-      applyFilter(decodeURIComponent(startFilter.substring(1)), '#sector-filter');
+      applyFilter(decodeURIComponent(startFilter.substring(1)), '#vlsector-filter');
     }
   } else {
     parts = startHash.split(":");
