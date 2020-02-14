@@ -263,6 +263,10 @@ div.dt-buttons {
     font-size: 40px;
 }
 
+#quick-filters {
+    margin-top: 40px;
+}
+
 .quick-filter {
     margin-left: 14px;
 }
@@ -279,15 +283,19 @@ div.dt-buttons {
 
 #map-buttons {
     height: 40px;
+    position: absolute;
+    width: 1170px;
+    z-index: 10;
     /* Animation stuff */
     -webkit-transition: height 0.5s; /* Safari */
     transition-timing-function: ease; /* Safari */
     transition: height 0.5s;
+    transition-delay: 0.5s;
     -webkit-transition-timing-function: ease;
 }
 
 #map-buttons:hover {
-    height: 200px;
+    height: 174px;
 }
 
 .emphasis {

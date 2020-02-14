@@ -160,7 +160,7 @@ html_headers = """
         <input type="button" class="map-button" id="milandia_map" value="Milandia Routes" onclick="window.location.assign('milandia-map/milandia-leads/milandia_map.html')" />
         <input type="button" class="map-button" id="milandia_boulders" value="Milandia Boulders" onclick="window.location.assign('milandia-map/milandia-boulders/milandia_boulder_map.html')" />
       </div>
-      <div id="quick-filter">
+      <div id="quick-filters">
         <label class="quick-filter">Quick Filters:</label>
         <input type="button" class="button" id="mil" value="Milandia" onclick="applyFilter('Mil', '#pl-filter')" />
         <input type="button" class="button" id="gas" value="Gaswerk" onclick="applyFilter('Gas', '#pl-filter')" />
