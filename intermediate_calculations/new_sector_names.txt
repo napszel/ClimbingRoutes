@@ -1,3 +1,51 @@
+SECTOR				VLSECTOR
+Grotte                          Boulder Grotte
+Zahnrad                         Boulder Blockfeld
+Beginner                        Beginner
+Flower Tower                    Flower Tower
+Toppas I                        Toppas I
+Civetta                         Civetta
+Outdoor Smaragd                 Smaragd
+Dreadlock                       Dreadlock
+Tower                           Tower
+Sidewall                        Sidewall
+Cerro Torre                     Cerro Torre
+Trango Tower                    Trango Tower
+Alpstein                        Alpstein
+Toppas II                       Toppas II
+Civetta                         Cerro Torre
+Competition                     Competition
+Competition                     Tower
+Aussenanlage                    Aussenanlage
+Halle 5 Wallride                Halle 5 linke Seite
+Halle 5 Rettungsgasse           Halle 5 rechte Seite
+Halle 5 Titanic                 Halle 5 linke Seite
+Halle 5 Fight Cub               Halle 5 rechte Seite
+Halle 3  Geneigte Platte        Geneigte Platte
+Halle 4  Pfeilerwand            Pfeilerwand
+Halle 4  Toprope-Wand           Topropewand
+Halle 3  Toppas links           Toppas L & R
+Halle 3  Struktur               Struktur
+Outdoor  Nasenwand              Nasenwand
+Halle 3  Toppas rechts          Toppas L & R
+Outdoor  Arco-Wand              Arcowand
+Halle 1  Fensterfront           Fensterfront
+Halle 2  Galerie 3              Galerie 3
+Halle 4  3D-Wand indoors        Pfeilerwand
+Outdoor New Age                 New Age
+Halle 1  Matterhorn             Matterhorn
+Halle 2  Feuerwand              Feuerwand
+Halle 2  Reality Wall           Reality Wall
+Outdoor  3D-Wand                3D Wand
+Halle 1  Galerie 1              Matterhorn
+Halle 1  Galerie 2              Old School
+Halle 3  Megawall               Megawall (grd)
+Halle 3  Bigwall                Bigwall
+Halle 4  3D-Wand indoors        3D Wand
+Halle 1  Muschelwand            Muschelwand
+
+All sector names:
+
 gas  Aussenanlage
 gas  Halle 5 linke Seite
 gas  Halle 5 rechte Seite
@@ -33,7 +81,7 @@ gas  Gasigipfel (3rd floor)
 gas  Dächliland (1st floor)
 gas  Boulderraum III (3rd floor)
 gas  Vitaparcours (1st floor)
-mil
+
 mil  Boulder Grotte
 mil  Boulder Blockfeld
 mil  Beginner
