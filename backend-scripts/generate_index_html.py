@@ -335,7 +335,7 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     table += getElement(route['setter'])
     
     if route['new_']:
-        table += getElement(date, "class=\"newbg\"")
+        table += getElement(date, "class=\"emphasis\"")
     else:
         table += getElement(date)
 
