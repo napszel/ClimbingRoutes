@@ -93,7 +93,7 @@ html_headers = """
             <tr>
               <td><img id="lead"/></td>
               <td><img id="toprope"/></td>
-              <td><img id="hold"/></td>
+              <td><img id="hold" src="images/grip-images/empty-grip.png" /></td>
             </tr>
               <td id="lead_caption"></td>
               <td id="toprope_caption"></td>

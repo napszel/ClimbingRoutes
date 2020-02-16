@@ -82,7 +82,6 @@ function applyFilter(word, field) {
   $(field).trigger('input');
 }
 
-var emptygrip = "images/grip-images/empty-grip.png";
 
 $(document).ready(function() {
   var startHash = window.location.search; // the text after the ? in the path
@@ -207,19 +206,18 @@ $(document).ready(function() {
       }
     }
 
-    $("#hold").on("error", function () {
-      if (emptygrip !== "") {
-	$("#hold").attr("src", emptygrip);
-	emptygrip = "";
-      }
-    });
-    
-    $("#hold").attr("src", "https://www.kletterzentrum.com/" + routesarray[index]["imgurl"]);
-    if (routesarray[index]["color"])
-      $("#hold_caption").text(routesarray[index]["color"]);
-    else {
-      $("#hold_caption").text(routesarray[index]["color_codes"]);
+    var color_codes = routesarray[index]["color_codes"].split(" ")
+    // 'radial-gradient(red 0% 25%, blue 25% 50%, yellow 50% 75%, green 75% 100%)'
+    var gradient = "radial-gradient("
+    var i;
+    for (i = 0; i < color_codes.length; i++) {
+      gradient += color_codes[i] + " " + (100 / color_codes.length) * i + "%, ";
+      gradient += color_codes[i] + " " + (100 / color_codes.length) * (i+1) + "%, ";
     }
+    gradient = gradient.slice(0, -2) + ")";
+    $("#hold").css('background-image', gradient);
+
+    $("#hold_caption").text(routesarray[index]["color"]);
 
     if (routesarray[index]["typ"] == "Bould") {
       $("#lead").attr("src", "images/boulder.png");
