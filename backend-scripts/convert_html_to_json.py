@@ -114,9 +114,9 @@ def main(args=None):
   
   all_routes = milandia_boulders + gaswerk_routes + gaswerk_boulders + milandia_routes
 
-  full_name_all_routes = fill_in_full_names(all_routes)
+#  full_name_all_routes = fill_in_full_names(all_routes)
   
-  print(json.dumps(full_name_all_routes, indent=4, ensure_ascii=False))
+  print(json.dumps(all_routes, indent=4, ensure_ascii=False))
 
 if __name__ == '__main__':
   df = main()

@@ -45,4 +45,3 @@ CREATE TABLE routes
        , PRIMARY KEY (dat, typ, place, rid)
        );
 
-CREATE UNIQUE INDEX vlid_unique on routes(vlid);

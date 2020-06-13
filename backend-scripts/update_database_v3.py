@@ -78,17 +78,21 @@ try:
         # dat, typ, place, rid, vlid, name, full_name, grade, setter, color_codes, vlsector, new_, retired
 
         # Mapping magic
-        vlid = route['number']
-        if str(vlid) in mapping:
-            # Found a match in old DB. Keep the old date as I checked and they messed it up 18 times.
-            old_route = mapping[str(vlid)]
-            dat = old_route[0]
-            rid = old_route[3]
-        else:
-            # If not matching found both ids will be the new and the date is from the new DB
-            rid = route['number']
-            dat = route['dat']
+#        vlid = route['number']
+#        print(route['dat'], route['typ'], route['place'], route['number'], route['full_name'], route['grade'], route['setter'], route['color_codes'], route['vlsector'])
+#        if str(vlid) in mapping:
+#            # Found a match in old DB. Keep the old date as I checked and they messed it up 18 times.
+#            old_route = mapping[str(vlid)]
+#            dat = old_route[0]
+#            rid = old_route[3]
+#        else:
+#            # If not matching found both ids will be the new and the date is from the new DB
+#            rid = route['number']
+#            dat = route['dat']
 
+        vlid = route['number']
+        rid = vlid
+        dat = route['dat']
         typ = route['typ']
         place = route['place']
         name = route['name']
