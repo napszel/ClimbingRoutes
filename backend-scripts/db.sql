@@ -42,6 +42,7 @@ CREATE TABLE routes
        , retired BOOLEAN
        , kids BOOLEAN
        , imgurl TEXT
+       , sectorimg TEXT
        , PRIMARY KEY (dat, typ, place, rid)
        );
 
