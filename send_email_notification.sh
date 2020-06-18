@@ -12,7 +12,7 @@ NEW_FILE=./tmp/new-routes.json
 DIFF=/tmp/diff_output
 
 mv $NEW_FILE $OLD_FILE
-cp ./generated/json_from_html_with_full_names.json $NEW_FILE
+cp ./generated/json_from_html.json $NEW_FILE
 diff $NEW_FILE $OLD_FILE > $DIFF || true
 if [ -s $DIFF ]; then
     #MILANDIA is "" if Greifensee is not found in diff or "Milandia" otherwise

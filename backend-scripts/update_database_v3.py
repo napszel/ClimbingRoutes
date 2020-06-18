@@ -70,7 +70,7 @@ try:
     c.execute("UPDATE routes SET retired=1")
     c.execute("UPDATE routes SET new_=0")
 
-    data = json.load(open('../generated/json_from_html_with_full_names.json'))
+    data = json.load(open('../generated/json_from_html.json'))
     mapping = json.load(open('../intermediate_calculations/mappingv2.json'))
 
     for route in data:
