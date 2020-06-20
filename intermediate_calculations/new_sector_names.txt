@@ -1,3 +1,80 @@
+Gaswerk sector mapping (Old;New):
+3D-Wand indoors;3D Wand;(4)
+Toprope-Wand;Topropewand
+struktur;Struktur;(1)
+Toppas links;Toppas L & R;(2)
+Megawall;Megawall (grd);(3)
+Halle 3 Kinderwand;Kinderwand
+Halle 2 Anfängerwand;Anfängerwand
+Halle 2 Galerie 3;Galerie 3
+"Halle 1 Galerie 1";Galerie 1
+Halle 1 Galerie 2;Old School
+Halle 1 Turm;Turm
+
+Nasenwand (Left side);3D Wand;(4)
+Nasenwand (Right side);Arcowand
+Outdoor New Age (Left side);Nasenwand
+Outdoor New Age (Right side);New Age
+
+(1) They have a bug - routes from this sector appear only in the mobile app
+(2) Two toppas secor are joined into one. Later it sould be able to go back to separate secors with recognizing location from image name.
+(3) Still works but the name was changed
+(4) What a nice feature: giving the same name to the indoor and outdoor sector. :( If we want it to be solved either sectors have to be renamed when importing or additional sector identifier is needed.
+
+Gaswerk Boulders:
+titanic;Halle 5 linke Seite
+26grad;Halle 5 linke Seite
+Wilde 13;Halle 5 linke Seite
+bridge;Halle 5 linke Seite
+Das Dach;Halle 5 linke Seite
+wallride;Halle 5 linke Seite
+Die Platte;Halle 5 linke Seite
+Base Camp;Halle 5 linke Seite
+rooftop;Halle 5 linke Seite
+Red Carpet;Halle 5 rechte Seite
+Break Point;Halle 5 rechte Seite
+darkness;Halle 5 rechte Seite
+monster;Halle 5 rechte Seite
+rettungsgasse;Halle 5 rechte Seite
+walterstahl;Halle 5 rechte Seite
+Fight Cub;Halle 5 rechte Seite
+catwalk;Halle 5 rechte Seite
+mini;Schnäggli & Mini (1st floor)
+Schnäggli;Schnäggli & Mini (1st floor);Dächliland & Schnäggli (1st floor);(5)
+Dächliland;Dächliland & Schnäggli (1st floor);Dächliland (1st floor);(6)
+gasigipfel;Gasigipfel (3rd floor);Boulderraum III (3rd floor);(7)
+rampe;Rampe (3rd floor)
+Affenkäfig;Affenkäfig (3rd floor)
+vitaparcours;Vitaparcours (1st floor)
+aussenanlage;Aussenanlage
+
+(5) Schnäggli was split into two sectors devided on doors.
+(6) Dächliland was split into two sectors. I cannot find any reason for that. Naming is terrible after. The split is done on the edge, both left corners are included in "Dächliland"
+(7) Gasgipfel split into "Gasigipfel (3rd floor)" and "Boulderraum III (3rd floor)". Split done based on walls/corner.
+
+Milandia Routes: names are fine. They have slightly different regions pics on he map but personall I prefer your ones (e.g. Competition is marked in the middle of the room instead of where routes start).
+
+Milandia Boulders:
+Tribüne;Boulder Tribüne
+Grotte, Turm rechts;Boulder Grotte;(8)
+Grotte, Turm links;Boulder Grotte;(8)
+"Grotte$";Boulder Grotte;(8)
+Kinderwand;Kinder Boulder
+Wettkampfwand rechts;Boulder Blockfeld;(9)
+volumenwand;Boulder Blockfeld;(9)
+Grosser Block;Boulder Blockfeld;(9)
+Kleiner Block;Boulder Blockfeld;(9)
+zahnrad;Boulder Blockfeld;(9)
+lounge;Boulder Blockfeld;(9)
+aussenwand;Boulder Outdoor
+
+(8) All Grotte boulders are single secotor now.
+(9) Single sector for all
+
+
+--------------------
+
+
 SECTOR				VLSECTOR
 Grotte                          Boulder Grotte
 Zahnrad                         Boulder Blockfeld
@@ -103,3 +180,4 @@ mil  Kinder Boulder
 mil  Eldorado
 mil  Greenhorn
 mil  Spiderman	
+
