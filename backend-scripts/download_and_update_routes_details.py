@@ -35,7 +35,7 @@ try:
     
     for route in conn.cursor().execute('SELECT dat, typ, place, rid, name, vlid FROM routes WHERE sectorimg IS NULL AND vlid IS NOT NULL AND vlid != "" AND retired=0'):
         
-        print('Check route rid:', route['rid'], ' vlid:', route['vlid'])
+        #print('Check route rid:', route['rid'], ' vlid:', route['vlid'])
         
         db_name = route['name']
         vlid = str(route['vlid'])
@@ -56,26 +56,22 @@ try:
         
         download_url = route_details_url %(full_place, vlid, full_typ)
         
-        print(download_url)
+        #print(download_url)
         
         response = requests.get(download_url, headers=headers)
         
         if not response.ok:
-            print('Wrong response for route "', db_name, '",', vlid, '[', download_url, ']. Continue')
+            #print('Wrong response for route "', db_name, '",', vlid, '[', download_url, ']. Continue')
             continue
         
         if name_pattern.match(response.text):
             full_name = html.unescape(name_pattern.search(response.text).group(1))
-            if db_name != full_name:
-                print("Name needs update! Database name:", db_name, " Full name: ", full_name)
         
         sector_img = None
         if sector_url_pattern.match(response.text):
             sector_img = sector_url_pattern.search(response.text).group(1)
-            print("Sector image: ", sector_img)
         
         if db_name != full_name or sector_img is not None:
-            print("Updating the route rid:", rid)
             c.execute("UPDATE routes SET name=?, sectorimg=? WHERE dat=? AND typ=? AND place=? AND rid=?", (full_name, sector_img, dat, typ, place, rid))
 
     conn.commit()
