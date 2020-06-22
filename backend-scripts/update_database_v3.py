@@ -71,11 +71,11 @@ try:
     c.execute("UPDATE routes SET new_=0")
 
     data = json.load(open('../generated/json_from_html.json'))
-    mapping = json.load(open('../intermediate_calculations/mappingv2.json'))
+   # mapping = json.load(open('../intermediate_calculations/mappingv2.json'))
 
     for route in data:
         # things to get and insert to table:
-        # dat, typ, place, rid, vlid, name, full_name, grade, setter, color_codes, vlsector, new_, retired
+        # dat, typ, place, rid, vlid, name, grade, setter, color_codes, vlsector, new_, retired
 
         # Mapping magic
 #        vlid = route['number']
@@ -96,7 +96,6 @@ try:
         typ = route['typ']
         place = route['place']
         name = route['name']
-        full_name = route['full_name']
         grade = route['grade']
         setter = route['setter']
         color_codes = route['color_codes']
@@ -104,9 +103,9 @@ try:
         new_ = True if route['new_'] == 1 else False
         retired = False
 
-        next_route_to_insert = [(rid, vlid, dat, typ, place, name, full_name, grade, setter, color_codes, vlsector, new_, retired)]
+        next_route_to_insert = [(rid, vlid, dat, typ, place, name, grade, setter, color_codes, vlsector, new_, retired)]
         
-        c.executemany("INSERT INTO routes (rid, vlid, dat, typ, place, name, full_name, grade, setter, color_codes, vlsector, new_, retired) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (dat, typ, place, rid) DO UPDATE SET vlid=excluded.vlid, name=excluded.name, full_name=excluded.full_name, grade=excluded.grade, setter=excluded.setter, color_codes=excluded.color_codes, vlsector=excluded.vlsector, new_=excluded.new_, retired=excluded.retired", next_route_to_insert)
+        c.executemany("INSERT INTO routes (rid, vlid, dat, typ, place, name, grade, setter, color_codes, vlsector, new_, retired) VALUES (?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (dat, typ, place, rid) DO UPDATE SET vlid=excluded.vlid, name=excluded.name, grade=excluded.grade, setter=excluded.setter, color_codes=excluded.color_codes, vlsector=excluded.vlsector, new_=excluded.new_, retired=excluded.retired", next_route_to_insert)
 
     conn.commit()
 except conn.Error as err:

@@ -72,7 +72,7 @@ try:
             sector_img = sector_url_pattern.search(response.text).group(1)
         
         if db_name != full_name or sector_img is not None:
-            c.execute("UPDATE routes SET name=?, sectorimg=? WHERE dat=? AND typ=? AND place=? AND rid=?", (full_name, sector_img, dat, typ, place, rid))
+            c.execute("UPDATE routes SET full_name=?, sectorimg=? WHERE dat=? AND typ=? AND place=? AND rid=?", (full_name, sector_img, dat, typ, place, rid))
 
     conn.commit()
 except conn.Error:
