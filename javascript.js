@@ -235,7 +235,11 @@ $(document).ready(function() {
     }
 
     $('#number').html("#" + routesarray[index]["number"]);
-    $('#name').html(routesarray[index]["name"]);
+    if (routesarray[index]["full_name"]) {
+      $('#name').html(routesarray[index]["full_name"]);
+    } else {
+      $('#name').html(routesarray[index]["name"]);
+    }
     $('#grade').html(routesarray[index]["grade"]);
     $('#grade').addClass(getColorFromGrade(routesarray[index]["grade"], routesarray[index]["typ"]));
     $('#date_and_setter').html(routesarray[index]["date"] + ",  " + routesarray[index]["setter"]);
