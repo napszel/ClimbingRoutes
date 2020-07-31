@@ -259,7 +259,10 @@ def getColorFromGrade(grade, type):
         if (no > 7):
             return "black"
     else:
-        no = int(grade[1:2]);
+        try:
+            no = int(grade[1:2]);
+        except ValueError:
+            return "invalid grade";
         if no <= 1:
             return "yellow";
         if no == 2:
