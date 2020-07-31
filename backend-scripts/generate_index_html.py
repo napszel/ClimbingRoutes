@@ -237,7 +237,10 @@ table = """
 
 def getColorFromGrade(grade, type):
     if type == "sport":
-        no = int(grade[0:1])
+        try:
+            no = int(grade[0:1])
+        except ValueError:
+            return "grey"
         l = grade[1:2]
         if (no < 5):
             return "yellow";
@@ -260,9 +263,9 @@ def getColorFromGrade(grade, type):
             return "black"
     else:
         try:
-            no = int(grade[1:2]);
+            no = int(grade[1:2])
         except ValueError:
-            return "invalid grade";
+            return "grey"
         if no <= 1:
             return "yellow";
         if no == 2:

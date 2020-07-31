@@ -334,6 +334,11 @@ div.dt-buttons {
     color: white;
 }
 
+.grey {
+    background: grey;
+    color: white;
+}
+
 #sector {
     display: block;
     padding: 20px;
