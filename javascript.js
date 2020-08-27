@@ -122,7 +122,7 @@ $(document).ready(function() {
 	{ "width": "110px", "targets": [ "hundredten" ] },
 	{ "width": "200px", "targets": [ "twohundred" ] },
 	// Hide some columns by default
-	{ "visible": false, "targets": [5, 9, 10, 12, 13, 14] },
+	{ "visible": false, "targets": [5, 9, 11, 12, 13, 14] },
       ],
       "dom": 'iBrt',
       "buttons": [
