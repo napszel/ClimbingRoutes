@@ -283,7 +283,7 @@ def getColorFromGrade(grade, type):
 def getElement(s, extraTag=""):
     return "<td " + extraTag + ">" + s + "</td>"
 
-for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, postcount.latest FROM routes LEFT JOIN postcount ON routes.dat = postcount.dat AND routes.typ = postcount.typ AND routes.place = postcount.place AND routes.rid = postcount.rid ORDER BY routes.dat DESC'):
+for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, postcount.latest, TRIM(sector1 || \' \' || IFNULL(sector2,\'\') || \' \' || IFNULL(sector3,\'\')) AS sector_details FROM routes LEFT JOIN postcount ON routes.dat = postcount.dat AND routes.typ = postcount.typ AND routes.place = postcount.place AND routes.rid = postcount.rid ORDER BY routes.dat DESC'):
     table += "<tr>"
 
     place = route['place']
@@ -333,8 +333,8 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     else:
         table += getElement("Mats")
 
-    if route['sector']:
-        table += getElement(route['sector'])
+    if route['sector_details']:
+        table += getElement(route['sector_details'])
     else:
         table += getElement("")
         
