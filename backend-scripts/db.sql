@@ -46,6 +46,7 @@ CREATE TABLE routes
        , sector1 TEXT
        , sector2 TEXT
        , sector3 TEXT
+       , polygoon TEXT
        , PRIMARY KEY (dat, typ, place, rid)
        );
 

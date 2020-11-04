@@ -33,12 +33,13 @@ name_pattern = re.compile('.*route-info.*<h4>(.+?) \S*<\\\\/h4>.*route-topo.*')
 # Match first jpg image on the details page which is after 'holder' div and before 'wall-holder'
 # <div id="holder" ... data-image-src="https://d1ffqbcmevre4q.cloudfront.net/e90e4c8a080771d0028b7f753e46e45e.jpg">...<div id="wall-holder"...
 sector_url_pattern = re.compile('.*<div id=\\\\"holder\\\\".*data-image-src=\\\\"https://d1ffqbcmevre4q\.cloudfront\.net/(.+?\.jpg)\\\\">.*id=\\\\"wall-holder\\\\".*')
+route_path_pattern = re.compile('.*<div id=\\\\"holder\\\\".*data-path=\\\\"(.+)\\\\".*data-image-src.*id=\\\\"wall-holder\\\\".*')
 
 try:
     c = conn.cursor()
     
-    for route in conn.cursor().execute('SELECT dat, typ, place, rid, name, vlid FROM routes WHERE sectorimg IS NULL AND vlid IS NOT NULL AND vlid != "" AND retired=0'):
-        
+    for route in conn.cursor().execute('SELECT dat, typ, place, rid, name, vlid FROM routes WHERE (sectorimg IS NULL OR polygon IS NULL) AND vlid IS NOT NULL AND vlid != "" AND retired=0'):
+
         #print('Check route rid:', route['rid'], ' vlid:', route['vlid'])
         
         db_name = route['name']
@@ -78,8 +79,12 @@ try:
         if sector_url_pattern.match(response.text):
             sector_img = sector_url_pattern.search(response.text).group(1)
         
+        route_path = None
+        if route_path_pattern.match(response.text):
+            route_path = route_path_pattern.search(response.text).group(1)
+        
         if db_name != full_name or sector_img is not None:
-            c.execute("UPDATE routes SET full_name=?, sectorimg=? WHERE dat=? AND typ=? AND place=? AND rid=?", (full_name, sector_img, dat, typ, place, rid))
+            c.execute("UPDATE routes SET full_name=?, sectorimg=?, polygon=? WHERE dat=? AND typ=? AND place=? AND rid=?", (full_name, sector_img, route_path, dat, typ, place, rid))
 
     conn.commit()
 except conn.Error:
