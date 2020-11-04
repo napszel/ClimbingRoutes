@@ -238,6 +238,37 @@ $(document).ready(function() {
       }
     }
 
+    if (routesarray[index]["sector_img"] && routesarray[index]["polygon"]) {
+      color = color_codes[0];
+      if (routesarray[index]["typ"] == "Bould") {
+        function t(t) {for(var r=0;r<t.length;r++)t[r][0]=t[r][0]/a,t[r][1]=t[r][1]/a;return str_path=String(t),str_path.replace(/,/g," ")}
+        var a=2.7, i=new Image;            
+        i.onload=function() {
+          img_width=i.width/a,img_height=i.height/a,
+            r=Raphael("sector_image", img_width,img_height),
+              r.image(i.src,0,0,img_width,img_height),
+              path=$.parseJSON(routesarray[index]["polygon"]),
+              string_path=t(path);
+          var l=r.path("M "+string_path+" Z");
+          l.attr("stroke",color),l.attr("stroke-width",3),l.attr("stroke-linejoin","round"),l.attr("fill",color),l.attr("fill-opacity",.3)
+        },
+        i.src="images/sectors/"+routesarray[index]["sector_img"]
+
+      }
+      else {
+        function t(t,e){for(var i=0;i<t.length;i++)if(i>0){var o=r.path("M"+t[i-1][0]/a+" "+t[i-1][1]/a+"L"+t[i][0]/a+" "+t[i][1]/a);o.attr("stroke",e),o.attr("stroke-width",2),o.attr("stroke-linejoin","round")}}
+        var a=2.7,e=new Image;
+        e.onload=function()
+        {
+            img_width=e.width/a,img_height=e.height/a,
+            r=Raphael("sector_image",img_width,img_height),
+                r.image(e.src,0,0,img_width,img_height),
+                t($.parseJSON(routesarray[index]["polygon"]),color)
+        },e.src="images/sectors/"+routesarray[index]["sector_img"]
+      }
+      $("#sector_caption").text(routesarray[index]["vlsector"]);
+    }
+    
     $('#number').html("#" + routesarray[index]["number"]);
     if (routesarray[index]["full_name"]) {
       $('#name').html($('<div>').text(routesarray[index]["full_name"]).html());

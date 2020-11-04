@@ -64,6 +64,13 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
             
     table["sector"] = route['sector']
     table["vlsector"] = route['vlsector']
+    table["sector_img"] = route['sectorimg']
+
+    if route['sectorimg']:
+        table["sector_img"] = route['sectorimg']
+        
+    if route['polygon']:
+        table["polygon"] = route['polygon']
 
     if route['new_'] or route['lastcall'] or route['retired']:
         if route['new_']:
