@@ -68,6 +68,9 @@ html_headers = """
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
 
+    <script src="js/raphael-min.js"></script>
+    <script src="js/raphael-addons.js"></script>
+
     <script src="generated/routesarray.js"></script>
     <script src="javascript.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" media="screen"/>
@@ -90,16 +93,19 @@ html_headers = """
           <table id="images_table">
             <tr>
               <td><img id="lead"/></td>
+              <td><div id="sector_image"/></td>
               <td><img id="toprope"/></td>
               <td><img id="hold" src="images/grip-images/empty-grip.png" /></td>
             </tr>
+            <tr>
               <td id="lead_caption"></td>
+              <td id="sector_caption"></td>
               <td id="toprope_caption"></td>
               <td id="hold_caption"></td>
             </tr>
           </table>
-    </div>
-    <div id="details">
+       </div>
+       <div id="details">
           <label id="status" style="display: none"></label><br/>
           <label id="rid"></label><br/>
           <label id="name"></label><br/>
