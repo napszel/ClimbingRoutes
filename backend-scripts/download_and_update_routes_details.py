@@ -5,6 +5,10 @@ import sqlite3
 import requests
 import re
 import html
+import os
+
+sector_images_directory = "../images/sectors"
+sector_image_download_prefix = "https://d1ffqbcmevre4q.cloudfront.net/"
 
 conn = sqlite3.connect('../generated/routes.db')
 conn.row_factory = sqlite3.Row
@@ -35,9 +39,9 @@ name_pattern = re.compile('.*route-info.*<h4>(.+?) \S*<\\\\/h4>.*route-topo.*')
 sector_url_pattern = re.compile('.*<div id=\\\\"holder\\\\".*data-image-src=\\\\"https://d1ffqbcmevre4q\.cloudfront\.net/(.+?\.jpg)\\\\">.*id=\\\\"wall-holder\\\\".*')
 route_path_pattern = re.compile('.*<div id=\\\\"holder\\\\".*data-path=\\\\"(.+)\\\\".*data-image-src.*id=\\\\"wall-holder\\\\".*')
 
+c = conn.cursor()
+
 try:
-    c = conn.cursor()
-    
     for route in conn.cursor().execute('SELECT dat, typ, place, rid, name, vlid FROM routes WHERE (sectorimg IS NULL OR polygon IS NULL) AND vlid IS NOT NULL AND vlid != "" AND retired=0'):
 
         #print('Check route rid:', route['rid'], ' vlid:', route['vlid'])
@@ -90,5 +94,23 @@ try:
 except conn.Error:
     print("Transaction failed! ROLLBACK")
     conn.rollback()
+
+try:
+    # Create sector images directory if it does not exists yet
+    if not os.path.exists(sector_images_directory):
+        os.makedirs(sector_images_directory)
+
+    # Download sector images which are not downloaded yet
+    for sectorimg in c.execute('SELECT sectorimg FROM routes WHERE sectorimg IS NOT NULL AND sectorimg <> "" GROUP BY sectorimg'):
+        sector_img_file = sectorimg['sectorimg']
+        if not os.path.isfile(sector_images_directory + '/' + sector_img_file):
+            response = requests.get(sector_image_download_prefix+sector_img_file)
+            if response.status_code == 200:
+                file = open(sector_images_directory + '/' + sector_img_file, "wb")
+                file.write(response.content)
+                file.close()
+
+except OSError as e:
+    print("Cannot create images directory or save downloaded images")
 
 conn.close()
