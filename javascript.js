@@ -236,9 +236,9 @@ $(document).ready(function() {
 
     $('#number').html("#" + routesarray[index]["number"]);
     if (routesarray[index]["full_name"]) {
-      $('#name').html(routesarray[index]["full_name"]);
+      $('#name').html($('<div>').text(routesarray[index]["full_name"]).html());
     } else {
-      $('#name').html(routesarray[index]["name"]);
+      $('#name').html($('<div>').text(routesarray[index]["name"]).html());
     }
     $('#grade').html(routesarray[index]["grade"]);
     $('#grade').addClass(getColorFromGrade(routesarray[index]["grade"], routesarray[index]["typ"]));
