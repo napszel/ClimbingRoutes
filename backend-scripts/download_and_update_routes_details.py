@@ -11,12 +11,16 @@ conn.row_factory = sqlite3.Row
 
 headers = {'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'X-Requested-With': 'XMLHttpRequest'}
 
-# Download urls are always one of four formats, Only route type matters.
+# Download urls are always one of 6 formats. The route type changes it, plus waedenswil also puts
+# an extra 'kletterzentrum' text in the url, just for... errr, absolutely no idea why.
 # https://gyms.vertical-life.info/en/gaswerk-greifensee/iframe/64264/iframe_route_detail
 # https://gyms.vertical-life.info/en/gaswerk-greifensee/iframe/126018/iframe_boulder_detail
 # https://gyms.vertical-life.info/en/gaswerk-schlieren/iframe/64264/iframe_route_detail
 # https://gyms.vertical-life.info/en/gaswerk-schlieren/iframe/126018/iframe_boulder_detail
-route_details_url = "https://gyms.vertical-life.info/en/gaswerk-%s/iframe/%s/iframe_%s_detail"
+# https://gyms.vertical-life.info/en/kletterzentrum-gaswerk-wadenswil/iframe/158702/iframe_route_detail
+# https://gyms.vertical-life.info/en/kletterzentrum-gaswerk-wadenswil/iframe/243650/iframe_boulder_detail
+
+route_details_url = "https://gyms.vertical-life.info/en/%s/iframe/%s/iframe_%s_detail"
 
 # Match name whic is inside <h4> tag.
 # <h4>Feedbackkulturparadigmenwechsel 6a+<\/h4>
@@ -46,14 +50,17 @@ try:
 
         if typ == 'bould':
             full_typ = 'boulder'
-        else:    
+        else:
             full_typ = 'route'
 
         if place == 'mil':
-            full_place = 'greifensee'
-        else:    
-            full_place = 'schlieren'
-        
+            full_place = 'gaswerk-greifensee'
+        else:
+            if place == 'gas':
+                full_place = 'gaswerk-schlieren'
+            else:
+                full_place = 'kletterzentrum-gaswerk-wadenswil'
+
         download_url = route_details_url %(full_place, vlid, full_typ)
         
         #print(download_url)

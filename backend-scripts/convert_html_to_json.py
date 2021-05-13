@@ -19,6 +19,7 @@ formatted_today = today.strftime("%Y%m%d")
 
 milandia_html = '../daily-saves/{}-mil-routes.html'.format(formatted_today)
 gaswerk_html = '../daily-saves/{}-gas-routes.html'.format(formatted_today)
+waedenswil_html = '../daily-saves/{}-wad-routes.html'.format(formatted_today)
 
 def fill_in_full_names(all_routes):
   try:
@@ -111,8 +112,9 @@ def parse_html_to_routes_dict(html, place):
 def main(args=None):
   milandia_routes, milandia_boulders = parse_html_to_routes_dict(milandia_html, "mil")
   gaswerk_routes, gaswerk_boulders = parse_html_to_routes_dict(gaswerk_html, "gas")
+  waedenswil_routes, waedenswil_boulders = parse_html_to_routes_dict(waedenswil_html, "wad")
   
-  all_routes = milandia_boulders + gaswerk_routes + gaswerk_boulders + milandia_routes
+  all_routes = milandia_boulders + gaswerk_routes + gaswerk_boulders + milandia_routes + waedenswil_routes + waedenswil_boulders
 
 #  full_name_all_routes = fill_in_full_names(all_routes)
   

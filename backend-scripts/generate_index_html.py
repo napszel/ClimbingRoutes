@@ -70,11 +70,9 @@ html_headers = """
 
     <script src="generated/routesarray.js"></script>
     <script src="javascript.js"></script>
-    
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" media="screen"/>
-    
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
     <link rel="shortcut icon" href="images/favicon.png" type="image/png"/>
   </head>
@@ -129,7 +127,11 @@ html_headers = """
           if (place == 'gas') {
             place = "Gaswerk";
           } else {
-            place = "Milandia";
+            if (place == 'mil') {
+               place = "Milandia";
+            } else {
+               place = "Wädenswil"
+            }
           }
           if (type == 'bould') {
             type = "Boulder";
@@ -150,7 +152,7 @@ html_headers = """
 
   <div id="main_table" style="display: none">
     <div class="header">
-      <label class="title">Climbing Routes of <a class=\"underline\" href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-gaswerk/">Gaswerk</a> and <a class=\"underline\" href="http://www.kletterzentrum.com/unser-angebot/kletterzentrum-milandia/">Milandia</a></label>
+      <label class="title">Climbing Routes of <a class=\"underline\" href="https://www.kletterzentrum.com/kletterzentren/gaswerk-schlieren/">Gaswerk</a>, <a class=\"underline\" href="https://www.kletterzentrum.com/kletterzentren/gaswerk-greifensee/">Milandia</a> and <a class=\"underline\" href="https://www.kletterzentrum.com/kletterzentren/gaswerk-waedenswil/">Wädenswil</a></label>
     </div>
     <hr/>
     <div id="quick-buttons">
@@ -164,6 +166,7 @@ html_headers = """
         <label class="quick-filter">Quick Filters:</label>
         <input type="button" class="button" id="mil" value="Milandia" onclick="applyFilter('Mil', '#pl-filter')" />
         <input type="button" class="button" id="gas" value="Gaswerk" onclick="applyFilter('Gas', '#pl-filter')" />
+        <input type="button" class="button" id="wad" value="Wädenswil" onclick="applyFilter('Wad', '#pl-filter')" />
         <label class="quick-filter">|</label>
         <input type="button" class="button" id="sport" value="Sport" onclick="applyFilter('Sport', '#type-filter')" />
         <input type="button" class="button" id="bould" value="Boulder" onclick="applyFilter('Bould', '#type-filter')" />
@@ -192,7 +195,7 @@ table = """
 <table id="example" class="stripe row-border" cellspacing="0" width="100%">
 <thead>
 <tr>
-<th title="Place - Gaswerk or Milandia" class="twenty">Pl.</th>
+<th title="Place - Gaswerk, Milandia or Waedenswil" class="twenty">Pl.</th>
 <th title="Route number" class="twenty">#</th>
 <th title="VL number" class="twenty">#</th>
 <th title="Route name" class="twohundred">Route</th>
@@ -213,7 +216,7 @@ table = """
 </thead>
 <tfoot>
 <tr>
-<th title="pl" placeholder="Mil/Gas" />
+<th title="pl" placeholder="Mil/Gas/Wad" />
 <th title="no" placeholder="#" />
 <th title="vlno" placeholder="vl#" />
 <th title="name" placeholder="Filer by route name" />

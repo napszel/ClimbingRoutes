@@ -180,7 +180,11 @@ $(document).ready(function() {
     if (place == 'gas') {
       place = "Gaswerk";
     } else {
-      place = "Milandia";
+      if (place == 'mil') {
+	place = "Milandia";
+      } else {
+	place = "Wädenswil";
+      }
     }
     if (type == 'bould') {
       type = "Boulder";
@@ -259,14 +263,19 @@ $(document).ready(function() {
 
     file_name_sector = replaceSpecialLetters(sector).split(" ").join("-").toLowerCase();
 
-    if (routesarray[index]["place"] == "Gas") {
+    sector_place = routesarray[index]["place"];
+    if (sector_place == "Gas") {
       $('#sector').text("Gaswerk, " + sector);
       filename += "gaswerk_" + file_name_sector + ".png";
     } else {
-      $('#sector').text("Milandia, " + sector);
-      filename += "milandia_" + file_name_sector + ".png";
+      if (sector_place == "Mil") {
+	$('#sector').text("Milandia, " + sector);
+	filename += "milandia_" + file_name_sector + ".png";
+      } else {
+	$('#sector').text("Wädenswil, " + sector);
+	filename += "waedenswil_" + file_name_sector + ".png";
+      }
     }
-    console.log(filename)
 
     $("#map").attr("src", filename);
     $("#map_link").attr("href", filename);
