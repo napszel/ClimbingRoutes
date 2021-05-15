@@ -94,13 +94,11 @@ html_headers = """
             <tr>
               <td><img id="lead"/></td>
               <td><div id="sector_image"/></td>
-              <td><img id="toprope"/></td>
               <td><img id="hold" src="images/grip-images/empty-grip.png" /></td>
             </tr>
             <tr>
               <td id="lead_caption"></td>
               <td id="sector_caption"></td>
-              <td id="toprope_caption"></td>
               <td id="hold_caption"></td>
             </tr>
           </table>
@@ -210,7 +208,6 @@ table = """
 <th title="Setting date" class="ninety">Setting&nbsp;Date</th>
 <th title="Route color" class="hundredten">Color</th>
 <th title="Type - Boulder or Sport" class="fourty">Bould/ Sport</th>
-<th title="Belay type - Toprope, Lead, Toppas" class="hundredten">Belay</th>
 <th title="Sector" class="twohundred">Sector</th>
 <th title="VL Sector" class="twohundred">VL Sector</th>
 <th title="New or Last call" class="sixty">New/Last Call</th>
@@ -231,7 +228,6 @@ table = """
 <th title="date" placeholder="Filter by date" />
 <th title="color" placeholder="Color" />
 <th title="type" placeholder="Bould/Sport" />
-<th title="belay" placeholder="Toppas/Lead/Toprope" />
 <th title="sector" placeholder="Filter by sector name" />
 <th title="vlsector" placeholder="Filter by vl sector name" />
 <th title="new" placeholder="New/Last Call"/>
@@ -326,18 +322,6 @@ for route in c.execute('SELECT routes.*, postcount.posts, postcount.commenter, p
     table += getElement(route['color'])
         
     table += getElement(route['typ'].capitalize())
-
-    belays = []
-    if route['toprope']:
-        belays.append("Toprope")
-    if route['toppas']:
-        belays.append("Toppas")
-    if route['lead']:
-        belays.append("Lead")
-    if belays:
-        table += getElement(str(belays).replace("'","").strip("[]"))
-    else:
-        table += getElement("Mats")
 
     if route['sector_details']:
         table += getElement(route['sector_details'])
