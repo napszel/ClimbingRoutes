@@ -231,11 +231,6 @@ $(document).ready(function() {
       $("#lead").attr("src", "images/lead.png");
       $("#lead").css("width", "190px");
       $("#lead_caption").text("Sport");
-      if (routesarray[index]["belay"].indexOf("Toprope") != -1 || routesarray[index]["belay"].indexOf("Toppas") != -1) {
-	$("#toprope").attr("src", "images/toppas.png");
-	$("#toprope").css("width", "190px");
-	$("#toprope_caption").text("Toprope");
-      }
     }
 
     if (routesarray[index]["sector_img"] && routesarray[index]["polygon"]) {
