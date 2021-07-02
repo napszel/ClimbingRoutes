@@ -169,7 +169,7 @@ $(document).ready(function() {
     // Apply the filter from path if any
     var startFilter = window.location.hash; // the text after the # in the path
     if (startFilter) {
-      applyFilter(decodeURIComponent(startFilter.substring(1)), '#sector-filter');
+      applyFilter(decodeURIComponent(startFilter.substring(1)), '#vlsector-filter');
     }
   } else {
     parts = startHash.split(":");
