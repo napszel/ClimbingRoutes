@@ -165,6 +165,8 @@ html_headers = """
         <input type="button" class="map-button" id="gaswerk_boulders" value="Gaswerk Boulders" onclick="window.location.assign('gaswerk-map/gaswerk-boulders/gaswerk_boulder_map.html');" />
         <input type="button" class="map-button" id="milandia_map" value="Milandia Routes" onclick="window.location.assign('milandia-map/milandia-leads/milandia_map.html')" />
         <input type="button" class="map-button" id="milandia_boulders" value="Milandia Boulders" onclick="window.location.assign('milandia-map/milandia-boulders/milandia_boulder_map.html')" />
+        <input type="button" class="map-button" id="wadenswil_map" value="Wädenswil Routes" onclick="window.location.assign('wadenswil-map/wadenswil_map.html')" />
+        <input type="button" class="map-button" id="wadenswil_boulders" value="Wädenswil Boulders" onclick="window.location.assign('wadenswil-map/wadenswil_boulder_map.html')" />
       </div>
       <div id="quick-filters">
         <label class="quick-filter">Quick Filters:</label>

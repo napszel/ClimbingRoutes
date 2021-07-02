@@ -1,0 +1,19 @@
+body {
+    background: #f9f9f9;
+    margin-top: 8px;
+}
+
+.html-map {
+    width: 1641px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#map-table-container {
+    -moz-box-shadow: 0 0 3px #bebebe;
+    -webkit-box-shadow: 0 0 3px #bebebe;
+}
+
+#map-title {
+    flex: 1;
+}
