@@ -116,14 +116,14 @@ table.dataTable tbody td {
 }
 
 .map-button {
-    font-size: 20px;
+    font-size: 16px;
     margin-left: 15px;
     color: white;
-    padding: 6px 20px;
+    padding: 6px 10px;
     text-align: center;
     text-shadow: 2px 2px 5px black;
-    width: 23.2%;
-    height: 100%;
+    width: 15%;
+    height: 70%;
     cursor: pointer;
 }
 
@@ -294,7 +294,7 @@ div.dt-buttons {
 }
 
 #map-buttons:hover {
-    height: 174px;
+    height: 124px;
 }
 
 .emphasis {
@@ -366,16 +366,30 @@ div.dt-buttons {
 
 #gaswerk_map {
     background: url("gaswerk-map/gaswerk_map_image.png") scroll 0 0 transparent;
+    background-size: 100%;
 }
 
 #gaswerk_boulders {
     background: url("gaswerk-map/gaswerk_boulders_image.png") scroll 0 0 transparent;
+    background-size: 100%;
 }
 
 #milandia_map {
     background: url("milandia-map/milandia_map_image.png") scroll 0 0 transparent;
+    background-size: 100%;
 }
 
 #milandia_boulders {
     background: url("milandia-map/milandia_boulders_image.png") scroll 0 0 transparent;
+    background-size: 100%;
+}
+
+#wadenswil_map {
+    background: url("wadenswil-map/wadenswil_routes_button.png") scroll 0 0 transparent;
+    background-size: 100%;
+}
+
+#wadenswil_boulders {
+    background: url("wadenswil-map/wadenswil_boulders_button.png") scroll 0 0 transparent;
+    background-size: 100%;
 }
