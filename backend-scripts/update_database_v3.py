@@ -5,6 +5,7 @@ import json
 from pprint import pprint
 import sqlite3
 import sys
+from json import JSONDecodeError
 
 WebColorMap = {}
 # English
@@ -69,8 +70,14 @@ try:
 
     c.execute("UPDATE routes SET retired=1")
     c.execute("UPDATE routes SET new_=0")
+    
+    json_from_html = "../generated/json_from_html.json"
+    try:
+        data = json.load(open(json_from_html))
+    except JSONDecodeError as e:
+        print(f"Json file seems empty: {json_from_html}")
+        sys.exit(1)
 
-    data = json.load(open('../generated/json_from_html.json'))
    # mapping = json.load(open('../intermediate_calculations/mappingv2.json'))
 
     for route in data:

@@ -64,6 +64,10 @@ def get_unique_colors(color_codes):
 
 
 def parse_html_to_routes_dict(html, place):
+  if os.stat(html).st_size == 0:
+    print("The file is empty, can't parse. {}".format(html), file=sys.stderr)
+    sys.exit(1)
+
   page = codecs.open(html, 'r')
   soup = BeautifulSoup(page, "lxml")
 

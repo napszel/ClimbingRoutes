@@ -15,14 +15,16 @@ with open(mapping_file_name, mode='r') as mapping_file:
 
 try:
     c = conn.cursor()
-    
+    missing_sectors = []
     for route in conn.cursor().execute('SELECT dat, typ, place, rid, name, sectorimg FROM routes WHERE sectorimg IS NOT NULL AND sector1 IS NULL'):
-
+        sectorimg = route['sectorimg']
+        if sectorimg not in sectors_mapping:
+            missing_sectors.append(sectorimg)
+            continue
         dat = route['dat']
         typ = route['typ']
         place = route['place']
         rid = route['rid']
-        sectorimg = route['sectorimg']
 
         sector1 = sectors_mapping[sectorimg][2] if len(sectors_mapping[sectorimg]) > 2 else None
         sector2 = sectors_mapping[sectorimg][3] if len(sectors_mapping[sectorimg]) > 3 else None
@@ -32,6 +34,9 @@ try:
             c.execute("UPDATE routes SET sector1=?, sector2=?, sector3=? WHERE dat=? AND typ=? AND place=? AND rid=?", (sector1, sector2, sector3, dat, typ, place, rid))
 
     conn.commit()
+    if missing_sectors:
+        print(f"Sector images missing from {mapping_file_name}")
+        print(set(missing_sectors))
 except conn.Error:
     print("Transaction failed! ROLLBACK")
     conn.rollback()
