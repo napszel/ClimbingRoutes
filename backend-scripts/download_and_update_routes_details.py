@@ -44,7 +44,7 @@ c = conn.cursor()
 try:
     for route in conn.cursor().execute('SELECT dat, typ, place, rid, name, vlid FROM routes WHERE (sectorimg IS NULL OR polygon IS NULL) AND vlid IS NOT NULL AND vlid != "" AND retired=0'):
 
-        print('Check route rid:', route['rid'], ' vlid:', route['vlid'])
+#        print('Check route rid:', route['rid'], ' vlid:', route['vlid'])
         
         db_name = route['name']
         vlid = str(route['vlid'])
@@ -68,7 +68,7 @@ try:
 
         download_url = route_details_url %(full_place, vlid, full_typ)
         
-        print(download_url)
+#        print(download_url)
         
         response = requests.get(download_url, headers=headers)
         
