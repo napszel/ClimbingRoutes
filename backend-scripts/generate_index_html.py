@@ -156,7 +156,7 @@ html_headers = """
 
   <div id="main_table" style="display: none">
     <div class="header">
-      <label class="title">Climbing Routes of <a class=\"underline\" href="https://www.kletterzentrum.com/kletterzentren/gaswerk-schlieren/">Gaswerk</a>, <a class=\"underline\" href="https://www.kletterzentrum.com/kletterzentren/gaswerk-greifensee/">Milandia</a> and <a class=\"underline\" href="https://www.kletterzentrum.com/kletterzentren/gaswerk-waedenswil/">Wädenswil</a></label>
+      <label class="title">Climbing Routes of <a class=\"underline\" href="https://www.kletterzentrum.com/standorte/schlieren/">Gaswerk</a>, <a class=\"underline\" href="https://www.kletterzentrum.com/standorte/greifensee/">Milandia</a> and <a class=\"underline\" href="https://www.kletterzentrum.com/standorte/waedenswil/">Wädenswil</a></label>
     </div>
     <hr/>
     <div id="quick-buttons">
